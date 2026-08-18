@@ -6,15 +6,40 @@ import { defineConfig } from "vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), vlyPlugin(), tailwindcss()],
+  plugins: [
+    react(),
+    vlyPlugin(),
+    tailwindcss(),
+    // Convex generated files live inside src/convex/_generated, but the
+    // bare import "convex/_generated/..." can't be resolved through the
+    // convex package's exports map.  This plugin intercepts the resolution
+    // before Vite checks exports and rewrites the path.
+    {
+      name: "convex-generated-alias",
+      enforce: "pre",
+      resolveId(source) {
+        if (source.startsWith("convex/_generated/")) {
+          const sub = source.slice("convex/_generated/".length);
+          const resolved = path.resolve(
+            __dirname,
+            "src/convex/_generated/",
+            sub,
+          );
+          // Vite's loader expects a concrete file path; add .js if the
+          // resolved path has no extension (bare specifier like
+          // "convex/_generated/api").
+          if (!path.extname(resolved)) {
+            return resolved + ".js";
+          }
+          return resolved;
+        }
+        return null;
+      },
+    },
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
-      // Convex generated files live inside src/convex/_generated in this
-      // project, but the bare import "convex/_generated/api" can't be
-      // resolved through the convex package's exports map.  Alias it to
-      // the actual location so Vite's module resolver picks it up.
-      "convex/_generated": path.resolve(__dirname, "./src/convex/_generated"),
     },
     // Force a single copy of React across all packages (including vlyPlugin).
     // Without this, @vly-ai/integrations can resolve its own React copy, which
