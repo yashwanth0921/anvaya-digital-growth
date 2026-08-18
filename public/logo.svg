@@ -1,26 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 80" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 90" fill="none">
   <!-- GA Monogram Mark -->
   <g transform="translate(0,0)">
     <!-- Gold circle arc -->
-    <path d="M40 8 C18 8, 4 22, 4 40 C4 58, 18 72, 40 72" stroke="#C9A84C" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M40 8 C18 8, 4 22, 4 40 C4 58, 18 72, 40 72" stroke="#B28452" stroke-width="2" fill="none" opacity="0.5"/>
     <!-- Maroon G -->
-    <path d="M48 22 C30 22, 18 32, 18 44 C18 56, 30 66, 48 66 L48 58 L36 58 L36 50 L48 50" stroke="#8B1A3A" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M48 22 C30 22, 18 32, 18 44 C18 56, 30 66, 48 66 L48 58 L36 58 L36 50 L48 50" stroke="#691E2A" stroke-width="6" fill="none" stroke-linecap="round"/>
     <!-- Gold A -->
-    <path d="M50 56 L62 24 L74 56" stroke="#C9A84C" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <line x1="54" y1="44" x2="70" y2="44" stroke="#C9A84C" stroke-width="3"/>
+    <path d="M50 56 L62 24 L74 56" stroke="#B28452" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="54" y1="44" x2="70" y2="44" stroke="#B28452" stroke-width="3"/>
     <!-- Growth arrow -->
-    <path d="M72 48 L82 36 L90 20" stroke="#C9A84C" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-    <path d="M85 20 L90 20 L90 25" stroke="#C9A84C" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M72 48 L82 36 L90 20" stroke="#B28452" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M85 20 L90 20 L90 25" stroke="#B28452" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     <!-- Growth bars -->
-    <rect x="78" y="52" width="5" height="12" rx="1" fill="#8B1A3A"/>
-    <rect x="86" y="46" width="5" height="18" rx="1" fill="#8B1A3A"/>
-    <rect x="94" y="38" width="5" height="26" rx="1" fill="#8B1A3A"/>
+    <rect x="78" y="52" width="5" height="12" rx="1" fill="#691E2A"/>
+    <rect x="86" y="46" width="5" height="18" rx="1" fill="#691E2A"/>
+    <rect x="94" y="38" width="5" height="26" rx="1" fill="#691E2A"/>
     <!-- Gold decorative dots -->
-    <circle cx="92" cy="14" r="2" fill="#C9A84C" opacity="0.6"/>
-    <circle cx="97" cy="10" r="1.5" fill="#C9A84C" opacity="0.4"/>
-    <circle cx="101" cy="7" r="1" fill="#C9A84C" opacity="0.3"/>
+    <circle cx="92" cy="14" r="2" fill="#B28452" opacity="0.6"/>
+    <circle cx="97" cy="10" r="1.5" fill="#B28452" opacity="0.4"/>
+    <circle cx="101" cy="7" r="1" fill="#B28452" opacity="0.3"/>
   </g>
   <!-- Text -->
-  <text x="115" y="36" font-family="Georgia, 'Times New Roman', serif" font-size="20" fill="#8B1A3A" letter-spacing="0.5">Grow With</text>
-  <text x="115" y="64" font-family="Georgia, 'Times New Roman', serif" font-size="28" font-weight="700" fill="#C9A84C" letter-spacing="3">ANVAYA</text>
+  <text x="115" y="32" font-family="Georgia, 'Times New Roman', serif" font-size="18" fill="#691E2A" letter-spacing="0.5">Grow With</text>
+  <text x="115" y="68" font-family="Georgia, 'Times New Roman', serif" font-size="34" font-weight="800" fill="#691E2A" letter-spacing="4">ANVAYA</text>
 </svg>

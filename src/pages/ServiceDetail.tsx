@@ -49,7 +49,7 @@ function Navbar() {
             </Link>
             <Link
               to="/book"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#059669] text-white text-sm font-semibold hover:bg-[#047857] transition-all hover:shadow-lg hover:shadow-[#059669]/25"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/25"
             >
               <Calendar className="w-4 h-4" />
               Book a Call
@@ -82,7 +82,7 @@ function Navbar() {
             <Link
               to="/book"
               onClick={() => setIsOpen(false)}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#059669] text-white text-sm font-semibold mt-1"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-semibold mt-1"
             >
               <Calendar className="w-4 h-4" />
               Book a Call
@@ -120,7 +120,7 @@ function CommentsSection({ serviceSlug }: { serviceSlug: string }) {
   return (
     <section className="border-t border-border/60 pt-12">
       <div className="flex items-center gap-3 mb-8">
-        <MessageSquare className="w-5 h-5 text-[#059669]" />
+        <MessageSquare className="w-5 h-5 text-[#691E2A]" />
         <h3 className="text-xl font-bold">Discussion</h3>
         {comments && (
           <span className="text-sm text-muted-foreground">({comments.length})</span>
@@ -134,14 +134,14 @@ function CommentsSection({ serviceSlug }: { serviceSlug: string }) {
             onChange={(e) => setText(e.target.value)}
             rows={3}
             placeholder="Share your thoughts or ask a question about this service..."
-            className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all resize-none"
+            className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all resize-none"
           />
           <div className="flex items-center justify-between mt-3">
             {error && <p className="text-sm text-red-500">{error}</p>}
             <button
               type="submit"
               disabled={isSubmitting || !text.trim()}
-              className="ml-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#059669] text-white text-sm font-semibold hover:bg-[#047857] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="ml-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isSubmitting ? (
                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -159,7 +159,7 @@ function CommentsSection({ serviceSlug }: { serviceSlug: string }) {
           </p>
           <Link
             to="/auth?returnTo=/services"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#059669] text-white text-sm font-semibold hover:bg-[#047857] transition-all"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all"
           >
             Sign In
             <ArrowRight className="w-4 h-4" />
@@ -181,8 +181,8 @@ function CommentsSection({ serviceSlug }: { serviceSlug: string }) {
               className="p-4 rounded-xl bg-muted/30 border border-border/40"
             >
               <div className="flex items-center gap-3 mb-2">
-                <div className="w-8 h-8 rounded-full bg-[#059669]/10 flex items-center justify-center">
-                  <span className="text-xs font-bold text-[#059669]">
+                <div className="w-8 h-8 rounded-full bg-[#691E2A]/10 flex items-center justify-center">
+                  <span className="text-xs font-bold text-[#691E2A]">
                     {comment.userName.split(" ").map((n: string) => n[0]).join("")}
                   </span>
                 </div>
@@ -213,7 +213,7 @@ export default function ServiceDetail() {
         <p className="text-lg text-muted-foreground mb-4">Service not found.</p>
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-[#059669] font-semibold hover:underline"
+          className="inline-flex items-center gap-2 text-[#691E2A] font-semibold hover:underline"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to Home
@@ -258,7 +258,7 @@ export default function ServiceDetail() {
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mt-8">
               <Link
                 to="/book"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#059669] text-white font-semibold text-base hover:bg-[#047857] transition-all hover:shadow-xl hover:shadow-[#059669]/30"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30"
               >
                 <Calendar className="w-4 h-4" />
                 Book a Consultation
@@ -300,7 +300,7 @@ export default function ServiceDetail() {
                     key={feat}
                     className="flex items-center gap-3 p-4 rounded-xl bg-muted/50 border border-border/40"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-[#059669] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-[#691E2A] shrink-0" />
                     <span className="text-sm font-medium">{feat}</span>
                   </div>
                 ))}
@@ -313,7 +313,7 @@ export default function ServiceDetail() {
               <div className="space-y-6">
                 {service.benefits.map((b) => (
                   <div key={b.title} className="flex gap-4">
-                    <div className="w-1.5 rounded-full bg-[#059669] shrink-0 mt-1.5" />
+                    <div className="w-1.5 rounded-full bg-[#691E2A] shrink-0 mt-1.5" />
                     <div>
                       <h3 className="font-bold mb-1">{b.title}</h3>
                       <p className="text-sm text-muted-foreground leading-relaxed">
@@ -331,7 +331,7 @@ export default function ServiceDetail() {
               <div className="grid sm:grid-cols-2 gap-3">
                 {service.deliverables.map((d) => (
                   <div key={d} className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#D97706] shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#B28452] shrink-0" />
                     {d}
                   </div>
                 ))}
@@ -343,7 +343,7 @@ export default function ServiceDetail() {
               <div className="absolute inset-0 bg-mesh-hero opacity-30" />
               <div className="relative">
                 <div className="flex items-center gap-2 mb-3">
-                  <Clock className="w-4 h-4 text-[#D97706]" />
+                  <Clock className="w-4 h-4 text-[#B28452]" />
                   <span className="text-sm text-gray-400">Investment</span>
                 </div>
                 <div className="text-2xl font-bold mb-2">{service.pricing}</div>
@@ -353,7 +353,7 @@ export default function ServiceDetail() {
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
                     to="/book"
-                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#059669] text-white font-semibold text-sm hover:bg-[#047857] transition-all"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#691E2A] text-white font-semibold text-sm hover:bg-[#531822] transition-all"
                   >
                     <Calendar className="w-4 h-4" />
                     Schedule a Free Consultation

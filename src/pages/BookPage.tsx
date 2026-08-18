@@ -57,7 +57,7 @@ function Navbar() {
             </Link>
             <Link
               to="/book"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#059669] text-white text-sm font-semibold hover:bg-[#047857] transition-all hover:shadow-lg hover:shadow-[#059669]/25"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/25"
             >
               <Calendar className="w-4 h-4" />
               Book a Call
@@ -159,7 +159,7 @@ export default function BookPage() {
         <div className="absolute inset-0 bg-mesh-hero opacity-40" />
         <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div initial="hidden" animate="visible" variants={stagger}>
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#059669]/15 border border-[#059669]/30 text-[#34d399] text-sm font-medium mb-6">
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/15 border border-[#691E2A]/30 text-[#D9B280] text-sm font-medium mb-6">
               <Calendar className="w-4 h-4" />
               Schedule a Consultation
             </motion.div>
@@ -183,8 +183,8 @@ export default function BookPage() {
               animate={{ opacity: 1, y: 0 }}
               className="text-center py-16"
             >
-              <div className="w-16 h-16 rounded-full bg-[#059669]/10 flex items-center justify-center mx-auto mb-5">
-                <CheckCircle2 className="w-8 h-8 text-[#059669]" />
+              <div className="w-16 h-16 rounded-full bg-[#691E2A]/10 flex items-center justify-center mx-auto mb-5">
+                <CheckCircle2 className="w-8 h-8 text-[#691E2A]" />
               </div>
               <h2 className="text-2xl font-bold mb-3">Booking Confirmed</h2>
               <p className="text-muted-foreground leading-relaxed max-w-md mx-auto mb-8">
@@ -193,7 +193,7 @@ export default function BookPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
                   to="/dashboard"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#059669] text-white font-semibold text-sm hover:bg-[#047857] transition-all"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#691E2A] text-white font-semibold text-sm hover:bg-[#531822] transition-all"
                 >
                   View Your Dashboard
                 </Link>
@@ -228,7 +228,7 @@ export default function BookPage() {
                         onChange={handleChange}
                         placeholder="Your full name"
                         required
-                        className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                       />
                     </div>
                     <div>
@@ -242,7 +242,7 @@ export default function BookPage() {
                         onChange={handleChange}
                         placeholder="you@business.com"
                         required
-                        className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                       />
                     </div>
                   </div>
@@ -256,7 +256,7 @@ export default function BookPage() {
                       value={formState.phone}
                       onChange={handleChange}
                       placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     />
                   </div>
                 </motion.div>
@@ -270,7 +270,7 @@ export default function BookPage() {
                       value={formState.service}
                       onChange={handleChange}
                       required
-                      className="w-full appearance-none px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                      className="w-full appearance-none px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     >
                       <option value="" disabled>
                         Choose a service to discuss
@@ -300,7 +300,7 @@ export default function BookPage() {
                           value={formState.preferredDate}
                           onChange={handleChange}
                           required
-                          className="w-full appearance-none px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                          className="w-full appearance-none px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                         >
                           <option value="" disabled>Select a date</option>
                           {availableDates.map((d) => {
@@ -330,7 +330,7 @@ export default function BookPage() {
                           value={formState.preferredTime}
                           onChange={handleChange}
                           required
-                          className="w-full appearance-none px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                          className="w-full appearance-none px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                         >
                           <option value="" disabled>Select a time</option>
                           {timeSlots.map((t) => (
@@ -352,7 +352,7 @@ export default function BookPage() {
                     onChange={handleChange}
                     rows={3}
                     placeholder="Anything you'd like us to know before the call — current challenges, goals, or specific questions..."
-                    className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all resize-none"
                   />
                 </motion.div>
 
@@ -362,7 +362,7 @@ export default function BookPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#059669] text-white font-semibold text-base hover:bg-[#047857] transition-all hover:shadow-lg hover:shadow-[#059669]/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-[#691E2A] text-white font-semibold text-base hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/30 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isSubmitting ? (
                       <>
@@ -381,15 +381,15 @@ export default function BookPage() {
                 {/* Trust signals */}
                 <motion.div variants={fadeUp} className="grid sm:grid-cols-3 gap-4 pt-4">
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-muted/30 border border-border/40">
-                    <Shield className="w-5 h-5 text-[#059669] shrink-0" />
+                    <Shield className="w-5 h-5 text-[#691E2A] shrink-0" />
                     <span className="text-xs text-muted-foreground">Free consultation — no commitment</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-muted/30 border border-border/40">
-                    <Zap className="w-5 h-5 text-[#D97706] shrink-0" />
+                    <Zap className="w-5 h-5 text-[#B28452] shrink-0" />
                     <span className="text-xs text-muted-foreground">Response within 24 hours</span>
                   </div>
                   <div className="flex items-center gap-3 p-3 rounded-xl bg-muted/30 border border-border/40">
-                    <Target className="w-5 h-5 text-blue-500 shrink-0" />
+                    <Target className="w-5 h-5 text-[#B28452] shrink-0" />
                     <span className="text-xs text-muted-foreground">Custom strategy prepared</span>
                   </div>
                 </motion.div>

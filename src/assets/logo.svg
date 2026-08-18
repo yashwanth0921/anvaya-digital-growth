@@ -1,22 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
   <!-- Background -->
-  <rect width="512" height="512" rx="80" fill="#F8F2EA"/>
+  <rect width="512" height="512" rx="80" fill="#F9EEE4"/>
   <!-- Gold circle arc -->
-  <path d="M155 80 C80 80, 30 140, 30 256 C30 372, 80 432, 155 432" stroke="#C9A84C" stroke-width="6" fill="none" opacity="0.4"/>
+  <path d="M155 80 C80 80, 30 140, 30 256 C30 372, 80 432, 155 432" stroke="#B28452" stroke-width="6" fill="none" opacity="0.4"/>
   <!-- Maroon G -->
-  <path d="M180 140 C115 140, 65 195, 65 256 C65 317, 115 372, 180 372 L180 340 L120 340 L120 300 L180 300" stroke="#8B1A3A" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <path d="M180 140 C115 140, 65 195, 65 256 C65 317, 115 372, 180 372 L180 340 L120 340 L120 300 L180 300" stroke="#691E2A" stroke-width="18" fill="none" stroke-linecap="round"/>
   <!-- Gold A -->
-  <path d="M190 345 L240 130 L290 345" stroke="#C9A84C" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  <line x1="205" y1="280" x2="275" y2="280" stroke="#C9A84C" stroke-width="9"/>
+  <path d="M190 345 L240 130 L290 345" stroke="#B28452" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="205" y1="280" x2="275" y2="280" stroke="#B28452" stroke-width="9"/>
   <!-- Growth arrow -->
-  <path d="M280 300 L310 230 L340 150" stroke="#C9A84C" stroke-width="10" fill="none" stroke-linecap="round"/>
-  <path d="M325 155 L340 150 L340 165" stroke="#C9A84C" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M280 300 L310 230 L340 150" stroke="#B28452" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M325 155 L340 150 L340 165" stroke="#B28452" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
   <!-- Growth bars -->
-  <rect x="310" y="320" width="16" height="60" rx="4" fill="#8B1A3A"/>
-  <rect x="336" y="290" width="16" height="90" rx="4" fill="#8B1A3A"/>
-  <rect x="362" y="250" width="16" height="130" rx="4" fill="#8B1A3A"/>
+  <rect x="310" y="320" width="16" height="60" rx="4" fill="#691E2A"/>
+  <rect x="336" y="290" width="16" height="90" rx="4" fill="#691E2A"/>
+  <rect x="362" y="250" width="16" height="130" rx="4" fill="#691E2A"/>
   <!-- Gold decorative dots -->
-  <circle cx="350" cy="125" r="6" fill="#C9A84C" opacity="0.5"/>
-  <circle cx="365" cy="110" r="4.5" fill="#C9A84C" opacity="0.35"/>
-  <circle cx="377" cy="98" r="3" fill="#C9A84C" opacity="0.25"/>
+  <circle cx="350" cy="125" r="6" fill="#B28452" opacity="0.5"/>
+  <circle cx="365" cy="110" r="4.5" fill="#B28452" opacity="0.35"/>
+  <circle cx="377" cy="98" r="3" fill="#B28452" opacity="0.25"/>
 </svg>

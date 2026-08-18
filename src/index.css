@@ -42,74 +42,74 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
-/* Anvaya Brand Theme */
+/* Anvaya Brand Theme — Maroon & Gold */
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.985 0.002 120);
-  --foreground: oklch(0.13 0.02 260);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.13 0.02 260);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.13 0.02 260);
-  --primary: oklch(0.55 0.17 160);
-  --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.95 0.01 85);
-  --secondary-foreground: oklch(0.25 0.03 260);
-  --muted: oklch(0.95 0.005 260);
-  --muted-foreground: oklch(0.5 0.01 260);
-  --accent: oklch(0.75 0.16 70);
-  --accent-foreground: oklch(0.13 0.02 260);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.91 0.005 260);
-  --input: oklch(0.91 0.005 260);
-  --ring: oklch(0.55 0.17 160);
-  --chart-1: oklch(0.55 0.17 160);
-  --chart-2: oklch(0.75 0.16 70);
-  --chart-3: oklch(0.45 0.15 260);
-  --chart-4: oklch(0.7 0.14 185);
-  --chart-5: oklch(0.65 0.18 50);
-  --sidebar: oklch(0.985 0.002 120);
-  --sidebar-foreground: oklch(0.13 0.02 260);
-  --sidebar-primary: oklch(0.55 0.17 160);
-  --sidebar-primary-foreground: oklch(0.99 0 0);
-  --sidebar-accent: oklch(0.95 0.01 85);
-  --sidebar-accent-foreground: oklch(0.25 0.03 260);
-  --sidebar-border: oklch(0.91 0.005 260);
-  --sidebar-ring: oklch(0.55 0.17 160);
+  --background: #F9EEE4;
+  --foreground: #2D1015;
+  --card: #FFFCF8;
+  --card-foreground: #2D1015;
+  --popover: #FFFCF8;
+  --popover-foreground: #2D1015;
+  --primary: #691E2A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F3E8DC;
+  --secondary-foreground: #430D12;
+  --muted: #EDE3D8;
+  --muted-foreground: #7A5C50;
+  --accent: #B28452;
+  --accent-foreground: #430D12;
+  --destructive: #B91C1C;
+  --border: #DDD2C4;
+  --input: #DDD2C4;
+  --ring: #691E2A;
+  --chart-1: #691E2A;
+  --chart-2: #B28452;
+  --chart-3: #430D12;
+  --chart-4: #D9B280;
+  --chart-5: #9A4F5C;
+  --sidebar: #F9EEE4;
+  --sidebar-foreground: #2D1015;
+  --sidebar-primary: #691E2A;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F3E8DC;
+  --sidebar-accent-foreground: #430D12;
+  --sidebar-border: #DDD2C4;
+  --sidebar-ring: #691E2A;
 }
 
 .dark {
-  --background: oklch(0.13 0.02 260);
-  --foreground: oklch(0.97 0 0);
-  --card: oklch(0.18 0.015 260);
-  --card-foreground: oklch(0.97 0 0);
-  --popover: oklch(0.18 0.015 260);
-  --popover-foreground: oklch(0.97 0 0);
-  --primary: oklch(0.65 0.17 160);
-  --primary-foreground: oklch(0.13 0.02 260);
-  --secondary: oklch(0.22 0.015 260);
-  --secondary-foreground: oklch(0.97 0 0);
-  --muted: oklch(0.22 0.015 260);
-  --muted-foreground: oklch(0.65 0.01 260);
-  --accent: oklch(0.78 0.16 70);
-  --accent-foreground: oklch(0.13 0.02 260);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(0.28 0.01 260);
-  --input: oklch(0.25 0.01 260);
-  --ring: oklch(0.65 0.17 160);
-  --chart-1: oklch(0.65 0.17 160);
-  --chart-2: oklch(0.78 0.16 70);
-  --chart-3: oklch(0.55 0.15 260);
-  --chart-4: oklch(0.6 0.14 185);
-  --chart-5: oklch(0.7 0.18 50);
-  --sidebar: oklch(0.15 0.015 260);
-  --sidebar-foreground: oklch(0.97 0 0);
-  --sidebar-primary: oklch(0.65 0.17 160);
-  --sidebar-primary-foreground: oklch(0.13 0.02 260);
-  --sidebar-accent: oklch(0.22 0.015 260);
-  --sidebar-accent-foreground: oklch(0.97 0 0);
-  --sidebar-border: oklch(0.28 0.01 260);
-  --sidebar-ring: oklch(0.65 0.17 160);
+  --background: #1A0A0E;
+  --foreground: #F5EDE5;
+  --card: #2A1218;
+  --card-foreground: #F5EDE5;
+  --popover: #2A1218;
+  --popover-foreground: #F5EDE5;
+  --primary: #9A4F5C;
+  --primary-foreground: #1A0A0E;
+  --secondary: #331A20;
+  --secondary-foreground: #F5EDE5;
+  --muted: #331A20;
+  --muted-foreground: #9A8070;
+  --accent: #D9B280;
+  --accent-foreground: #1A0A0E;
+  --destructive: #EF4444;
+  --border: #402028;
+  --input: #402028;
+  --ring: #9A4F5C;
+  --chart-1: #9A4F5C;
+  --chart-2: #D9B280;
+  --chart-3: #691E2A;
+  --chart-4: #B28452;
+  --chart-5: #D9B280;
+  --sidebar: #1E0D12;
+  --sidebar-foreground: #F5EDE5;
+  --sidebar-primary: #9A4F5C;
+  --sidebar-primary-foreground: #1A0A0E;
+  --sidebar-accent: #331A20;
+  --sidebar-accent-foreground: #F5EDE5;
+  --sidebar-border: #402028;
+  --sidebar-ring: #9A4F5C;
 }
 
 @layer base {
@@ -130,34 +130,34 @@
 
 @layer utilities {
   .text-gradient-green {
-    background: linear-gradient(135deg, #059669 0%, #10b981 50%, #34d399 100%);
+    background: linear-gradient(135deg, #691E2A 0%, #9A4F5C 50%, #B28452 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .text-gradient-gold {
-    background: linear-gradient(135deg, #D97706 0%, #F59E0B 50%, #FBBF24 100%);
+    background: linear-gradient(135deg, #B28452 0%, #D9B280 50%, #E8CDA0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
   .bg-anvaya-dark {
-    background: linear-gradient(180deg, #0B1528 0%, #0F1D33 50%, #111F3A 100%);
+    background: linear-gradient(180deg, #430D12 0%, #4D1520 50%, #551A28 100%);
   }
   .bg-anvaya-dark-accent {
-    background: linear-gradient(135deg, rgba(5,150,105,0.08) 0%, rgba(217,119,6,0.06) 100%);
+    background: linear-gradient(135deg, rgba(105,30,42,0.08) 0%, rgba(178,132,82,0.06) 100%);
   }
   .bg-mesh-green {
     background-image:
-      radial-gradient(at 20% 80%, rgba(5,150,105,0.15) 0px, transparent 50%),
-      radial-gradient(at 80% 20%, rgba(217,119,6,0.1) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(5,150,105,0.05) 0px, transparent 70%);
+      radial-gradient(at 20% 80%, rgba(105,30,42,0.12) 0px, transparent 50%),
+      radial-gradient(at 80% 20%, rgba(178,132,82,0.1) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(105,30,42,0.05) 0px, transparent 70%);
   }
   .bg-mesh-hero {
     background-image:
-      radial-gradient(at 10% 90%, rgba(5,150,105,0.2) 0px, transparent 50%),
-      radial-gradient(at 90% 10%, rgba(217,119,6,0.15) 0px, transparent 50%),
-      radial-gradient(at 50% 50%, rgba(5,150,105,0.08) 0px, transparent 60%);
+      radial-gradient(at 10% 90%, rgba(105,30,42,0.18) 0px, transparent 50%),
+      radial-gradient(at 90% 10%, rgba(178,132,82,0.14) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(105,30,42,0.06) 0px, transparent 60%);
   }
   .animate-float {
     animation: float 6s ease-in-out infinite;

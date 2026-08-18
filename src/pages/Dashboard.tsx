@@ -29,7 +29,7 @@ const serviceIcons: Record<string, typeof Globe> = {
 function StatusBadge({ status }: { status: string }) {
   if (status === "confirmed") {
     return (
-      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#059669]/10 text-[#059669] text-xs font-medium">
+      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-xs font-medium">
         <CheckCircle2 className="w-3 h-3" />
         Confirmed
       </span>
@@ -44,7 +44,7 @@ function StatusBadge({ status }: { status: string }) {
     );
   }
   return (
-    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#D97706]/10 text-[#D97706] text-xs font-medium">
+    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#B28452]/10 text-[#B28452] text-xs font-medium">
       <AlertCircle className="w-3 h-3" />
       Pending
     </span>
@@ -98,7 +98,7 @@ export default function Dashboard() {
       <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
         {/* Welcome */}
         <div className="mb-8">
-          <p className="text-sm font-medium text-[#059669]">Grow with Anvaya</p>
+          <p className="text-sm font-medium text-[#691E2A]">Grow with Anvaya</p>
           <h1 className="mt-1 text-2xl sm:text-3xl font-bold tracking-tight">
             Welcome back{user?.name ? `, ${user.name}` : ""}
           </h1>
@@ -114,12 +114,12 @@ export default function Dashboard() {
             <div className="rounded-2xl border border-border/60 bg-card p-6">
               <div className="flex items-center justify-between mb-5">
                 <div className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4 text-[#059669]" />
+                  <Calendar className="w-4 h-4 text-[#691E2A]" />
                   <h2 className="font-bold">Upcoming Consultations</h2>
                 </div>
                 <Link
                   to="/book"
-                  className="text-xs font-medium text-[#059669] hover:underline inline-flex items-center gap-1"
+                  className="text-xs font-medium text-[#691E2A] hover:underline inline-flex items-center gap-1"
                 >
                   Book New
                   <ArrowRight className="w-3 h-3" />
@@ -136,7 +136,7 @@ export default function Dashboard() {
                   </p>
                   <Link
                     to="/book"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#059669] text-white text-sm font-semibold hover:bg-[#047857] transition-all"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all"
                   >
                     <Calendar className="w-4 h-4" />
                     Schedule One Now
@@ -157,8 +157,8 @@ export default function Dashboard() {
                         className="flex items-center justify-between p-4 rounded-xl bg-muted/40 border border-border/40"
                       >
                         <div className="flex items-center gap-4">
-                          <div className="w-10 h-10 rounded-lg bg-[#059669]/10 flex items-center justify-center">
-                            <Calendar className="w-5 h-5 text-[#059669]" />
+                          <div className="w-10 h-10 rounded-lg bg-[#691E2A]/10 flex items-center justify-center">
+                            <Calendar className="w-5 h-5 text-[#691E2A]" />
                           </div>
                           <div>
                             <div className="text-sm font-semibold">
@@ -185,7 +185,7 @@ export default function Dashboard() {
             {/* Recent activity */}
             <div className="rounded-2xl border border-border/60 bg-card p-6">
               <div className="flex items-center gap-2 mb-5">
-                <MessageSquare className="w-4 h-4 text-[#D97706]" />
+                <MessageSquare className="w-4 h-4 text-[#B28452]" />
                 <h2 className="font-bold">Recent Activity</h2>
               </div>
 
@@ -208,7 +208,7 @@ export default function Dashboard() {
                         key={lead._id}
                         className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/40 transition-colors"
                       >
-                        <div className="w-2 h-2 rounded-full bg-[#059669] shrink-0" />
+                        <div className="w-2 h-2 rounded-full bg-[#691E2A] shrink-0" />
                         <div className="flex-1 min-w-0">
                           <p className="text-sm">
                             <span className="font-medium">{lead.name}</span>
@@ -247,11 +247,11 @@ export default function Dashboard() {
                         <Icon className={`w-4 h-4 ${s.iconColor}`} />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="text-sm font-medium group-hover:text-[#059669] transition-colors">
+                        <div className="text-sm font-medium group-hover:text-[#691E2A] transition-colors">
                           {s.title}
                         </div>
                       </div>
-                      <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-[#059669] transition-colors shrink-0" />
+                      <ArrowRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-[#691E2A] transition-colors shrink-0" />
                     </Link>
                   );
                 })}
@@ -268,7 +268,7 @@ export default function Dashboard() {
                 </p>
                 <Link
                   to="/book"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#059669] text-white text-sm font-semibold hover:bg-[#047857] transition-all w-full justify-center"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all w-full justify-center"
                 >
                   <Calendar className="w-4 h-4" />
                   Book a Call

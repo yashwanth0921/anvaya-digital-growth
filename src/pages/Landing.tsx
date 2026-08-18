@@ -113,8 +113,12 @@ function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
-          <Link to="/" className="flex items-center gap-2 shrink-0">
-            <img src={logo} alt="Grow with Anvaya" className="h-8 sm:h-9" />
+          <Link to="/" className="flex items-center gap-3 shrink-0">
+            <img src={logo} alt="Grow with Anvaya" className="h-9 sm:h-10" />
+            <div className="flex flex-col leading-none">
+              <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground">Grow With</span>
+              <span className="text-xl font-extrabold tracking-wider text-[#691E2A]">ANVAYA</span>
+            </div>
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
@@ -131,7 +135,7 @@ function Navbar() {
             </a>
             <Link
               to="/book"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#059669] text-white text-sm font-semibold hover:bg-[#047857] transition-all hover:shadow-lg hover:shadow-[#059669]/25"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/25"
             >
               <Calendar className="w-4 h-4" />
               Book a Call
@@ -167,7 +171,7 @@ function Navbar() {
             <Link
               to="/book"
               onClick={() => setIsOpen(false)}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#059669] text-white text-sm font-semibold mt-1"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-semibold mt-1"
             >
               <Calendar className="w-4 h-4" />
               Book a Call
@@ -183,9 +187,9 @@ function HeroSection() {
   return (
     <section className="relative pt-28 sm:pt-32 pb-16 sm:pb-24 overflow-hidden bg-anvaya-dark text-white">
       <div className="absolute inset-0 bg-mesh-hero opacity-60" />
-      <div className="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-[#059669]/10 blur-3xl animate-float" />
-      <div className="absolute bottom-20 left-[5%] w-48 h-48 rounded-full bg-[#D97706]/10 blur-3xl animate-float-delayed" />
-      <div className="absolute top-40 left-[20%] w-32 h-32 border border-[#059669]/20 rounded-2xl rotate-12 animate-float-delayed" />
+      <div className="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-[#691E2A]/10 blur-3xl animate-float" />
+      <div className="absolute bottom-20 left-[5%] w-48 h-48 rounded-full bg-[#B28452]/10 blur-3xl animate-float-delayed" />
+      <div className="absolute top-40 left-[20%] w-32 h-32 border border-[#691E2A]/20 rounded-2xl rotate-12 animate-float-delayed" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -194,15 +198,19 @@ function HeroSection() {
           variants={stagger}
           className="max-w-3xl"
         >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#059669]/15 border border-[#059669]/30 text-[#34d399] text-sm font-medium mb-6">
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/15 border border-[#691E2A]/30 text-[#D9B280] text-sm font-medium mb-6">
             <Rocket className="w-4 h-4" />
             Your Growth Partner
           </motion.div>
 
-          <motion.h1 variants={fadeUp} className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.08]">
-            Growing Brands{" "}
-            <span className="text-gradient-green">Digitally</span>
+          <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
+            <span className="block text-[#691E2A]">Grow with</span>
+            <span className="block text-gradient-green">Anvaya</span>
           </motion.h1>
+
+          <motion.p variants={fadeUp} className="mt-4 text-sm sm:text-base font-semibold uppercase tracking-[0.25em] text-[#B28452]">
+            Growing Brands Digitally
+          </motion.p>
 
           <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl">
             Strategy. Growth. Impact. We partner with businesses that are ready
@@ -213,7 +221,7 @@ function HeroSection() {
           <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-4">
             <Link
               to="/book"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#059669] text-white font-semibold text-base hover:bg-[#047857] transition-all hover:shadow-xl hover:shadow-[#059669]/30 hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5"
             >
               <Calendar className="w-4 h-4" />
               Book a Free Consultation
@@ -270,7 +278,7 @@ function ServicesSection() {
           variants={stagger}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#059669]/10 text-[#059669] text-sm font-semibold mb-4">
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-sm font-semibold mb-4">
             <Sparkles className="w-4 h-4" />
             Our Services
           </motion.div>
@@ -296,15 +304,15 @@ function ServicesSection() {
               <motion.div key={service.slug} variants={fadeUp}>
                 <Link
                   to={`/services/${service.slug}`}
-                  className="group block relative bg-card rounded-2xl border border-border/60 p-7 sm:p-8 hover:shadow-xl hover:border-[#059669]/30 transition-all duration-300"
+                  className="group block relative bg-card rounded-2xl border border-border/60 p-7 sm:p-8 hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300"
                 >
                   <div className="flex items-start justify-between mb-5">
                     <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${service.color}`}>
                       <Icon className={`w-6 h-6 ${service.iconColor}`} />
                     </div>
-                    <ArrowRight className="w-5 h-5 text-muted-foreground/40 group-hover:text-[#059669] transition-colors" />
+                    <ArrowRight className="w-5 h-5 text-muted-foreground/40 group-hover:text-[#691E2A] transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-[#059669] transition-colors">
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-[#691E2A] transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground text-sm leading-relaxed mb-5">
@@ -313,7 +321,7 @@ function ServicesSection() {
                   <div className="flex flex-wrap gap-2">
                     {service.features.map((feat) => (
                       <span key={feat} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground">
-                        <CheckCircle2 className="w-3 h-3 text-[#059669]" />
+                        <CheckCircle2 className="w-3 h-3 text-[#691E2A]" />
                         {feat}
                       </span>
                     ))}
@@ -340,7 +348,7 @@ function ProcessSection() {
           variants={stagger}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D97706]/10 text-[#D97706] text-sm font-semibold mb-4">
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B28452]/10 text-[#B28452] text-sm font-semibold mb-4">
             <BarChart3 className="w-4 h-4" />
             How We Work
           </motion.div>
@@ -363,13 +371,13 @@ function ProcessSection() {
           {processSteps.map((step, i) => (
             <motion.div key={step.step} variants={fadeUp} className="relative">
               {i < processSteps.length - 1 && (
-                <div className="hidden lg:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-40px)] h-0.5 bg-gradient-to-r from-[#059669]/30 to-[#D97706]/30" />
+                <div className="hidden lg:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-40px)] h-0.5 bg-gradient-to-r from-[#691E2A]/30 to-[#B28452]/30" />
               )}
               <div className="relative bg-card rounded-2xl border border-border/60 p-7 text-center hover:shadow-lg transition-shadow">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#059669]/10 mb-5">
-                  <step.icon className="w-7 h-7 text-[#059669]" />
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#691E2A]/10 mb-5">
+                  <step.icon className="w-7 h-7 text-[#691E2A]" />
                 </div>
-                <div className="text-xs font-bold text-[#D97706] uppercase tracking-widest mb-2">
+                <div className="text-xs font-bold text-[#B28452] uppercase tracking-widest mb-2">
                   Step {step.step}
                 </div>
                 <h3 className="text-lg font-bold mb-2">{step.title}</h3>
@@ -396,7 +404,7 @@ function TestimonialsSection() {
           variants={stagger}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#059669]/10 text-[#059669] text-sm font-semibold mb-4">
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-sm font-semibold mb-4">
             <Users className="w-4 h-4" />
             Client Results
           </motion.div>
@@ -424,7 +432,7 @@ function TestimonialsSection() {
             >
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: t.rating }).map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-[#D97706]" fill="currentColor" viewBox="0 0 20 20">
+                  <svg key={i} className="w-5 h-5 text-[#B28452]" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                   </svg>
                 ))}
@@ -433,8 +441,8 @@ function TestimonialsSection() {
                 "{t.text}"
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#059669]/10 flex items-center justify-center">
-                  <span className="text-sm font-bold text-[#059669]">
+                <div className="w-10 h-10 rounded-full bg-[#691E2A]/10 flex items-center justify-center">
+                  <span className="text-sm font-bold text-[#691E2A]">
                     {t.name.split(" ").map((n) => n[0]).join("")}
                   </span>
                 </div>
@@ -496,8 +504,8 @@ function LeadFormSection() {
   return (
     <section id="contact" className="py-20 sm:py-28 bg-anvaya-dark text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-mesh-hero opacity-40" />
-      <div className="absolute top-10 right-[5%] w-72 h-72 rounded-full bg-[#059669]/8 blur-3xl" />
-      <div className="absolute bottom-10 left-[5%] w-56 h-56 rounded-full bg-[#D97706]/8 blur-3xl" />
+      <div className="absolute top-10 right-[5%] w-72 h-72 rounded-full bg-[#691E2A]/8 blur-3xl" />
+      <div className="absolute bottom-10 left-[5%] w-56 h-56 rounded-full bg-[#B28452]/8 blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -508,7 +516,7 @@ function LeadFormSection() {
             viewport={{ once: true, margin: "-100px" }}
             variants={stagger}
           >
-            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#059669]/15 border border-[#059669]/30 text-[#34d399] text-sm font-semibold mb-6">
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/15 border border-[#691E2A]/30 text-[#D9B280] text-sm font-semibold mb-6">
               <MessageCircle className="w-4 h-4" />
               Let's Talk Growth
             </motion.div>
@@ -522,8 +530,8 @@ function LeadFormSection() {
 
             <motion.div variants={fadeUp} className="space-y-5">
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#059669]/15 flex items-center justify-center shrink-0">
-                  <Shield className="w-5 h-5 text-[#059669]" />
+                <div className="w-10 h-10 rounded-xl bg-[#691E2A]/15 flex items-center justify-center shrink-0">
+                  <Shield className="w-5 h-5 text-[#691E2A]" />
                 </div>
                 <div>
                   <div className="font-semibold text-sm">No Commitment</div>
@@ -531,8 +539,8 @@ function LeadFormSection() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#D97706]/15 flex items-center justify-center shrink-0">
-                  <Zap className="w-5 h-5 text-[#D97706]" />
+                <div className="w-10 h-10 rounded-xl bg-[#B28452]/15 flex items-center justify-center shrink-0">
+                  <Zap className="w-5 h-5 text-[#B28452]" />
                 </div>
                 <div>
                   <div className="font-semibold text-sm">24-Hour Response</div>
@@ -540,8 +548,8 @@ function LeadFormSection() {
                 </div>
               </div>
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#3B82F6]/15 flex items-center justify-center shrink-0">
-                  <Target className="w-5 h-5 text-[#3B82F6]" />
+                <div className="w-10 h-10 rounded-xl bg-[#B28452]/15 flex items-center justify-center shrink-0">
+                  <Target className="w-5 h-5 text-[#B28452]" />
                 </div>
                 <div>
                   <div className="font-semibold text-sm">Custom Strategy</div>
@@ -572,9 +580,9 @@ function LeadFormSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             {isSubmitted ? (
-              <div className="bg-white/5 backdrop-blur-sm border border-[#059669]/30 rounded-2xl p-8 sm:p-10 text-center">
-                <div className="w-16 h-16 rounded-full bg-[#059669]/20 flex items-center justify-center mx-auto mb-5">
-                  <CheckCircle2 className="w-8 h-8 text-[#059669]" />
+              <div className="bg-white/5 backdrop-blur-sm border border-[#691E2A]/30 rounded-2xl p-8 sm:p-10 text-center">
+                <div className="w-16 h-16 rounded-full bg-[#691E2A]/20 flex items-center justify-center mx-auto mb-5">
+                  <CheckCircle2 className="w-8 h-8 text-[#691E2A]" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Thank you!</h3>
                 <p className="text-gray-400 leading-relaxed">
@@ -598,7 +606,7 @@ function LeadFormSection() {
                       onChange={handleChange}
                       placeholder="Your full name"
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     />
                   </div>
                   <div>
@@ -612,7 +620,7 @@ function LeadFormSection() {
                       onChange={handleChange}
                       placeholder="you@business.com"
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     />
                   </div>
                 </div>
@@ -628,7 +636,7 @@ function LeadFormSection() {
                       value={formState.phone}
                       onChange={handleChange}
                       placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     />
                   </div>
                   <div>
@@ -641,7 +649,7 @@ function LeadFormSection() {
                       value={formState.businessName}
                       onChange={handleChange}
                       placeholder="Your business name"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     />
                   </div>
                 </div>
@@ -656,7 +664,7 @@ function LeadFormSection() {
                       value={formState.service}
                       onChange={handleChange}
                       required
-                      className="w-full appearance-none px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
+                      className="w-full appearance-none px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     >
                       <option value="" disabled className="bg-[#0F1D33] text-gray-400">
                         Select a service
@@ -681,7 +689,7 @@ function LeadFormSection() {
                     onChange={handleChange}
                     rows={3}
                     placeholder="What are you looking to achieve? Any specific goals or challenges?"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all resize-none"
                   />
                 </div>
 
@@ -692,7 +700,7 @@ function LeadFormSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#059669] text-white font-semibold text-sm hover:bg-[#047857] transition-all hover:shadow-lg hover:shadow-[#059669]/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#691E2A] text-white font-semibold text-sm hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/30 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <>
@@ -726,7 +734,13 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <img src={logo} alt="Grow with Anvaya" className="h-8 mb-4 brightness-200" />
+            <div className="flex items-center gap-2 mb-4">
+              <img src={logo} alt="Grow with Anvaya" className="h-9 brightness-200" />
+              <div className="flex flex-col leading-none">
+                <span className="text-[9px] font-semibold tracking-[0.2em] uppercase text-gray-500">Grow With</span>
+                <span className="text-xl font-extrabold tracking-wider text-white">ANVAYA</span>
+              </div>
+            </div>
             <p className="text-sm leading-relaxed max-w-xs">
               We help businesses grow through strategic digital marketing — creative content, performance advertising, and measurable results.
             </p>
@@ -735,7 +749,7 @@ function Footer() {
                 href="https://www.instagram.com/growwithanvaya"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#059669]/20 hover:text-[#059669] transition-all"
+                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#691E2A]/20 hover:text-[#691E2A] transition-all"
               >
                 <Instagram className="w-4 h-4" />
               </a>
@@ -743,7 +757,7 @@ function Footer() {
                 href="https://www.instagram.com/growwithanvaya"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#059669]/20 hover:text-[#059669] transition-all"
+                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#691E2A]/20 hover:text-[#691E2A] transition-all"
               >
                 <MessageCircle className="w-4 h-4" />
               </a>
@@ -781,17 +795,17 @@ function Footer() {
             <h4 className="text-white font-semibold text-sm mb-4">Get in Touch</h4>
             <ul className="space-y-2.5">
               <li className="flex items-center gap-2 text-sm">
-                <Mail className="w-4 h-4 text-[#059669]" />
+                <Mail className="w-4 h-4 text-[#B28452]" />
                 <a href="mailto:hello@growwithanvaya.com" className="hover:text-white transition-colors">
                   hello@growwithanvaya.com
                 </a>
               </li>
               <li className="flex items-center gap-2 text-sm">
-                <Phone className="w-4 h-4 text-[#059669]" />
+                <Phone className="w-4 h-4 text-[#B28452]" />
                 <span>+91 98765 43210</span>
               </li>
               <li className="flex items-center gap-2 text-sm">
-                <Instagram className="w-4 h-4 text-[#059669]" />
+                <Instagram className="w-4 h-4 text-[#B28452]" />
                 <a
                   href="https://www.instagram.com/growwithanvaya"
                   target="_blank"
