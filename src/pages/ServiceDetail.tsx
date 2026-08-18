@@ -338,15 +338,10 @@ export default function ServiceDetail() {
               </div>
             </motion.div>
 
-            {/* Pricing CTA */}
+            {/* CTA */}
             <motion.div variants={fadeUp} className="mb-16 p-8 rounded-2xl bg-anvaya-dark text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-mesh-hero opacity-30" />
               <div className="relative">
-                <div className="flex items-center gap-2 mb-3">
-                  <Clock className="w-4 h-4 text-[#B28452]" />
-                  <span className="text-sm text-gray-400">Investment</span>
-                </div>
-                <div className="text-2xl font-bold mb-2">{service.pricing}</div>
                 <p className="text-sm text-gray-400 mb-6">
                   Custom packages available based on your specific goals and scale.
                 </p>

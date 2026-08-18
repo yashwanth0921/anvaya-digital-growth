@@ -18,7 +18,6 @@ export interface ServiceData {
   features: string[];
   benefits: { title: string; description: string }[];
   deliverables: string[];
-  pricing: string;
 }
 
 export const services: ServiceData[] = [
@@ -64,7 +63,7 @@ export const services: ServiceData[] = [
       "Monthly performance report",
       "Competitor analysis",
     ],
-    pricing: "Starting from ₹15,000/month",
+
   },
   {
     slug: "meta-google-ads",
@@ -108,7 +107,7 @@ export const services: ServiceData[] = [
       "Weekly optimization",
       "Monthly ROI report",
     ],
-    pricing: "Starting from ₹20,000/month + ad spend",
+
   },
   {
     slug: "website-development",
@@ -152,7 +151,7 @@ export const services: ServiceData[] = [
       "Speed optimization",
       "Post-launch support",
     ],
-    pricing: "Starting from ₹25,000",
+
   },
   {
     slug: "seo-analytics",
@@ -196,7 +195,7 @@ export const services: ServiceData[] = [
       "Monthly ranking reports",
       "Analytics dashboard setup",
     ],
-    pricing: "Starting from ₹12,000/month",
+
   },
 ];
 

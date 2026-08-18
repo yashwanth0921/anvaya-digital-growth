@@ -8,10 +8,6 @@ import logo from "@/assets/logo.svg";
 import {
   ArrowRight,
   BarChart3,
-  Instagram,
-  Mail,
-  MessageCircle,
-  Phone,
   Rocket,
   Send,
   Shield,
@@ -31,7 +27,7 @@ import {
 } from "lucide-react";
 
 const serviceIcons: Record<string, typeof Globe> = {
-  "social-media-marketing": Instagram,
+  "social-media-marketing": Megaphone,
   "meta-google-ads": Megaphone,
   "website-development": Globe,
   "seo-analytics": Search,
@@ -517,7 +513,7 @@ function LeadFormSection() {
             variants={stagger}
           >
             <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/15 border border-[#691E2A]/30 text-[#D9B280] text-sm font-semibold mb-6">
-              <MessageCircle className="w-4 h-4" />
+              <Send className="w-4 h-4" />
               Let's Talk Growth
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
@@ -558,18 +554,7 @@ function LeadFormSection() {
               </div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="mt-8 flex items-center gap-3 text-sm text-gray-500">
-              <span>Or reach us directly on</span>
-              <a
-                href="https://www.instagram.com/growwithanvaya"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 text-purple-300 font-medium hover:from-purple-500/30 hover:to-pink-500/30 transition-all"
-              >
-                <Instagram className="w-4 h-4" />
-                @growwithanvaya
-              </a>
-            </motion.div>
+
           </motion.div>
 
           {/* Right: Form */}
@@ -729,7 +714,7 @@ function LeadFormSection() {
 
 function Footer() {
   return (
-    <footer className="bg-[#0B1528] text-gray-400 py-14 border-t border-white/5">
+    <footer className="bg-[#430D12] text-gray-400 py-14 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
@@ -744,24 +729,7 @@ function Footer() {
             <p className="text-sm leading-relaxed max-w-xs">
               We help businesses grow through strategic digital marketing — creative content, performance advertising, and measurable results.
             </p>
-            <div className="flex gap-3 mt-5">
-              <a
-                href="https://www.instagram.com/growwithanvaya"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#691E2A]/20 hover:text-[#691E2A] transition-all"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.instagram.com/growwithanvaya"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-[#691E2A]/20 hover:text-[#691E2A] transition-all"
-              >
-                <MessageCircle className="w-4 h-4" />
-              </a>
-            </div>
+
           </div>
 
           {/* Services */}
@@ -786,37 +754,11 @@ function Footer() {
               <li><a href="#results" className="text-sm hover:text-white transition-colors">Results</a></li>
               <li><a href="#contact" className="text-sm hover:text-white transition-colors">Contact Us</a></li>
               <li><Link to="/dashboard" className="text-sm hover:text-white transition-colors">Client Dashboard</Link></li>
-              <li><a href="https://www.instagram.com/growwithanvaya" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors">Instagram</a></li>
+
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-white font-semibold text-sm mb-4">Get in Touch</h4>
-            <ul className="space-y-2.5">
-              <li className="flex items-center gap-2 text-sm">
-                <Mail className="w-4 h-4 text-[#B28452]" />
-                <a href="mailto:hello@growwithanvaya.com" className="hover:text-white transition-colors">
-                  hello@growwithanvaya.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2 text-sm">
-                <Phone className="w-4 h-4 text-[#B28452]" />
-                <span>+91 98765 43210</span>
-              </li>
-              <li className="flex items-center gap-2 text-sm">
-                <Instagram className="w-4 h-4 text-[#B28452]" />
-                <a
-                  href="https://www.instagram.com/growwithanvaya"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors"
-                >
-                  @growwithanvaya
-                </a>
-              </li>
-            </ul>
-          </div>
+
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
