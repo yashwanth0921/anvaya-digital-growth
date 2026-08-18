@@ -44,7 +44,7 @@ export const appendLeadToSheet = action({
 
       await sheets.spreadsheets.values.append({
         spreadsheetId: sheetId,
-        range: "Leads!A:H",
+        range: "Sheet1!A:G",
         valueInputOption: "USER_ENTERED",
         requestBody: {
           values: [
