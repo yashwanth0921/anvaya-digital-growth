@@ -462,6 +462,7 @@ function TestimonialsSection() {
 }
 
 function LeadFormSection() {
+  const submitLead = useMutation(api.leads.submit);
   const submitAndNotify = useAction(api.actions.submitLead.submitAndNotify);
   const [formState, setFormState] = useState({
     name: "",
@@ -480,7 +481,8 @@ function LeadFormSection() {
     setIsSubmitting(true);
     setError(null);
     try {
-      await submitAndNotify({
+      // Save to DB first (fast)
+      await submitLead({
         name: formState.name,
         email: formState.email,
         phone: formState.phone || undefined,
@@ -488,9 +490,19 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       });
+      // Show thank you immediately
       setIsSubmitted(true);
+      // Fire emails + Google Sheets in background (don't block UI)
+      submitAndNotify({
+        name: formState.name,
+        email: formState.email,
+        phone: formState.phone || undefined,
+        businessName: formState.businessName || undefined,
+        service: formState.service,
+        message: formState.message || undefined,
+      }).catch((err) => console.error("Background email/sheet action failed:", err));
     } catch (err) {
-      setError("Something went wrong. Please try again or DM us on Instagram.");
+      setError("Something went wrong. Please try again.");
       console.error(err);
     } finally {
       setIsSubmitting(false);

@@ -16,18 +16,8 @@ export const submitAndNotify = action({
     service: v.string(),
     message: v.optional(v.string()),
   },
-  handler: async (ctx, args) => {
+  handler: async (_ctx, args) => {
     const timestamp = Date.now();
-
-    // 1. Save lead to database
-    await ctx.runMutation("leads:submit" as any, {
-      name: args.name,
-      email: args.email,
-      phone: args.phone,
-      businessName: args.businessName,
-      service: args.service,
-      message: args.message,
-    });
 
     const results = { emailSent: false, sheetAppended: false };
 
