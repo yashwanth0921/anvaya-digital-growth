@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useMutation } from "convex/react";
+import { useAction, useMutation } from "convex/react";
 import { api } from "convex/_generated/api";
 import { useState } from "react";
 import { Link } from "react-router";
@@ -462,7 +462,7 @@ function TestimonialsSection() {
 }
 
 function LeadFormSection() {
-  const submitLead = useMutation(api.leads.submit);
+  const submitAndNotify = useAction(api.actions.submitLead.submitAndNotify);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -480,7 +480,7 @@ function LeadFormSection() {
     setIsSubmitting(true);
     setError(null);
     try {
-      await submitLead({
+      await submitAndNotify({
         name: formState.name,
         email: formState.email,
         phone: formState.phone || undefined,
