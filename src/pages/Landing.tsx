@@ -3,6 +3,7 @@ import { useAction, useMutation } from "convex/react";
 import { api } from "convex/_generated/api";
 import { useState } from "react";
 import { Link } from "react-router";
+import { toast } from "sonner";
 import { services } from "@/lib/services-data";
 import logo from "@/assets/logo.svg";
 import {
@@ -492,6 +493,7 @@ function LeadFormSection() {
       });
       // Show thank you immediately
       setIsSubmitted(true);
+      toast.success("Your inquiry has been submitted!");
       // Fire emails + Google Sheets in background (don't block UI)
       submitAndNotify({
         name: formState.name,
@@ -500,7 +502,12 @@ function LeadFormSection() {
         businessName: formState.businessName || undefined,
         service: formState.service,
         message: formState.message || undefined,
-      }).catch((err) => console.error("Background email/sheet action failed:", err));
+      }).then(() => {
+        toast.success("Confirmation email sent!");
+      }).catch((err) => {
+        console.error("Background email/sheet action failed:", err);
+        toast.error("Email notification failed. Your inquiry was saved.");
+      });
     } catch (err) {
       setError("Something went wrong. Please try again.");
       console.error(err);
