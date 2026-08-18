@@ -109,11 +109,8 @@ function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
-          <Link to="/" className="flex items-center gap-3 shrink-0">
-            <div className="flex flex-col leading-none">
-              <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground">Grow With</span>
-              <span className="text-xl font-extrabold tracking-wider text-[#691E2A]">ANVAYA</span>
-            </div>
+          <Link to="/" className="flex items-center gap-2 shrink-0">
+            <img src={logo} alt="Grow with Anvaya" className="h-9 sm:h-10" />
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
@@ -237,7 +234,7 @@ function HeroSection() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="hidden lg:flex items-center justify-center"
           >
-            <img src={logo} alt="Grow with Anvaya" className="w-64 h-64 xl:w-80 xl:h-80 drop-shadow-2xl" />
+            <img src={logo} alt="Grow with Anvaya" className="w-72 h-72 xl:w-96 xl:h-96 drop-shadow-2xl" />
           </motion.div>
           </div>
 
@@ -728,13 +725,7 @@ function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <img src={logo} alt="Grow with Anvaya" className="h-9 brightness-200" />
-              <div className="flex flex-col leading-none">
-                <span className="text-[9px] font-semibold tracking-[0.2em] uppercase text-gray-500">Grow With</span>
-                <span className="text-xl font-extrabold tracking-wider text-white">ANVAYA</span>
-              </div>
-            </div>
+            <img src={logo} alt="Grow with Anvaya" className="h-20 mb-4" />
             <p className="text-sm leading-relaxed max-w-xs">
               We help businesses grow through strategic digital marketing — creative content, performance advertising, and measurable results.
             </p>
