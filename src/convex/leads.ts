@@ -1,5 +1,6 @@
 import { mutation, query } from "./_generated/server";
 import { v } from "convex/values";
+import { api } from "./_generated/api";
 
 export const submit = mutation({
   args: {
@@ -20,6 +21,17 @@ export const submit = mutation({
       message: args.message,
       createdAt: Date.now(),
     });
+
+    // Fire-and-forget email action — don't block the mutation
+    ctx.scheduler.runAfter(0, api.actions.sendEmails.sendLeadEmails, {
+      name: args.name,
+      email: args.email,
+      phone: args.phone,
+      businessName: args.businessName,
+      service: args.service,
+      message: args.message,
+    });
+
     return leadId;
   },
 });
