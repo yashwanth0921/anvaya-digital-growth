@@ -2,18 +2,17 @@ import { motion } from "framer-motion";
 import { useMutation } from "convex/react";
 import { api } from "convex/_generated/api";
 import { useState } from "react";
+import { Link } from "react-router";
+import { services } from "@/lib/services-data";
 import logo from "@/assets/logo.svg";
 import {
   ArrowRight,
   BarChart3,
-  Globe,
   Instagram,
   Mail,
-  Megaphone,
   MessageCircle,
   Phone,
   Rocket,
-  Search,
   Send,
   Shield,
   Sparkles,
@@ -25,7 +24,18 @@ import {
   ChevronDown,
   Menu,
   X,
+  Calendar,
+  Globe,
+  Megaphone,
+  Search,
 } from "lucide-react";
+
+const serviceIcons: Record<string, typeof Globe> = {
+  "social-media-marketing": Instagram,
+  "meta-google-ads": Megaphone,
+  "website-development": Globe,
+  "seo-analytics": Search,
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -36,68 +46,33 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-const services = [
-  {
-    icon: Instagram,
-    title: "Social Media Marketing",
-    description:
-      "Build a powerful brand presence across Instagram, Facebook, LinkedIn, and more. We create scroll-stopping content that drives engagement and builds loyal communities.",
-    color: "from-purple-500/20 to-pink-500/20",
-    iconColor: "text-purple-500",
-    features: ["Content Strategy", "Community Management", "Reels & Stories", "Analytics"],
-  },
-  {
-    icon: Megaphone,
-    title: "Meta & Google Ads",
-    description:
-      "Maximize your ROI with precision-targeted ad campaigns. We handle everything from creative to bidding strategy to bring qualified leads straight to your business.",
-    color: "from-blue-500/20 to-cyan-500/20",
-    iconColor: "text-blue-500",
-    features: ["Facebook & Instagram Ads", "Google Ads", "Retargeting", "A/B Testing"],
-  },
-  {
-    icon: Globe,
-    title: "Website Development",
-    description:
-      "Get a fast, beautiful, conversion-optimized website that turns visitors into customers. Mobile-first designs built for speed and search engine visibility.",
-    color: "from-emerald-500/20 to-teal-500/20",
-    iconColor: "text-emerald-500",
-    features: ["Custom Design", "E-Commerce", "Landing Pages", "Speed Optimized"],
-  },
-  {
-    icon: Search,
-    title: "SEO & Analytics",
-    description:
-      "Dominate search results with data-driven SEO strategies. We optimize your website to rank higher, attract organic traffic, and convert browsers into buyers.",
-    color: "from-amber-500/20 to-orange-500/20",
-    iconColor: "text-amber-600",
-    features: ["Keyword Research", "On-Page SEO", "Local SEO", "Performance Reports"],
-  },
-];
-
 const processSteps = [
   {
     step: "01",
     title: "Discovery",
-    description: "We dive deep into your business, audience, and goals to build a tailored growth strategy.",
+    description:
+      "We begin by understanding your business inside and out — your goals, your audience, and the competitive landscape you operate in.",
     icon: Target,
   },
   {
     step: "02",
     title: "Strategy",
-    description: "A clear, data-backed roadmap designed to hit your specific milestones and KPIs.",
+    description:
+      "A clear, data-informed roadmap built around your specific milestones, designed to deliver measurable outcomes at every stage.",
     icon: BarChart3,
   },
   {
     step: "03",
     title: "Execute",
-    description: "Our creative team brings the strategy to life — content, campaigns, and code.",
+    description:
+      "Our creative and technical team brings the strategy to life — content, campaigns, and code, all working in concert.",
     icon: Zap,
   },
   {
     step: "04",
     title: "Scale",
-    description: "We analyze results, double down on what works, and continuously optimize for growth.",
+    description:
+      "We measure everything, refine continuously, and double down on what moves the needle — turning good results into great ones.",
     icon: TrendingUp,
   },
 ];
@@ -106,19 +81,19 @@ const testimonials = [
   {
     name: "Priya Sharma",
     business: "Bloom Beauty Studio",
-    text: "Grow with Anvaya transformed our online presence completely. Our Instagram grew from 500 to 8,000 followers in just 3 months, and we're now getting 40% of our customers through social media.",
+    text: "Our Instagram grew from 500 to 8,000 engaged followers in just three months. Nearly 40% of our new customers now find us through social media — the ROI speaks for itself.",
     rating: 5,
   },
   {
     name: "Rahul Mehta",
     business: "TechFlow Solutions",
-    text: "The Meta Ads campaign they built for us delivered a 5x ROAS in the first month. They truly understand how to target the right audience and convert clicks into customers.",
+    text: "The Meta Ads campaign they built delivered a 5x return in the very first month. They understand how to target precisely and convert efficiently — exactly what we needed.",
     rating: 5,
   },
   {
     name: "Ananya Desai",
     business: "GreenLeaf Organics",
-    text: "Our website redesign increased our conversion rate by 200%. The team is responsive, creative, and genuinely invested in our growth. Best decision we made for our business.",
+    text: "Our website redesign doubled our conversion rate. The team was responsive, creative, and genuinely invested in getting the details right. The best decision we made for our business.",
     rating: 5,
   },
 ];
@@ -138,9 +113,9 @@ function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
-          <a href="#" className="flex items-center gap-2 shrink-0">
+          <Link to="/" className="flex items-center gap-2 shrink-0">
             <img src={logo} alt="Grow with Anvaya" className="h-8 sm:h-9" />
-          </a>
+          </Link>
           <div className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Services
@@ -154,13 +129,13 @@ function Navbar() {
             <a href="#contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Contact
             </a>
-            <a
-              href="#contact"
+            <Link
+              to="/book"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#059669] text-white text-sm font-semibold hover:bg-[#047857] transition-all hover:shadow-lg hover:shadow-[#059669]/25"
             >
-              Get Free Consultation
-              <ArrowRight className="w-4 h-4" />
-            </a>
+              <Calendar className="w-4 h-4" />
+              Book a Call
+            </Link>
           </div>
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -189,14 +164,14 @@ function Navbar() {
             <a href="#contact" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
               Contact
             </a>
-            <a
-              href="#contact"
+            <Link
+              to="/book"
               onClick={() => setIsOpen(false)}
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#059669] text-white text-sm font-semibold mt-1"
             >
-              Get Free Consultation
-              <ArrowRight className="w-4 h-4" />
-            </a>
+              <Calendar className="w-4 h-4" />
+              Book a Call
+            </Link>
           </div>
         </motion.div>
       )}
@@ -207,10 +182,7 @@ function Navbar() {
 function HeroSection() {
   return (
     <section className="relative pt-28 sm:pt-32 pb-16 sm:pb-24 overflow-hidden bg-anvaya-dark text-white">
-      {/* Mesh gradient background */}
       <div className="absolute inset-0 bg-mesh-hero opacity-60" />
-
-      {/* Floating geometric shapes */}
       <div className="absolute top-20 right-[10%] w-64 h-64 rounded-full bg-[#059669]/10 blur-3xl animate-float" />
       <div className="absolute bottom-20 left-[5%] w-48 h-48 rounded-full bg-[#D97706]/10 blur-3xl animate-float-delayed" />
       <div className="absolute top-40 left-[20%] w-32 h-32 border border-[#059669]/20 rounded-2xl rotate-12 animate-float-delayed" />
@@ -233,18 +205,19 @@ function HeroSection() {
           </motion.h1>
 
           <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl">
-            Strategy. Growth. Impact. We help businesses stand out, scale faster,
-            and create lasting digital impact through creative marketing that delivers real results.
+            Strategy. Growth. Impact. We partner with businesses that are ready
+            to stand out, scale faster, and build lasting digital presence through
+            creative marketing that delivers measurable results.
           </motion.p>
 
           <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-4">
-            <a
-              href="#contact"
+            <Link
+              to="/book"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#059669] text-white font-semibold text-base hover:bg-[#047857] transition-all hover:shadow-xl hover:shadow-[#059669]/30 hover:-translate-y-0.5"
             >
-              <Send className="w-4 h-4" />
-              Get Free Consultation
-            </a>
+              <Calendar className="w-4 h-4" />
+              Book a Free Consultation
+            </Link>
             <a
               href="#services"
               className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all"
@@ -255,7 +228,6 @@ function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* Stats row */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -264,7 +236,7 @@ function HeroSection() {
         >
           {[
             { value: "50+", label: "Brands Scaled" },
-            { value: "5x", label: "Average ROAS" },
+            { value: "5×", label: "Average ROAS" },
             { value: "10M+", label: "Impressions Generated" },
             { value: "98%", label: "Client Retention" },
           ].map((stat) => (
@@ -278,7 +250,6 @@ function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Bottom wave divider */}
       <div className="absolute bottom-0 left-0 right-0">
         <svg viewBox="0 0 1440 60" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
           <path d="M0 60V30C240 50 480 0 720 30C960 60 1200 10 1440 30V60H0Z" fill="var(--background)" />
@@ -304,11 +275,11 @@ function ServicesSection() {
             Our Services
           </motion.div>
           <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Everything you need to{" "}
-            <span className="text-gradient-green">grow online</span>
+            Every channel that{" "}
+            <span className="text-gradient-green">drives growth</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
-            From social media to search engines, we cover every channel that matters for your business growth.
+            From social media to search engines, we deliver end-to-end digital marketing built around your business goals.
           </motion.p>
         </motion.div>
 
@@ -319,30 +290,38 @@ function ServicesSection() {
           variants={stagger}
           className="grid sm:grid-cols-2 gap-6"
         >
-          {services.map((service) => (
-            <motion.div
-              key={service.title}
-              variants={fadeUp}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="group relative bg-card rounded-2xl border border-border/60 p-7 sm:p-8 hover:shadow-xl hover:border-[#059669]/30 transition-all duration-300"
-            >
-              <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${service.color} mb-5`}>
-                <service.icon className={`w-6 h-6 ${service.iconColor}`} />
-              </div>
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-5">
-                {service.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {service.features.map((feat) => (
-                  <span key={feat} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground">
-                    <CheckCircle2 className="w-3 h-3 text-[#059669]" />
-                    {feat}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+          {services.map((service) => {
+            const Icon = serviceIcons[service.slug] ?? Globe;
+            return (
+              <motion.div key={service.slug} variants={fadeUp}>
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="group block relative bg-card rounded-2xl border border-border/60 p-7 sm:p-8 hover:shadow-xl hover:border-[#059669]/30 transition-all duration-300"
+                >
+                  <div className="flex items-start justify-between mb-5">
+                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${service.color}`}>
+                      <Icon className={`w-6 h-6 ${service.iconColor}`} />
+                    </div>
+                    <ArrowRight className="w-5 h-5 text-muted-foreground/40 group-hover:text-[#059669] transition-colors" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 group-hover:text-[#059669] transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                    {service.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {service.features.map((feat) => (
+                      <span key={feat} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground">
+                        <CheckCircle2 className="w-3 h-3 text-[#059669]" />
+                        {feat}
+                      </span>
+                    ))}
+                  </div>
+                </Link>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
@@ -370,7 +349,7 @@ function ProcessSection() {
             <span className="text-gradient-gold">digital growth</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
-            Our simple, transparent process ensures you always know where your investment is going.
+            Our process is transparent and structured, so you always know where your investment is going and what it's delivering.
           </motion.p>
         </motion.div>
 
@@ -426,7 +405,7 @@ function TestimonialsSection() {
             <span className="text-gradient-green">ready to grow</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
-            Don't take our word for it — hear from the brands we've helped scale.
+            The results we deliver speak louder than any pitch. Here's what our clients have to say.
           </motion.p>
         </motion.div>
 
@@ -517,8 +496,6 @@ function LeadFormSection() {
   return (
     <section id="contact" className="py-20 sm:py-28 bg-anvaya-dark text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-mesh-hero opacity-40" />
-
-      {/* Decorative elements */}
       <div className="absolute top-10 right-[5%] w-72 h-72 rounded-full bg-[#059669]/8 blur-3xl" />
       <div className="absolute bottom-10 left-[5%] w-56 h-56 rounded-full bg-[#D97706]/8 blur-3xl" />
 
@@ -540,7 +517,7 @@ function LeadFormSection() {
               <span className="text-gradient-green">scale your brand?</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="text-gray-400 text-lg leading-relaxed mb-8">
-              Tell us about your business and goals. We'll get back within 24 hours with a tailored growth plan — completely free.
+              Tell us about your business and where you want to take it. We'll get back within 24 hours with a tailored growth plan — completely free, no strings attached.
             </motion.p>
 
             <motion.div variants={fadeUp} className="space-y-5">
@@ -550,7 +527,7 @@ function LeadFormSection() {
                 </div>
                 <div>
                   <div className="font-semibold text-sm">No Commitment</div>
-                  <div className="text-gray-500 text-xs">Free strategy session, no strings attached</div>
+                  <div className="text-gray-500 text-xs">A free strategy session with zero obligation</div>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -559,7 +536,7 @@ function LeadFormSection() {
                 </div>
                 <div>
                   <div className="font-semibold text-sm">24-Hour Response</div>
-                  <div className="text-gray-500 text-xs">We'll get back to you within one business day</div>
+                  <div className="text-gray-500 text-xs">You'll hear from us within one business day</div>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -568,7 +545,7 @@ function LeadFormSection() {
                 </div>
                 <div>
                   <div className="font-semibold text-sm">Custom Strategy</div>
-                  <div className="text-gray-500 text-xs">Tailored plan based on your specific goals</div>
+                  <div className="text-gray-500 text-xs">A plan built around your specific goals and market</div>
                 </div>
               </div>
             </motion.div>
@@ -619,7 +596,7 @@ function LeadFormSection() {
                       name="name"
                       value={formState.name}
                       onChange={handleChange}
-                      placeholder="John Smith"
+                      placeholder="Your full name"
                       required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
                     />
@@ -633,7 +610,7 @@ function LeadFormSection() {
                       name="email"
                       value={formState.email}
                       onChange={handleChange}
-                      placeholder="john@business.com"
+                      placeholder="you@business.com"
                       required
                       className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#059669]/50 focus:ring-1 focus:ring-[#059669]/30 transition-all"
                     />
@@ -751,7 +728,7 @@ function Footer() {
           <div className="sm:col-span-2 lg:col-span-1">
             <img src={logo} alt="Grow with Anvaya" className="h-8 mb-4 brightness-200" />
             <p className="text-sm leading-relaxed max-w-xs">
-              Growing brands digitally through creative strategies, data-driven marketing, and real results.
+              We help businesses grow through strategic digital marketing — creative content, performance advertising, and measurable results.
             </p>
             <div className="flex gap-3 mt-5">
               <a
@@ -778,10 +755,10 @@ function Footer() {
             <h4 className="text-white font-semibold text-sm mb-4">Services</h4>
             <ul className="space-y-2.5">
               {services.map((s) => (
-                <li key={s.title}>
-                  <a href="#services" className="text-sm hover:text-white transition-colors">
+                <li key={s.slug}>
+                  <Link to={`/services/${s.slug}`} className="text-sm hover:text-white transition-colors">
                     {s.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -794,6 +771,7 @@ function Footer() {
               <li><a href="#process" className="text-sm hover:text-white transition-colors">How We Work</a></li>
               <li><a href="#results" className="text-sm hover:text-white transition-colors">Results</a></li>
               <li><a href="#contact" className="text-sm hover:text-white transition-colors">Contact Us</a></li>
+              <li><Link to="/dashboard" className="text-sm hover:text-white transition-colors">Client Dashboard</Link></li>
               <li><a href="https://www.instagram.com/growwithanvaya" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-white transition-colors">Instagram</a></li>
             </ul>
           </div>

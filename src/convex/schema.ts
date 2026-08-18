@@ -43,6 +43,31 @@ const schema = defineSchema(
       createdAt: v.number(),
     }).index("by_email", ["email"])
       .index("by_created", ["createdAt"]),
+
+    // Client bookings / scheduling requests
+    bookings: defineTable({
+      userId: v.optional(v.string()),
+      name: v.string(),
+      email: v.string(),
+      phone: v.optional(v.string()),
+      service: v.string(),
+      preferredDate: v.string(),
+      preferredTime: v.string(),
+      notes: v.optional(v.string()),
+      status: v.union(v.literal("pending"), v.literal("confirmed"), v.literal("cancelled")),
+      createdAt: v.number(),
+    }).index("by_user", ["userId"])
+      .index("by_created", ["createdAt"])
+      .index("by_status", ["status"]),
+
+    // Comments on service detail pages
+    comments: defineTable({
+      userId: v.string(),
+      userName: v.string(),
+      serviceSlug: v.string(),
+      text: v.string(),
+      createdAt: v.number(),
+    }).index("by_service", ["serviceSlug", "createdAt"]),
   },
   {
     schemaValidation: false,
