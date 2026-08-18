@@ -22,6 +22,8 @@ export const submit = mutation({
       createdAt: Date.now(),
     });
 
+    const timestamp = Date.now();
+
     // Fire-and-forget email action — don't block the mutation
     ctx.scheduler.runAfter(0, api.actions.sendEmails.sendLeadEmails, {
       name: args.name,
@@ -30,6 +32,17 @@ export const submit = mutation({
       businessName: args.businessName,
       service: args.service,
       message: args.message,
+    });
+
+    // Fire-and-forget Google Sheets action — don't block the mutation
+    ctx.scheduler.runAfter(0, api.actions.appendToSheet.appendLeadToSheet, {
+      name: args.name,
+      email: args.email,
+      phone: args.phone,
+      businessName: args.businessName,
+      service: args.service,
+      message: args.message,
+      createdAt: timestamp,
     });
 
     return leadId;
