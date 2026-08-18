@@ -10,6 +10,11 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      // Convex generated files live inside src/convex/_generated in this
+      // project, but the bare import "convex/_generated/api" can't be
+      // resolved through the convex package's exports map.  Alias it to
+      // the actual location so Vite's module resolver picks it up.
+      "convex/_generated": path.resolve(__dirname, "./src/convex/_generated"),
     },
     // Force a single copy of React across all packages (including vlyPlugin).
     // Without this, @vly-ai/integrations can resolve its own React copy, which
