@@ -110,7 +110,6 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
           <Link to="/" className="flex items-center gap-3 shrink-0">
-            <img src={logo} alt="Grow with Anvaya" className="h-9 sm:h-10" />
             <div className="flex flex-col leading-none">
               <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground">Grow With</span>
               <span className="text-xl font-extrabold tracking-wider text-[#691E2A]">ANVAYA</span>
@@ -187,50 +186,60 @@ function HeroSection() {
       <div className="absolute bottom-20 left-[5%] w-48 h-48 rounded-full bg-[#B28452]/10 blur-3xl animate-float-delayed" />
       <div className="absolute top-40 left-[20%] w-32 h-32 border border-[#691E2A]/20 rounded-2xl rotate-12 animate-float-delayed" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-          className="max-w-3xl"
-        >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/15 border border-[#691E2A]/30 text-[#D9B280] text-sm font-medium mb-6">
-            <Rocket className="w-4 h-4" />
-            Your Growth Partner
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">          <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={stagger}
+            className="max-w-3xl"
+          >
+            <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/15 border border-[#691E2A]/30 text-[#D9B280] text-sm font-medium mb-6">
+              <Rocket className="w-4 h-4" />
+              Your Growth Partner
+            </motion.div>
+
+            <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
+              <span className="block text-[#F9EEE4]">Grow with</span>
+              <span className="block text-[#F9EEE4]">Anvaya</span>
+            </motion.h1>
+
+            <motion.p variants={fadeUp} className="mt-4 text-sm sm:text-base font-semibold uppercase tracking-[0.25em] text-[#B28452]">
+              Growing Brands Digitally
+            </motion.p>
+
+            <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl">
+              Strategy. Growth. Impact. We partner with businesses that are ready
+              to stand out, scale faster, and build lasting digital presence through
+              creative marketing that delivers measurable results.
+            </motion.p>
+
+            <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-4">
+              <Link
+                to="/book"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5"
+              >
+                <Calendar className="w-4 h-4" />
+                Book a Free Consultation
+              </Link>
+              <a
+                href="#services"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all"
+              >
+                Explore Services
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </motion.div>
           </motion.div>
 
-          <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
-            <span className="block text-[#691E2A]">Grow with</span>
-            <span className="block text-gradient-green">Anvaya</span>
-          </motion.h1>
-
-          <motion.p variants={fadeUp} className="mt-4 text-sm sm:text-base font-semibold uppercase tracking-[0.25em] text-[#B28452]">
-            Growing Brands Digitally
-          </motion.p>
-
-          <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl">
-            Strategy. Growth. Impact. We partner with businesses that are ready
-            to stand out, scale faster, and build lasting digital presence through
-            creative marketing that delivers measurable results.
-          </motion.p>
-
-          <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-4">
-            <Link
-              to="/book"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5"
-            >
-              <Calendar className="w-4 h-4" />
-              Book a Free Consultation
-            </Link>
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all"
-            >
-              Explore Services
-              <ArrowRight className="w-4 h-4" />
-            </a>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="hidden lg:flex items-center justify-center"
+          >
+            <img src={logo} alt="Grow with Anvaya" className="w-64 h-64 xl:w-80 xl:h-80 drop-shadow-2xl" />
           </motion.div>
-        </motion.div>
+          </div>
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}

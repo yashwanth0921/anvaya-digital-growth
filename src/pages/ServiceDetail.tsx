@@ -35,7 +35,10 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <img src={logo} alt="Grow with Anvaya" className="h-8 sm:h-9" />
+            <div className="flex flex-col leading-none">
+              <span className="text-[10px] font-semibold tracking-[0.2em] uppercase text-muted-foreground">Grow With</span>
+              <span className="text-lg font-extrabold tracking-wider text-[#691E2A]">ANVAYA</span>
+            </div>
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <Link to="/#services" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">

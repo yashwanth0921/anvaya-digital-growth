@@ -75,7 +75,10 @@ export default function Dashboard() {
       <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-xl border-b border-border/50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <img src={logo} alt="Grow with Anvaya" className="h-7" />
+            <div className="flex flex-col leading-none">
+              <span className="text-[9px] font-semibold tracking-[0.2em] uppercase text-muted-foreground">Grow With</span>
+              <span className="text-base font-extrabold tracking-wider text-[#691E2A]">ANVAYA</span>
+            </div>
             <span className="text-xs font-medium text-muted-foreground hidden sm:inline">
               Dashboard
             </span>
