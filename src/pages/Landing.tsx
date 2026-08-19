@@ -509,8 +509,10 @@ function LeadFormSection() {
         toast.error("Email notification failed. Your inquiry was saved.");
       });
     } catch (err) {
-      setError("Something went wrong. Please try again.");
-      console.error(err);
+      const msg = err instanceof Error ? err.message : String(err);
+      setError(`Submission failed: ${msg}`);
+      console.error("Lead form error:", err);
+      toast.error(`Error: ${msg}`);
     } finally {
       setIsSubmitting(false);
     }

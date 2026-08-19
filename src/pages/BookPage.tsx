@@ -140,8 +140,9 @@ export default function BookPage() {
         console.error("Booking notification failed:", err);
       });
     } catch (err) {
-      setError("Something went wrong. Please try again or contact us directly.");
-      console.error(err);
+      const msg = err instanceof Error ? err.message : String(err);
+      setError(`Booking failed: ${msg}`);
+      console.error("Booking form error:", err);
     } finally {
       setIsSubmitting(false);
     }
