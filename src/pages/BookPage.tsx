@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useAction, useMutation } from "convex/react";
 import { api } from "convex/_generated/api";
 import { useState } from "react";
+import { toast } from "sonner";
 import { services } from "@/lib/services-data";
 import { useAuth } from "@/hooks/use-auth";
 import logo from "@/assets/logo.svg";
@@ -126,9 +127,8 @@ export default function BookPage() {
         preferredTime: formState.preferredTime,
         notes: formState.notes || undefined,
       });
-      setIsSubmitted(true);
-      // Fire email + Google Sheets notifications in background
-      sendBookingNotifications({
+      // Send emails + append to sheet
+      const result = await sendBookingNotifications({
         name: formState.name,
         email: formState.email,
         phone: formState.phone || undefined,
@@ -136,9 +136,13 @@ export default function BookPage() {
         preferredDate: formState.preferredDate,
         preferredTime: formState.preferredTime,
         notes: formState.notes || undefined,
-      }).catch((err) => {
-        console.error("Booking notification failed:", err);
       });
+      setIsSubmitted(true);
+      if (result?.sheetAppended) {
+        toast.success("Booking confirmed! Notifications sent.");
+      } else {
+        toast.success("Booking confirmed!");
+      }
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Booking failed: ${msg}`);

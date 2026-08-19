@@ -491,23 +491,24 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       });
-      // Show thank you immediately
-      setIsSubmitted(true);
-      toast.success("Your inquiry has been submitted!");
-      // Fire emails + Google Sheets in background (don't block UI)
-      submitAndNotify({
+      // Then send emails + append to sheet
+      const result = await submitAndNotify({
         name: formState.name,
         email: formState.email,
         phone: formState.phone || undefined,
         businessName: formState.businessName || undefined,
         service: formState.service,
         message: formState.message || undefined,
-      }).then(() => {
-        toast.success("Confirmation email sent!");
-      }).catch((err) => {
-        console.error("Background email/sheet action failed:", err);
-        toast.error("Email notification failed. Your inquiry was saved.");
       });
+      setIsSubmitted(true);
+      if (result?.emailSent) {
+        toast.success("Inquiry submitted! Confirmation email sent.");
+      } else {
+        toast.success("Inquiry submitted!");
+      }
+      if (!result?.sheetAppended) {
+        toast.warning("Inquiry saved, but Google Sheet update failed.");
+      }
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Submission failed: ${msg}`);
