@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import { motion } from "framer-motion";
-import { useMutation } from "convex/react";
+import { useAction, useMutation } from "convex/react";
 import { api } from "convex/_generated/api";
 import { useState } from "react";
 import { services } from "@/lib/services-data";
@@ -98,6 +98,7 @@ export default function BookPage() {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
   const createBooking = useMutation(api.bookings.create);
+  const sendBookingNotifications = useAction(api.actions.sendBookingNotifications.sendBookingNotifications);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -126,6 +127,18 @@ export default function BookPage() {
         notes: formState.notes || undefined,
       });
       setIsSubmitted(true);
+      // Fire email + Google Sheets notifications in background
+      sendBookingNotifications({
+        name: formState.name,
+        email: formState.email,
+        phone: formState.phone || undefined,
+        service: formState.service,
+        preferredDate: formState.preferredDate,
+        preferredTime: formState.preferredTime,
+        notes: formState.notes || undefined,
+      }).catch((err) => {
+        console.error("Booking notification failed:", err);
+      });
     } catch (err) {
       setError("Something went wrong. Please try again or contact us directly.");
       console.error(err);
