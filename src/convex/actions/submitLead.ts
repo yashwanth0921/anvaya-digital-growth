@@ -79,7 +79,7 @@ export const submitAndNotify = action({
         await sheets.spreadsheets.values.append({
           spreadsheetId: sheetId,
           range: "Sheet1!A:I",
-          valueInputOption: "USER_ENTERED",
+          valueInputOption: "RAW",
           requestBody: {
             values: [[
               date,
