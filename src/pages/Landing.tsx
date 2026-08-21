@@ -491,24 +491,21 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       });
-      // Then send emails + append to sheet
-      const result = await submitAndNotify({
+      setIsSubmitted(true);
+      toast.success("Inquiry submitted!");
+      // Fire notifications in background (don't block the UI)
+      submitAndNotify({
         name: formState.name,
         email: formState.email,
         phone: formState.phone || undefined,
         businessName: formState.businessName || undefined,
         service: formState.service,
         message: formState.message || undefined,
+      }).then((result) => {
+        console.log("Lead notifications result:", result);
+      }).catch((err) => {
+        console.error("Lead notification error:", err);
       });
-      setIsSubmitted(true);
-      if (result?.emailSent) {
-        toast.success("Inquiry submitted! Confirmation email sent.");
-      } else {
-        toast.success("Inquiry submitted!");
-      }
-      if (!result?.sheetAppended) {
-        toast.warning("Inquiry saved, but Google Sheet update failed.");
-      }
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Submission failed: ${msg}`);

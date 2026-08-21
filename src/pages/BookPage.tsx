@@ -127,8 +127,10 @@ export default function BookPage() {
         preferredTime: formState.preferredTime,
         notes: formState.notes || undefined,
       });
-      // Send emails + append to sheet
-      const result = await sendBookingNotifications({
+      setIsSubmitted(true);
+      toast.success("Booking confirmed!");
+      // Fire notifications in background (don't block the UI)
+      sendBookingNotifications({
         name: formState.name,
         email: formState.email,
         phone: formState.phone || undefined,
@@ -136,13 +138,11 @@ export default function BookPage() {
         preferredDate: formState.preferredDate,
         preferredTime: formState.preferredTime,
         notes: formState.notes || undefined,
+      }).then((result) => {
+        console.log("Booking notifications result:", result);
+      }).catch((err) => {
+        console.error("Booking notification error:", err);
       });
-      setIsSubmitted(true);
-      if (result?.sheetAppended) {
-        toast.success("Booking confirmed! Notifications sent.");
-      } else {
-        toast.success("Booking confirmed!");
-      }
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Booking failed: ${msg}`);

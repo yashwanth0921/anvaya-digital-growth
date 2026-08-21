@@ -5,7 +5,7 @@ import { v } from "convex/values";
 import { Resend } from "resend";
 import { google } from "googleapis";
 
-const BUSINESS_EMAIL = "growwithanvaya@gmail.com";
+const BUSINESS_EMAIL = "yashwanth0921@gmail.com";
 
 export const submitAndNotify = action({
   args: {
