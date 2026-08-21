@@ -127,11 +127,7 @@ export default function BookPage() {
         preferredTime: formState.preferredTime,
         notes: formState.notes || undefined,
       });
-      // Show confirmation immediately after DB save
-      setIsSubmitted(true);
-      toast.success("Booking confirmed!");
-
-      // Fire-and-forget: send notifications (email + sheet) in background
+      // Send notifications (email + sheet)
       sendBookingNotifications({
         name: formState.name,
         email: formState.email,
@@ -141,11 +137,23 @@ export default function BookPage() {
         preferredTime: formState.preferredTime,
         notes: formState.notes || undefined,
       }).then((notifyResult) => {
-        if (notifyResult?.emailSent) console.log("✅ Booking email sent");
-        else console.warn("⚠️ Booking email failed - check RESEND_API_KEY");
-        if (notifyResult?.sheetAppended) console.log("✅ Booking saved to sheet");
-        else console.warn("⚠️ Booking sheet append failed - check GOOGLE env vars");
-      }).catch((e) => console.error("Background booking notification error:", e));
+        console.log("Notification results:", notifyResult);
+        if (notifyResult?.emailSent && notifyResult?.sheetAppended) {
+          toast.success("Booking confirmed! Email sent & sheet updated.");
+        } else {
+          const parts: string[] = [];
+          if (notifyResult?.emailSent) parts.push("Email sent");
+          else parts.push(`Email failed: ${notifyResult?.errors?.[0] || "unknown"}`);
+          if (notifyResult?.sheetAppended) parts.push("Sheet updated");
+          else parts.push(`Sheet failed: ${notifyResult?.errors?.[0] || "unknown"}`);
+          toast.warning(parts.join(" | "), { duration: 10000 });
+        }
+        setIsSubmitted(true);
+      }).catch((e) => {
+        console.error("Notification error:", e);
+        toast.error(`Notification failed: ${e instanceof Error ? e.message : String(e)}`);
+        setIsSubmitted(true);
+      });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Booking failed: ${msg}`);

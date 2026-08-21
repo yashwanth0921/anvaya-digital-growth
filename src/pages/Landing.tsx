@@ -491,10 +491,6 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       });
-      // Show confirmation immediately after DB save
-      setIsSubmitted(true);
-      toast.success("Inquiry submitted successfully!");
-
       // Fire-and-forget: send notifications (email + sheet) in background
       submitAndNotify({
         name: formState.name,
@@ -504,14 +500,23 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       }).then((notifyResult) => {
-        const parts: string[] = [];
-        if (notifyResult?.emailSent) parts.push("✅ Email sent");
-        else parts.push(`❌ Email: ${notifyResult?.emailError || "key missing"}`);
-        if (notifyResult?.sheetAppended) parts.push("✅ Sheet updated");
-        else parts.push(`❌ Sheet: ${notifyResult?.sheetError || "vars missing"}`);
         console.log("Notification results:", notifyResult);
-        toast.info(parts.join(" | "), { duration: 8000 });
-      }).catch((e) => console.error("Background notification error:", e));
+        if (notifyResult?.emailSent && notifyResult?.sheetAppended) {
+          toast.success("Inquiry submitted! Email sent & sheet updated.");
+        } else {
+          const parts: string[] = [];
+          if (notifyResult?.emailSent) parts.push("Email sent");
+          else parts.push(`Email failed: ${notifyResult?.emailError || "unknown"}`);
+          if (notifyResult?.sheetAppended) parts.push("Sheet updated");
+          else parts.push(`Sheet failed: ${notifyResult?.sheetError || "unknown"}`);
+          toast.warning(parts.join(" | "), { duration: 10000 });
+        }
+        setIsSubmitted(true);
+      }).catch((e) => {
+        console.error("Notification error:", e);
+        toast.error(`Notification failed: ${e instanceof Error ? e.message : String(e)}`);
+        setIsSubmitted(true);
+      });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Submission failed: ${msg}`);
