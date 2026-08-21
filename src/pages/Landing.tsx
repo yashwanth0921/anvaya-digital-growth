@@ -491,23 +491,24 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       });
-      // Send notifications (email + sheet)
-      const notifyResult = await submitAndNotify({
+      // Show confirmation immediately after DB save
+      setIsSubmitted(true);
+      toast.success("Inquiry submitted successfully!");
+
+      // Fire-and-forget: send notifications (email + sheet) in background
+      submitAndNotify({
         name: formState.name,
         email: formState.email,
         phone: formState.phone || undefined,
         businessName: formState.businessName || undefined,
         service: formState.service,
         message: formState.message || undefined,
-      });
-      setIsSubmitted(true);
-      if (notifyResult?.emailSent) {
-        toast.success("Inquiry submitted! Email sent.");
-      } else if (notifyResult?.sheetAppended) {
-        toast.success("Inquiry submitted & saved to sheet!");
-      } else {
-        toast.success("Inquiry submitted!");
-      }
+      }).then((notifyResult) => {
+        if (notifyResult?.emailSent) console.log("✅ Lead email sent");
+        else console.warn("⚠️ Lead email failed - check RESEND_API_KEY");
+        if (notifyResult?.sheetAppended) console.log("✅ Lead saved to sheet");
+        else console.warn("⚠️ Lead sheet append failed - check GOOGLE env vars");
+      }).catch((e) => console.error("Background notification error:", e));
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Submission failed: ${msg}`);

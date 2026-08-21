@@ -127,8 +127,12 @@ export default function BookPage() {
         preferredTime: formState.preferredTime,
         notes: formState.notes || undefined,
       });
-      // Send notifications (email + sheet)
-      const notifyResult = await sendBookingNotifications({
+      // Show confirmation immediately after DB save
+      setIsSubmitted(true);
+      toast.success("Booking confirmed!");
+
+      // Fire-and-forget: send notifications (email + sheet) in background
+      sendBookingNotifications({
         name: formState.name,
         email: formState.email,
         phone: formState.phone || undefined,
@@ -136,15 +140,12 @@ export default function BookPage() {
         preferredDate: formState.preferredDate,
         preferredTime: formState.preferredTime,
         notes: formState.notes || undefined,
-      });
-      setIsSubmitted(true);
-      if (notifyResult?.emailSent) {
-        toast.success("Booking confirmed! Email sent.");
-      } else if (notifyResult?.sheetAppended) {
-        toast.success("Booking confirmed & saved to sheet!");
-      } else {
-        toast.success("Booking confirmed!");
-      }
+      }).then((notifyResult) => {
+        if (notifyResult?.emailSent) console.log("✅ Booking email sent");
+        else console.warn("⚠️ Booking email failed - check RESEND_API_KEY");
+        if (notifyResult?.sheetAppended) console.log("✅ Booking saved to sheet");
+        else console.warn("⚠️ Booking sheet append failed - check GOOGLE env vars");
+      }).catch((e) => console.error("Background booking notification error:", e));
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Booking failed: ${msg}`);
