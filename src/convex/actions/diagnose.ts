@@ -1,9 +1,45 @@
 "use node";
 
 import { action } from "../_generated/server";
-import { v } from "convex/values";
-import { Resend } from "resend";
-import { google } from "googleapis";
+import * as crypto from "crypto";
+
+async function getGoogleAccessToken(credentialsJson: string): Promise<string> {
+  const creds = JSON.parse(credentialsJson);
+  const now = Math.floor(Date.now() / 1000);
+
+  const header = Buffer.from(JSON.stringify({ alg: "RS256", typ: "JWT" })).toString("base64url");
+  const payload = Buffer.from(
+    JSON.stringify({
+      iss: creds.client_email,
+      scope: "https://www.googleapis.com/auth/spreadsheets",
+      aud: "https://oauth2.googleapis.com/token",
+      iat: now,
+      exp: now + 3600,
+    })
+  ).toString("base64url");
+
+  const sign = crypto.createSign("RSA-SHA256");
+  sign.update(`${header}.${payload}`);
+  const signature = sign.sign(creds.private_key, "base64url");
+  const jwt = `${header}.${payload}.${signature}`;
+
+  const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      grant_type: "urn:ietf:params:oauth:grant-type:jwt-bearer",
+      assertion: jwt,
+    }),
+  });
+
+  if (!tokenRes.ok) {
+    const body = await tokenRes.text();
+    throw new Error(`Google token exchange failed ${tokenRes.status}: ${body}`);
+  }
+
+  const tokenData = (await tokenRes.json()) as { access_token: string };
+  return tokenData.access_token;
+}
 
 export const checkEnv = action({
   args: {},
@@ -29,12 +65,13 @@ export const checkEnv = action({
     const resendKey = process.env.RESEND_API_KEY;
     if (resendKey) {
       try {
-        const resend = new Resend(resendKey);
-        // Try a lightweight API call to verify the key works
-        const domainRes = await resend.domains.list();
+        const res = await fetch("https://api.resend.com/domains", {
+          headers: { Authorization: `Bearer ${resendKey}` },
+        });
+        const data = await res.json();
         results.resend = {
-          status: "API key is valid",
-          data: JSON.stringify(domainRes.data),
+          status: res.ok ? "API key valid" : `ERROR ${res.status}`,
+          data: JSON.stringify(data),
         };
       } catch (e: any) {
         results.resend = {
@@ -51,67 +88,74 @@ export const checkEnv = action({
     const sheetId = process.env.GOOGLE_SHEET_ID;
     if (credentialsJson && sheetId) {
       try {
-        const credentials = JSON.parse(credentialsJson);
-        const auth = new google.auth.GoogleAuth({
-          credentials,
-          scopes: ["https://www.googleapis.com/auth/spreadsheets"],
-        });
-        const sheets = google.sheets({ version: "v4", auth });
+        const accessToken = await getGoogleAccessToken(credentialsJson);
 
-        // Try to read the sheet metadata
-        const meta = await sheets.spreadsheets.get({
-          spreadsheetId: sheetId,
-          fields: "properties.title,sheets.properties",
-        });
+        // Read sheet metadata
+        const metaRes = await fetch(
+          `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}?fields=properties.title,sheets.properties`,
+          { headers: { Authorization: `Bearer ${accessToken}` } }
+        );
 
-        const sheetTitle = meta.data.properties?.title ?? "unknown";
-        const sheetTabs = meta.data.sheets?.map(
-          (s) => s.properties?.title ?? "unnamed"
-        ) ?? [];
+        if (!metaRes.ok) {
+          const body = await metaRes.text();
+          results.googleSheets = { status: `ERROR reading metadata: ${metaRes.status}`, message: body };
+        } else {
+          const meta = await metaRes.json() as any;
 
-        // Try to read existing data
-        const readRes = await sheets.spreadsheets.values.get({
-          spreadsheetId: sheetId,
-          range: "Sheet1!A1:J10",
-        });
+          // Try to read existing data
+          const readRes = await fetch(
+            `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1!A1:J10`,
+            { headers: { Authorization: `Bearer ${accessToken}` } }
+          );
 
-        results.googleSheets = {
-          status: "Connected",
-          spreadsheetTitle: sheetTitle,
-          tabs: sheetTabs,
-          existingRows: readRes.data.values?.length ?? 0,
-          existingData: readRes.data.values?.slice(0, 5) ?? [],
-        };
+          let existingRows = 0;
+          let existingData: string[][] = [];
+          if (readRes.ok) {
+            const readData = (await readRes.json()) as any;
+            existingRows = readData.values?.length ?? 0;
+            existingData = readData.values?.slice(0, 5) ?? [];
+          }
 
-        // Try to write a test row
-        const testDate = new Date().toLocaleString("en-IN", {
-          timeZone: "Asia/Kolkata",
-        });
-        await sheets.spreadsheets.values.append({
-          spreadsheetId: sheetId,
-          range: "Sheet1!A:I",
-          valueInputOption: "RAW",
-          requestBody: {
-            values: [[
-              testDate,
-              "DIAGNOSTIC",
-              "Test Entry",
-              "test@example.com",
-              "9999999999",
-              "Test Business",
-              "Test Service",
-              "Diagnostic test",
-              "This row was created by the diagnostic tool. Delete this row.",
-            ]],
-          },
-        });
+          // Write test row
+          const testDate = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+          const writeRes = await fetch(
+            `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/Sheet1!A:I:append?valueInputOption=RAW`,
+            {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${accessToken}`,
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                values: [[
+                  testDate,
+                  "DIAGNOSTIC",
+                  "Test Entry",
+                  "test@example.com",
+                  "9999999999",
+                  "Test Business",
+                  "Test Service",
+                  "Diagnostic test",
+                  "This row was created by the diagnostic tool. Delete this row.",
+                ]],
+              }),
+            }
+          );
 
-        (results as any).googleSheets.wroteTestRow = true;
+          results.googleSheets = {
+            status: "Connected",
+            spreadsheetTitle: meta.properties?.title ?? "unknown",
+            tabs: meta.sheets?.map((s: any) => s.properties?.title ?? "unnamed") ?? [],
+            existingRows,
+            existingData,
+            wroteTestRow: writeRes.ok,
+            writeError: writeRes.ok ? null : await writeRes.text(),
+          };
+        }
       } catch (e: any) {
         results.googleSheets = {
           status: "ERROR",
           message: e.message || String(e),
-          code: e.code,
         };
       }
     } else {
@@ -125,17 +169,24 @@ export const checkEnv = action({
     // Test sending email
     if (resendKey) {
       try {
-        const resend = new Resend(resendKey);
-        const sendResult = await resend.emails.send({
-          from: "Grow with Anvaya <onboarding@resend.dev>",
-          to: "growwithanvaya@gmail.com",
-          subject: "🧪 Diagnostic Test — Grow with Anvaya",
-          html: "<p>This is a diagnostic test email from Grow with Anvaya. If you received this, email sending is working correctly.</p>",
+        const res = await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${resendKey}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: "Grow with Anvaya <onboarding@resend.dev>",
+            to: "growwithanvaya@gmail.com",
+            subject: "🧪 Diagnostic Test — Grow with Anvaya",
+            html: "<p>This is a diagnostic test email from Grow with Anvaya. If you received this, email sending is working correctly.</p>",
+          }),
         });
+        const data = await res.json() as any;
         (results as any).testEmail = {
-          status: "SENT",
-          id: sendResult.data?.id,
-          error: sendResult.error?.message,
+          status: res.ok ? "SENT" : `ERROR ${res.status}`,
+          id: data.id,
+          error: data.message,
         };
       } catch (e: any) {
         (results as any).testEmail = {
