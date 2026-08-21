@@ -5,7 +5,7 @@ import { v } from "convex/values";
 import { Resend } from "resend";
 import { google } from "googleapis";
 
-const BUSINESS_EMAIL = "yashwanth0921@gmail.com";
+const BUSINESS_EMAIL = "growwithanvaya@gmail.com";
 
 function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
   return Promise.race([

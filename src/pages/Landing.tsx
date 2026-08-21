@@ -491,21 +491,23 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       });
-      setIsSubmitted(true);
-      toast.success("Inquiry submitted!");
-      // Fire notifications in background (don't block the UI)
-      submitAndNotify({
+      // Send notifications (email + sheet)
+      const notifyResult = await submitAndNotify({
         name: formState.name,
         email: formState.email,
         phone: formState.phone || undefined,
         businessName: formState.businessName || undefined,
         service: formState.service,
         message: formState.message || undefined,
-      }).then((result) => {
-        console.log("Lead notifications result:", result);
-      }).catch((err) => {
-        console.error("Lead notification error:", err);
       });
+      setIsSubmitted(true);
+      if (notifyResult?.emailSent) {
+        toast.success("Inquiry submitted! Email sent.");
+      } else if (notifyResult?.sheetAppended) {
+        toast.success("Inquiry submitted & saved to sheet!");
+      } else {
+        toast.success("Inquiry submitted!");
+      }
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Submission failed: ${msg}`);
