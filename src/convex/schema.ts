@@ -68,6 +68,12 @@ const schema = defineSchema(
       text: v.string(),
       createdAt: v.number(),
     }).index("by_service", ["serviceSlug", "createdAt"]),
+
+    // Diagnostics for debugging env vars
+    diagnostics: defineTable({
+      results: v.any(),
+      createdAt: v.number(),
+    }),
   },
   {
     schemaValidation: false,

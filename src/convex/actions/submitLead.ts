@@ -1,6 +1,7 @@
 "use node";
 
 import { action } from "../_generated/server";
+import { api } from "../_generated/api";
 import { v } from "convex/values";
 import { Resend } from "resend";
 import { google } from "googleapis";
@@ -25,9 +26,23 @@ export const submitAndNotify = action({
     service: v.string(),
     message: v.optional(v.string()),
   },
-  handler: async (_ctx, args) => {
+  handler: async (ctx, args) => {
     const timestamp = Date.now();
-    const results = { emailSent: false, sheetAppended: false };
+    const results: {
+      emailSent: boolean;
+      sheetAppended: boolean;
+      emailError?: string;
+      sheetError?: string;
+      resendKeyPresent: boolean;
+      googleJsonPresent: boolean;
+      sheetIdPresent: boolean;
+    } = {
+      emailSent: false,
+      sheetAppended: false,
+      resendKeyPresent: !!process.env.RESEND_API_KEY,
+      googleJsonPresent: !!process.env.GOOGLE_SERVICE_ACCOUNT_JSON,
+      sheetIdPresent: !!process.env.GOOGLE_SHEET_ID,
+    };
 
     // Send notification email to business owner
     const resendKey = process.env.RESEND_API_KEY;
@@ -58,8 +73,8 @@ export const submitAndNotify = action({
           15000
         );
         results.emailSent = true;
-        console.log("Lead notification email sent to", BUSINESS_EMAIL);
       } catch (e: any) {
+        results.emailError = e.message || String(e);
         console.error("Lead email failed:", e.message);
       }
     }
@@ -106,10 +121,17 @@ export const submitAndNotify = action({
           15000
         );
         results.sheetAppended = true;
-        console.log("Lead appended to Google Sheet");
       } catch (e: any) {
+        results.sheetError = e.message || String(e);
         console.error("Google Sheet failed:", e.message);
       }
+    }
+
+    // Store diagnostic info in DB so we can see what happened
+    try {
+      await ctx.runMutation(api.diagnostics.store, { results });
+    } catch (e) {
+      console.error("Failed to store diagnostics:", e);
     }
 
     return results;

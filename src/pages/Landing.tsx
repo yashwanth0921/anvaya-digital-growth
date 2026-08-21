@@ -504,10 +504,13 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       }).then((notifyResult) => {
-        if (notifyResult?.emailSent) console.log("✅ Lead email sent");
-        else console.warn("⚠️ Lead email failed - check RESEND_API_KEY");
-        if (notifyResult?.sheetAppended) console.log("✅ Lead saved to sheet");
-        else console.warn("⚠️ Lead sheet append failed - check GOOGLE env vars");
+        const parts: string[] = [];
+        if (notifyResult?.emailSent) parts.push("✅ Email sent");
+        else parts.push(`❌ Email: ${notifyResult?.emailError || "key missing"}`);
+        if (notifyResult?.sheetAppended) parts.push("✅ Sheet updated");
+        else parts.push(`❌ Sheet: ${notifyResult?.sheetError || "vars missing"}`);
+        console.log("Notification results:", notifyResult);
+        toast.info(parts.join(" | "), { duration: 8000 });
       }).catch((e) => console.error("Background notification error:", e));
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
