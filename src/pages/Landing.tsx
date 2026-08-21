@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useAction, useMutation } from "convex/react";
+import { useMutation } from "convex/react";
 import { api } from "convex/_generated/api";
 import { useState } from "react";
 import { Link } from "react-router";
@@ -464,7 +464,6 @@ function TestimonialsSection() {
 
 function LeadFormSection() {
   const submitLead = useMutation(api.leads.submit);
-  const submitAndNotify = useAction(api.actions.submitLead.submitAndNotify);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -491,34 +490,9 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       });
-      // Show confirmation immediately after DB save
+      // Notifications (email + sheet) are scheduled automatically by the mutation
       setIsSubmitted(true);
       toast.success("Inquiry submitted successfully!");
-
-      // Fire-and-forget: send notifications (email + sheet) in background
-      submitAndNotify({
-        name: formState.name,
-        email: formState.email,
-        phone: formState.phone || undefined,
-        businessName: formState.businessName || undefined,
-        service: formState.service,
-        message: formState.message || undefined,
-      }).then((notifyResult) => {
-        console.log("Notification results:", notifyResult);
-        if (notifyResult?.emailSent && notifyResult?.sheetAppended) {
-          toast.success("✅ Email sent & sheet updated!");
-        } else {
-          const parts: string[] = [];
-          if (notifyResult?.emailSent) parts.push("✅ Email sent");
-          else parts.push(`❌ Email: ${notifyResult?.emailError || "failed"}`);
-          if (notifyResult?.sheetAppended) parts.push("✅ Sheet updated");
-          else parts.push(`❌ Sheet: ${notifyResult?.sheetError || "failed"}`);
-          toast.warning(parts.join(" | "), { duration: 10000 });
-        }
-      }).catch((e) => {
-        console.error("Notification error:", e);
-        toast.error(`❌ Notifications failed: ${e instanceof Error ? e.message : String(e)}`);
-      });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Submission failed: ${msg}`);

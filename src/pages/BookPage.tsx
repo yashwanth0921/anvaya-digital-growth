@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import { motion } from "framer-motion";
-import { useAction, useMutation } from "convex/react";
+import { useMutation } from "convex/react";
 import { api } from "convex/_generated/api";
 import { useState } from "react";
 import { toast } from "sonner";
@@ -99,7 +99,6 @@ export default function BookPage() {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
   const createBooking = useMutation(api.bookings.create);
-  const sendBookingNotifications = useAction(api.actions.sendBookingNotifications.sendBookingNotifications);
   const [formState, setFormState] = useState({
     name: "",
     email: "",
@@ -127,35 +126,9 @@ export default function BookPage() {
         preferredTime: formState.preferredTime,
         notes: formState.notes || undefined,
       });
-      // Show confirmation immediately
+      // Notifications (email + sheet) are scheduled automatically by the mutation
       setIsSubmitted(true);
       toast.success("Booking confirmed!");
-
-      // Fire-and-forget: send notifications (email + sheet)
-      sendBookingNotifications({
-        name: formState.name,
-        email: formState.email,
-        phone: formState.phone || undefined,
-        service: formState.service,
-        preferredDate: formState.preferredDate,
-        preferredTime: formState.preferredTime,
-        notes: formState.notes || undefined,
-      }).then((notifyResult) => {
-        console.log("Notification results:", notifyResult);
-        if (notifyResult?.emailSent && notifyResult?.sheetAppended) {
-          toast.success("✅ Email sent & sheet updated!");
-        } else {
-          const parts: string[] = [];
-          if (notifyResult?.emailSent) parts.push("✅ Email sent");
-          else parts.push(`❌ Email: ${notifyResult?.errors?.[0] || "failed"}`);
-          if (notifyResult?.sheetAppended) parts.push("✅ Sheet updated");
-          else parts.push(`❌ Sheet: ${notifyResult?.errors?.[0] || "failed"}`);
-          toast.warning(parts.join(" | "), { duration: 10000 });
-        }
-      }).catch((e) => {
-        console.error("Notification error:", e);
-        toast.error(`❌ Notifications failed: ${e instanceof Error ? e.message : String(e)}`);
-      });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(`Booking failed: ${msg}`);

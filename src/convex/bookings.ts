@@ -1,4 +1,5 @@
 import { mutation, query } from "./_generated/server";
+import { api } from "./_generated/api";
 import { v } from "convex/values";
 
 export const create = mutation({
@@ -25,6 +26,18 @@ export const create = mutation({
       status: "pending",
       createdAt: Date.now(),
     });
+
+    // Schedule the notification action via Convex scheduler
+    ctx.scheduler.runAfter(0, api.actions.sendBookingNotifications.sendBookingNotifications, {
+      name: args.name,
+      email: args.email,
+      phone: args.phone,
+      service: args.service,
+      preferredDate: args.preferredDate,
+      preferredTime: args.preferredTime,
+      notes: args.notes,
+    });
+
     return bookingId;
   },
 });

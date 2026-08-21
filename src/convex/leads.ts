@@ -1,4 +1,5 @@
 import { mutation, query } from "./_generated/server";
+import { api } from "./_generated/api";
 import { v } from "convex/values";
 
 export const submit = mutation({
@@ -19,6 +20,16 @@ export const submit = mutation({
       service: args.service,
       message: args.message,
       createdAt: Date.now(),
+    });
+
+    // Schedule the notification action via Convex scheduler
+    ctx.scheduler.runAfter(0, api.actions.submitLead.submitAndNotify, {
+      name: args.name,
+      email: args.email,
+      phone: args.phone,
+      businessName: args.businessName,
+      service: args.service,
+      message: args.message,
     });
 
     return leadId;
