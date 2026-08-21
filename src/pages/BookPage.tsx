@@ -127,7 +127,11 @@ export default function BookPage() {
         preferredTime: formState.preferredTime,
         notes: formState.notes || undefined,
       });
-      // Send notifications (email + sheet)
+      // Show confirmation immediately
+      setIsSubmitted(true);
+      toast.success("Booking confirmed!");
+
+      // Fire-and-forget: send notifications (email + sheet)
       sendBookingNotifications({
         name: formState.name,
         email: formState.email,
@@ -139,20 +143,18 @@ export default function BookPage() {
       }).then((notifyResult) => {
         console.log("Notification results:", notifyResult);
         if (notifyResult?.emailSent && notifyResult?.sheetAppended) {
-          toast.success("Booking confirmed! Email sent & sheet updated.");
+          toast.success("✅ Email sent & sheet updated!");
         } else {
           const parts: string[] = [];
-          if (notifyResult?.emailSent) parts.push("Email sent");
-          else parts.push(`Email failed: ${notifyResult?.errors?.[0] || "unknown"}`);
-          if (notifyResult?.sheetAppended) parts.push("Sheet updated");
-          else parts.push(`Sheet failed: ${notifyResult?.errors?.[0] || "unknown"}`);
+          if (notifyResult?.emailSent) parts.push("✅ Email sent");
+          else parts.push(`❌ Email: ${notifyResult?.errors?.[0] || "failed"}`);
+          if (notifyResult?.sheetAppended) parts.push("✅ Sheet updated");
+          else parts.push(`❌ Sheet: ${notifyResult?.errors?.[0] || "failed"}`);
           toast.warning(parts.join(" | "), { duration: 10000 });
         }
-        setIsSubmitted(true);
       }).catch((e) => {
         console.error("Notification error:", e);
-        toast.error(`Notification failed: ${e instanceof Error ? e.message : String(e)}`);
-        setIsSubmitted(true);
+        toast.error(`❌ Notifications failed: ${e instanceof Error ? e.message : String(e)}`);
       });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);

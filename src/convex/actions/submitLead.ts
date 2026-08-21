@@ -4,6 +4,7 @@ import { action } from "../_generated/server";
 import { api } from "../_generated/api";
 import { v } from "convex/values";
 import * as crypto from "crypto";
+import fetch from "node-fetch";
 
 const BUSINESS_EMAIL = "growwithanvaya@gmail.com";
 
@@ -119,6 +120,7 @@ export const submitAndNotify = action({
     message: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
+    console.log(" submitAndNotify called from:", args.email, args.name);
     const results: {
       emailSent: boolean;
       sheetAppended: boolean;

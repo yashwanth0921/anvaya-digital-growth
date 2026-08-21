@@ -491,6 +491,10 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       });
+      // Show confirmation immediately after DB save
+      setIsSubmitted(true);
+      toast.success("Inquiry submitted successfully!");
+
       // Fire-and-forget: send notifications (email + sheet) in background
       submitAndNotify({
         name: formState.name,
@@ -502,20 +506,18 @@ function LeadFormSection() {
       }).then((notifyResult) => {
         console.log("Notification results:", notifyResult);
         if (notifyResult?.emailSent && notifyResult?.sheetAppended) {
-          toast.success("Inquiry submitted! Email sent & sheet updated.");
+          toast.success("✅ Email sent & sheet updated!");
         } else {
           const parts: string[] = [];
-          if (notifyResult?.emailSent) parts.push("Email sent");
-          else parts.push(`Email failed: ${notifyResult?.emailError || "unknown"}`);
-          if (notifyResult?.sheetAppended) parts.push("Sheet updated");
-          else parts.push(`Sheet failed: ${notifyResult?.sheetError || "unknown"}`);
+          if (notifyResult?.emailSent) parts.push("✅ Email sent");
+          else parts.push(`❌ Email: ${notifyResult?.emailError || "failed"}`);
+          if (notifyResult?.sheetAppended) parts.push("✅ Sheet updated");
+          else parts.push(`❌ Sheet: ${notifyResult?.sheetError || "failed"}`);
           toast.warning(parts.join(" | "), { duration: 10000 });
         }
-        setIsSubmitted(true);
       }).catch((e) => {
         console.error("Notification error:", e);
-        toast.error(`Notification failed: ${e instanceof Error ? e.message : String(e)}`);
-        setIsSubmitted(true);
+        toast.error(`❌ Notifications failed: ${e instanceof Error ? e.message : String(e)}`);
       });
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);

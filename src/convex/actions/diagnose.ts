@@ -2,6 +2,7 @@
 
 import { action } from "../_generated/server";
 import * as crypto from "crypto";
+import fetch from "node-fetch";
 
 async function getGoogleAccessToken(credentialsJson: string): Promise<string> {
   const creds = JSON.parse(credentialsJson);
