@@ -573,39 +573,46 @@ function ServicesSection() {
 
 function ClientLogosBar() {
   return (
-    <section className="py-12 border-y border-border/40 bg-muted/30">
+    <section className="py-16 border-y border-border/40 bg-gradient-to-b from-muted/20 to-muted/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={stagger}
-          className="text-center mb-8"
+          className="text-center mb-10"
         >
-          <motion.p variants={fadeUp} className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+          <motion.p variants={fadeUp} className="text-sm font-semibold uppercase tracking-widest text-[#691E2A]">
             Trusted by forward-thinking brands
           </motion.p>
+          <motion.h3 variants={fadeUp} className="text-xl sm:text-2xl font-bold mt-2">
+            Brands we've helped <span className="text-gradient-gold">grow</span>
+          </motion.h3>
         </motion.div>
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={stagger}
-          className="flex flex-wrap items-center justify-center gap-6 sm:gap-10"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5"
         >
           {clientLogos.map((client) => (
             <motion.div
               key={client.name}
               variants={fadeUp}
-              className="flex items-center gap-3 px-5 py-3 rounded-xl bg-card border border-border/40 hover:border-[#691E2A]/20 hover:shadow-md transition-all"
+              whileHover={{ y: -4, scale: 1.03 }}
+              className="group relative flex flex-col items-center gap-3 p-5 rounded-2xl bg-card border border-border/40 hover:border-[#691E2A]/30 hover:shadow-xl hover:shadow-[#691E2A]/5 transition-all duration-300"
             >
-              <img
-                src={client.logo}
-                alt={client.name}
-                className="h-8 w-auto max-w-[80px] object-contain opacity-50 hover:opacity-80 transition-opacity grayscale hover:grayscale-0"
-                loading="lazy"
-              />
-              <span className="text-sm font-semibold text-muted-foreground hidden sm:inline">
+              <div className="relative">
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="w-16 h-16 rounded-xl object-cover border-2 border-border/20 group-hover:border-[#B28452]/50 transition-all duration-300"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-[#691E2A]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <span className="text-xs sm:text-sm font-semibold text-muted-foreground group-hover:text-[#691E2A] transition-colors text-center leading-tight">
                 {client.name}
               </span>
             </motion.div>
@@ -1392,9 +1399,64 @@ function Footer() {
   );
 }
 
+
+function ResultsSection() {
+  const results = [
+    { metric: "2.3M+", label: "Impressions delivered", sublabel: "across Meta, Google & Instagram", icon: Eye, color: "text-blue-500" },
+    { metric: "5×", label: "Average ROAS", sublabel: "on paid advertising campaigns", icon: TrendingUp, color: "text-green-500" },
+    { metric: "340%", label: "Avg. traffic increase", sublabel: "within first 90 days", icon: Zap, color: "text-amber-500" },
+    { metric: "4.9/5", label: "Client satisfaction", sublabel: "based on 50+ reviews", icon: Award, color: "text-[#691E2A]" },
+  ];
+  return (
+    <section id="results-metrics" className="py-20 sm:py-28 bg-gradient-to-b from-background to-muted/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={stagger} className="text-center max-w-2xl mx-auto mb-14">
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 text-green-600 text-sm font-semibold mb-4">
+            <CheckCircle2 className="w-4 h-4" />
+            Proven Results
+          </motion.div>
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Numbers that <span className="text-gradient-gold">speak for themselves</span>
+          </motion.h2>
+        </motion.div>
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={stagger} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {results.map((r) => (
+            <motion.div key={r.label} variants={fadeUp} whileHover={{ y: -6 }} className="relative p-6 rounded-2xl bg-card border border-border/60 hover:border-[#B28452]/30 hover:shadow-xl transition-all duration-300 text-center group">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#691E2A]/10 to-[#B28452]/10 mb-4 group-hover:scale-110 transition-transform">
+                <r.icon className={`w-6 h-6 ${r.color}`} />
+              </div>
+              <div className="text-3xl sm:text-4xl font-extrabold text-foreground mb-1">{r.metric}</div>
+              <div className="text-sm font-semibold text-foreground">{r.label}</div>
+              <div className="text-xs text-muted-foreground mt-1">{r.sublabel}</div>
+            </motion.div>
+          ))}
+        </motion.div>
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-12 p-5 rounded-2xl bg-gradient-to-r from-[#691E2A]/10 via-[#B28452]/10 to-[#691E2A]/10 border border-[#691E2A]/15 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-full bg-[#691E2A] flex items-center justify-center animate-pulse">
+              <Zap className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <p className="text-sm font-bold text-foreground">Limited Offer — Free Strategy Session</p>
+              <p className="text-xs text-muted-foreground">Only 3 spots left this month for our complimentary growth audit</p>
+            </div>
+          </div>
+          <Link to="/book" className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-bold hover:bg-[#531822] transition-all hover:shadow-lg shrink-0">
+            <Calendar className="w-4 h-4" />
+            Claim Your Spot
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function CTABanner() {
   return (
-    <section className="py-16 bg-anvaya-dark text-white relative">
+    <section className="py-16 bg-anvaya-dark text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-mesh-hero opacity-30" />
+      <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#691E2A]/10 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-[#B28452]/10 blur-3xl" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial="hidden"
@@ -1405,17 +1467,46 @@ function CTABanner() {
           <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Ready to <span className="text-gradient-gold">grow your brand?</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-400 text-lg mb-6 max-w-2xl mx-auto">
+          <motion.p variants={fadeUp} className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
             Join 50+ brands that chose Grow with Anvaya to transform their digital presence. Let's talk about your growth.
           </motion.p>
-          <motion.div variants={fadeUp}>
+          <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-6 mb-8">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                {[1,2,3,4].map((i) => (
+                  <div key={i} className="w-8 h-8 rounded-full border-2 border-[#430D12] bg-gradient-to-br from-[#691E2A] to-[#B28452] flex items-center justify-center">
+                    <span className="text-[10px] font-bold text-white">{["P","R","A","V"][i-1]}</span>
+                  </div>
+                ))}
+              </div>
+              <span className="text-sm text-gray-400">50+ happy clients</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              {[1,2,3,4,5].map((i) => (
+                <span key={i} className="text-[#D9B280]">★</span>
+              ))}
+              <span className="text-sm text-gray-400 ml-1">4.9/5 rating</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-[#D9B280]" />
+              <span className="text-sm text-gray-400">24-hour response</span>
+            </div>
+          </motion.div>
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="mailto:growwithanvaya@gmail.com"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#691E2A] text-white font-bold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#691E2A] text-white font-bold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5 animate-pulse-slow"
             >
               <Send className="w-5 h-5" />
-              growwithanvaya@gmail.com
+              Send Us a Message
             </a>
+            <Link
+              to="/book"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-bold text-base hover:bg-white/10 transition-all"
+            >
+              <Calendar className="w-5 h-5" />
+              Book a Free Call
+            </Link>
           </motion.div>
         </motion.div>
       </div>
@@ -1432,6 +1523,7 @@ export default function Landing() {
       <ClientLogosBar />
       <WorkShowcaseSection />
       <ProcessSection />
+      <ResultsSection />
       <TestimonialsSection />
       <CTABanner />
       <LeadFormSection />
