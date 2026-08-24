@@ -5,8 +5,6 @@ import {
   Search,
   Smartphone,
   Palette,
-  Mail,
-  PenTool,
   type LucideIcon,
 } from "lucide-react";
 
@@ -289,94 +287,7 @@ export const services: ServiceData[] = [
     ],
 
   },
-  {
-    slug: "email-marketing",
-    title: "Email Marketing",
-    tagline: "Inbox is the highest ROI channel you're ignoring.",
-    description:
-      "Automated email campaigns, newsletters, and drip sequences that nurture leads and turn subscribers into loyal, repeat customers.",
-    longDescription:
-      "Email marketing delivers an average ROI of ₹36 for every ₹1 spent — making it one of the most powerful channels in your toolkit. We design and execute email strategies that go beyond batch-and-blast. From welcome sequences and abandoned cart recovery to newsletters and re-engagement campaigns, every email is crafted to deliver value, build relationships, and drive measurable results. Our data-driven approach ensures high open rates, strong click-throughs, and conversions that impact your bottom line.",
-    icon: Mail,
-    color: "from-cyan-500/20 to-sky-500/20",
-    iconColor: "text-cyan-600",
-    features: [
-      "Automated Sequences",
-      "Newsletter Design",
-      "Drip Campaigns",
-      "List Segmentation",
-    ],
-    benefits: [
-      {
-        title: "Highest ROI Channel",
-        description:
-          "Email consistently outperforms social media and paid ads in ROI, making it the most cost-effective marketing channel.",
-      },
-      {
-        title: "Automated Nurturing",
-        description:
-          "Set up once, run forever — automated sequences nurture leads 24/7 without any manual effort from your team.",
-      },
-      {
-        title: "Direct Ownership",
-        description:
-          "Unlike social media followers, your email list is an asset you own — not subject to algorithm changes or platform fees.",
-      },
-    ],
-    deliverables: [
-      "Email strategy and planning",
-      "Custom template design",
-      "Automated sequence setup",
-      "A/B testing and optimization",
-      "List management and segmentation",
-      "Performance analytics reports",
-    ],
 
-  },
-  {
-    slug: "content-marketing",
-    title: "Content Marketing",
-    tagline: "Stories that sell, content that converts.",
-    description:
-      "Blog posts, case studies, videos, and social content that educates your audience, builds authority, and drives organic traffic to your business.",
-    longDescription:
-      "Great content doesn't just fill a calendar — it drives business results. We create strategic content that educates your audience, builds thought leadership, and attracts qualified traffic to your website. From blog posts and case studies to video scripts and infographics, every piece is designed with a purpose: to inform, engage, and convert. Our content strategies are built on keyword research, audience insights, and a deep understanding of what makes content shareable and discoverable.",
-    icon: PenTool,
-    color: "from-teal-500/20 to-emerald-500/20",
-    iconColor: "text-teal-600",
-    features: [
-      "Blog & Articles",
-      "Video Content",
-      "Case Studies",
-      "Social Content",
-    ],
-    benefits: [
-      {
-        title: "Thought Leadership",
-        description:
-          "Quality content positions your brand as an expert in your industry, building trust and authority with your audience.",
-      },
-      {
-        title: "Compounding Returns",
-        description:
-          "Unlike ads that stop working when you stop paying, content continues to drive traffic and leads for months and years.",
-      },
-      {
-        title: "Multi-Channel Impact",
-        description:
-          "One piece of content can fuel your blog, social media, email newsletters, and sales materials simultaneously.",
-      },
-    ],
-    deliverables: [
-      "Content strategy and calendar",
-      "Blog posts and articles",
-      "Video scripts and production",
-      "Infographics and visuals",
-      "Content distribution plan",
-      "Performance tracking and reporting",
-    ],
-
-  },
 ];
 
 export function getServiceBySlug(slug: string): ServiceData | undefined {

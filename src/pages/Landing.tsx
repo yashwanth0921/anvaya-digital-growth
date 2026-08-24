@@ -28,8 +28,6 @@ import logo from "@/assets/logo.svg";import {
   Quote,
   Smartphone,
   Palette,
-  Mail,
-  PenTool,
   ChevronLeft,
 } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
@@ -41,8 +39,7 @@ const serviceIcons: Record<string, typeof Globe> = {
   "seo-analytics": Search,
   "app-development": Smartphone,
   "brand-identity": Palette,
-  "email-marketing": Mail,
-  "content-marketing": PenTool,
+
 };
 
 const fadeUp = {
@@ -129,13 +126,7 @@ const testimonials = [
     rating: 5,
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&q=80",
   },
-  {
-    name: "Sneha Reddy",
-    business: "FreshCart India",
-    text: "Their email marketing campaigns consistently deliver 40%+ open rates and drive thousands in revenue every month. Grow with Anvaya understands how to build relationships through email.",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&h=120&fit=crop&q=80",
-  },
+
   {
     name: "Arjun Nair",
     business: "StyleCraft Salon",
@@ -150,13 +141,7 @@ const testimonials = [
     rating: 5,
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&h=120&fit=crop&q=80",
   },
-  {
-    name: "Karan Singh",
-    business: "PureFit Nutrition",
-    text: "Their content marketing strategy brought us from page 5 to page 1 on Google for our main keywords. Organic traffic tripled in 4 months. Grow with Anvaya knows SEO inside and out.",
-    rating: 5,
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&h=120&fit=crop&q=80",
-  },
+
 ];
 
 const serviceOptions = [
@@ -166,8 +151,6 @@ const serviceOptions = [
   "SEO & Analytics",
   "App Development",
   "Brand Identity & Design",
-  "Email Marketing",
-  "Content Marketing",
   "Full Digital Package",
 ];
 
