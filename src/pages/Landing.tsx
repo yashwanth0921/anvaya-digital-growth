@@ -1391,57 +1391,6 @@ function Footer() {
 }
 
 
-function ResultsSection() {
-  const results = [
-    { metric: "2.3M+", label: "Impressions delivered", sublabel: "across Meta, Google & Instagram", icon: Eye, color: "text-blue-500" },
-    { metric: "5×", label: "Average ROAS", sublabel: "on paid advertising campaigns", icon: TrendingUp, color: "text-green-500" },
-    { metric: "340%", label: "Avg. traffic increase", sublabel: "within first 90 days", icon: Zap, color: "text-amber-500" },
-    { metric: "4.9/5", label: "Client satisfaction", sublabel: "based on 50+ reviews", icon: Award, color: "text-[#691E2A]" },
-  ];
-  return (
-    <section id="results-metrics" className="py-20 sm:py-28 bg-gradient-to-b from-background to-muted/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-100px" }} variants={stagger} className="text-center max-w-2xl mx-auto mb-14">
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 text-green-600 text-sm font-semibold mb-4">
-            <CheckCircle2 className="w-4 h-4" />
-            Proven Results
-          </motion.div>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Numbers that <span className="text-gradient-gold">speak for themselves</span>
-          </motion.h2>
-        </motion.div>
-        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-50px" }} variants={stagger} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {results.map((r) => (
-            <motion.div key={r.label} variants={fadeUp} whileHover={{ y: -6 }} className="relative p-6 rounded-2xl bg-card border border-border/60 hover:border-[#B28452]/30 hover:shadow-xl transition-all duration-300 text-center group">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-[#691E2A]/10 to-[#B28452]/10 mb-4 group-hover:scale-110 transition-transform">
-                <r.icon className={`w-6 h-6 ${r.color}`} />
-              </div>
-              <div className="text-3xl sm:text-4xl font-extrabold text-foreground mb-1">{r.metric}</div>
-              <div className="text-sm font-semibold text-foreground">{r.label}</div>
-              <div className="text-xs text-muted-foreground mt-1">{r.sublabel}</div>
-            </motion.div>
-          ))}
-        </motion.div>
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mt-12 p-5 rounded-2xl bg-gradient-to-r from-[#691E2A]/10 via-[#B28452]/10 to-[#691E2A]/10 border border-[#691E2A]/15 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-[#691E2A] flex items-center justify-center animate-pulse">
-              <Zap className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <p className="text-sm font-bold text-foreground">Limited Offer — Free Strategy Session</p>
-              <p className="text-xs text-muted-foreground">Only 3 spots left this month for our complimentary growth audit</p>
-            </div>
-          </div>
-          <Link to="/book" className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-bold hover:bg-[#531822] transition-all hover:shadow-lg shrink-0">
-            <Calendar className="w-4 h-4" />
-            Claim Your Spot
-          </Link>
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 function CTABanner() {
   return (
     <section className="py-16 bg-anvaya-dark text-white relative overflow-hidden">
@@ -1514,7 +1463,6 @@ export default function Landing() {
       <ClientLogosBar />
       <WorkShowcaseSection />
       <ProcessSection />
-      <ResultsSection />
       <TestimonialsSection />
       <CTABanner />
       <LeadFormSection />
