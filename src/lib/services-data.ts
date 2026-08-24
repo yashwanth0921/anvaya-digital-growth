@@ -3,6 +3,10 @@ import {
   Megaphone,
   Globe,
   Search,
+  Smartphone,
+  Palette,
+  Mail,
+  PenTool,
   type LucideIcon,
 } from "lucide-react";
 
@@ -194,6 +198,182 @@ export const services: ServiceData[] = [
       "Local SEO setup",
       "Monthly ranking reports",
       "Analytics dashboard setup",
+    ],
+
+  },
+  {
+    slug: "app-development",
+    title: "App Development",
+    tagline: "Your business, in your customers' pockets.",
+    description:
+      "Native and cross-platform mobile apps for iOS and Android. We build fast, beautiful apps that keep your customers engaged and coming back.",
+    longDescription:
+      "Mobile apps aren't just for big corporations anymore. We build custom mobile applications for businesses of all sizes — from booking apps and e-commerce stores to loyalty programs and internal tools. Using modern frameworks, we deliver apps that feel native, load fast, and provide seamless experiences across iOS and Android. Every app is designed with your users in mind, ensuring intuitive navigation and beautiful design that reflects your brand.",
+    icon: Smartphone,
+    color: "from-indigo-500/20 to-violet-500/20",
+    iconColor: "text-indigo-500",
+    features: [
+      "iOS & Android Apps",
+      "Cross-Platform",
+      "UI/UX Design",
+      "App Store Launch",
+    ],
+    benefits: [
+      {
+        title: "Direct Customer Connection",
+        description:
+          "Push notifications, in-app messaging, and personalized experiences keep your brand on your customers' home screens.",
+      },
+      {
+        title: "Streamlined Operations",
+        description:
+          "Custom apps can automate bookings, orders, and customer service — saving your team hours every week.",
+      },
+      {
+        title: "Competitive Edge",
+        description:
+          "A well-built app sets you apart from competitors who only have a website, positioning you as an industry leader.",
+      },
+    ],
+    deliverables: [
+      "App strategy and wireframing",
+      "Custom UI/UX design",
+      "iOS and Android development",
+      "API and backend integration",
+      "App Store submission",
+      "Post-launch maintenance",
+    ],
+
+  },
+  {
+    slug: "brand-identity",
+    title: "Brand Identity & Design",
+    tagline: "Make your first impression unforgettable.",
+    description:
+      "Complete brand identity systems — logo, colors, typography, and guidelines that make your business instantly recognizable and professionally positioned.",
+    longDescription:
+      "Your brand is more than a logo — it's the feeling people get when they encounter your business. We craft complete brand identity systems that communicate professionalism, trust, and personality. From logo design and color palettes to typography, imagery guidelines, and brand voice, every element is thoughtfully designed to resonate with your target audience and stand out in your market. The result is a cohesive brand that works across every touchpoint — digital, print, and physical.",
+    icon: Palette,
+    color: "from-rose-500/20 to-pink-500/20",
+    iconColor: "text-rose-500",
+    features: [
+      "Logo Design",
+      "Brand Guidelines",
+      "Visual Identity",
+      "Brand Strategy",
+    ],
+    benefits: [
+      {
+        title: "Instant Recognition",
+        description:
+          "A strong visual identity ensures customers recognize and remember your brand across all platforms and touchpoints.",
+      },
+      {
+        title: "Professional Credibility",
+        description:
+          "Polished branding signals quality and professionalism, building trust before a single conversation happens.",
+      },
+      {
+        title: "Consistent Experience",
+        description:
+          "Brand guidelines ensure every piece of marketing material — from social posts to business cards — looks cohesive.",
+      },
+    ],
+    deliverables: [
+      "Logo and icon design",
+      "Color palette and typography",
+      "Brand style guide",
+      "Business card and stationery design",
+      "Social media brand kit",
+      "Brand voice guidelines",
+    ],
+
+  },
+  {
+    slug: "email-marketing",
+    title: "Email Marketing",
+    tagline: "Inbox is the highest ROI channel you're ignoring.",
+    description:
+      "Automated email campaigns, newsletters, and drip sequences that nurture leads and turn subscribers into loyal, repeat customers.",
+    longDescription:
+      "Email marketing delivers an average ROI of ₹36 for every ₹1 spent — making it one of the most powerful channels in your toolkit. We design and execute email strategies that go beyond batch-and-blast. From welcome sequences and abandoned cart recovery to newsletters and re-engagement campaigns, every email is crafted to deliver value, build relationships, and drive measurable results. Our data-driven approach ensures high open rates, strong click-throughs, and conversions that impact your bottom line.",
+    icon: Mail,
+    color: "from-cyan-500/20 to-sky-500/20",
+    iconColor: "text-cyan-600",
+    features: [
+      "Automated Sequences",
+      "Newsletter Design",
+      "Drip Campaigns",
+      "List Segmentation",
+    ],
+    benefits: [
+      {
+        title: "Highest ROI Channel",
+        description:
+          "Email consistently outperforms social media and paid ads in ROI, making it the most cost-effective marketing channel.",
+      },
+      {
+        title: "Automated Nurturing",
+        description:
+          "Set up once, run forever — automated sequences nurture leads 24/7 without any manual effort from your team.",
+      },
+      {
+        title: "Direct Ownership",
+        description:
+          "Unlike social media followers, your email list is an asset you own — not subject to algorithm changes or platform fees.",
+      },
+    ],
+    deliverables: [
+      "Email strategy and planning",
+      "Custom template design",
+      "Automated sequence setup",
+      "A/B testing and optimization",
+      "List management and segmentation",
+      "Performance analytics reports",
+    ],
+
+  },
+  {
+    slug: "content-marketing",
+    title: "Content Marketing",
+    tagline: "Stories that sell, content that converts.",
+    description:
+      "Blog posts, case studies, videos, and social content that educates your audience, builds authority, and drives organic traffic to your business.",
+    longDescription:
+      "Great content doesn't just fill a calendar — it drives business results. We create strategic content that educates your audience, builds thought leadership, and attracts qualified traffic to your website. From blog posts and case studies to video scripts and infographics, every piece is designed with a purpose: to inform, engage, and convert. Our content strategies are built on keyword research, audience insights, and a deep understanding of what makes content shareable and discoverable.",
+    icon: PenTool,
+    color: "from-teal-500/20 to-emerald-500/20",
+    iconColor: "text-teal-600",
+    features: [
+      "Blog & Articles",
+      "Video Content",
+      "Case Studies",
+      "Social Content",
+    ],
+    benefits: [
+      {
+        title: "Thought Leadership",
+        description:
+          "Quality content positions your brand as an expert in your industry, building trust and authority with your audience.",
+      },
+      {
+        title: "Compounding Returns",
+        description:
+          "Unlike ads that stop working when you stop paying, content continues to drive traffic and leads for months and years.",
+      },
+      {
+        title: "Multi-Channel Impact",
+        description:
+          "One piece of content can fuel your blog, social media, email newsletters, and sales materials simultaneously.",
+      },
+    ],
+    deliverables: [
+      "Content strategy and calendar",
+      "Blog posts and articles",
+      "Video scripts and production",
+      "Infographics and visuals",
+      "Content distribution plan",
+      "Performance tracking and reporting",
     ],
 
   },

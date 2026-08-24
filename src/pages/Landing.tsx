@@ -5,8 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { toast } from "sonner";
 import { services } from "@/lib/services-data";
-import logo from "@/assets/logo.svg";
-import {
+import logo from "@/assets/logo.svg";import {
   ArrowRight,
   BarChart3,
   Rocket,
@@ -25,17 +24,25 @@ import {
   Globe,
   Megaphone,
   Search,
-
   Eye,
-
   Quote,
+  Smartphone,
+  Palette,
+  Mail,
+  PenTool,
+  ChevronLeft,
 } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
 
 const serviceIcons: Record<string, typeof Globe> = {
   "social-media-marketing": Megaphone,
   "meta-google-ads": Megaphone,
   "website-development": Globe,
   "seo-analytics": Search,
+  "app-development": Smartphone,
+  "brand-identity": Palette,
+  "email-marketing": Mail,
+  "content-marketing": PenTool,
 };
 
 const fadeUp = {
@@ -97,23 +104,58 @@ const testimonials = [
   {
     name: "Priya Sharma",
     business: "Bloom Beauty Studio",
-    text: "Our Instagram grew from 500 to 8,000 engaged followers in just three months. Nearly 40% of our new customers now find us through social media — the ROI speaks for itself.",
+    text: "Our Instagram grew from 500 to 8,000 engaged followers in just three months. Nearly 40% of our new customers now find us through social media — the ROI speaks for itself. Grow with Anvaya truly transformed our digital presence.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=120&h=120&fit=crop&q=80",
   },
   {
     name: "Rahul Mehta",
     business: "TechFlow Solutions",
-    text: "The Meta Ads campaign they built delivered a 5x return in the very first month. They understand how to target precisely and convert efficiently — exactly what we needed.",
+    text: "The Meta Ads campaign they built delivered a 5x return in the very first month. They understand how to target precisely and convert efficiently — exactly what we needed. Grow with Anvaya is our go-to growth partner.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&q=80",
   },
   {
     name: "Ananya Desai",
     business: "GreenLeaf Organics",
-    text: "Our website redesign doubled our conversion rate. The team was responsive, creative, and genuinely invested in getting the details right. The best decision we made for our business.",
+    text: "Our website redesign doubled our conversion rate. The team was responsive, creative, and genuinely invested in getting the details right. The best decision we made for our business. Thank you, Grow with Anvaya!",
     rating: 5,
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&q=80",
+  },
+  {
+    name: "Vikram Patel",
+    business: "Urban Bites Cafe",
+    text: "From zero online presence to 500+ monthly orders — Grow with Anvaya built our entire digital ecosystem. The app they designed is beautiful and our customers love ordering through it.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=120&h=120&fit=crop&q=80",
+  },
+  {
+    name: "Sneha Reddy",
+    business: "FreshCart India",
+    text: "Their email marketing campaigns consistently deliver 40%+ open rates and drive thousands in revenue every month. Grow with Anvaya understands how to build relationships through email.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=120&h=120&fit=crop&q=80",
+  },
+  {
+    name: "Arjun Nair",
+    business: "StyleCraft Salon",
+    text: "The brand identity they created for us is absolutely stunning. Every touchpoint — from our logo to our social media — feels premium and cohesive. Grow with Anvaya elevated our entire brand.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&q=80",
+  },
+  {
+    name: "Meera Joshi",
+    business: "Mindful Spaces",
+    text: "We needed a mobile app for our wellness platform and Grow with Anvaya delivered beyond our expectations. Smooth, intuitive, and our members absolutely love it. Highly recommended!",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=120&h=120&fit=crop&q=80",
+  },
+  {
+    name: "Karan Singh",
+    business: "PureFit Nutrition",
+    text: "Their content marketing strategy brought us from page 5 to page 1 on Google for our main keywords. Organic traffic tripled in 4 months. Grow with Anvaya knows SEO inside and out.",
+    rating: 5,
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=120&h=120&fit=crop&q=80",
   },
 ];
 
@@ -122,6 +164,10 @@ const serviceOptions = [
   "Meta & Google Ads",
   "Website Development",
   "SEO & Analytics",
+  "App Development",
+  "Brand Identity & Design",
+  "Email Marketing",
+  "Content Marketing",
   "Full Digital Package",
 ];
 
@@ -321,7 +367,7 @@ function ServicesSection() {
             <span className="text-gradient-green">drives growth</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
-            From social media to search engines, we deliver end-to-end digital marketing built around your business goals.
+            From social media to search engines, we deliver end-to-end digital marketing and tech solutions built around your business goals.
           </motion.p>
         </motion.div>
 
@@ -330,7 +376,7 @@ function ServicesSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={stagger}
-          className="grid sm:grid-cols-2 gap-6"
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
         >
           {services.map((service) => {
             const Icon = serviceIcons[service.slug] ?? Globe;
@@ -338,24 +384,24 @@ function ServicesSection() {
               <motion.div key={service.slug} variants={fadeUp}>
                 <Link
                   to={`/services/${service.slug}`}
-                  className="group block relative bg-card rounded-2xl border border-border/60 p-7 sm:p-8 hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300"
+                  className="group block relative bg-card rounded-2xl border border-border/60 p-6 hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300"
                 >
-                  <div className="flex items-start justify-between mb-5">
-                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${service.color}`}>
-                      <Icon className={`w-6 h-6 ${service.iconColor}`} />
+                  <div className="flex items-start justify-between mb-4">
+                    <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br ${service.color}`}>
+                      <Icon className={`w-5 h-5 ${service.iconColor}`} />
                     </div>
-                    <ArrowRight className="w-5 h-5 text-muted-foreground/40 group-hover:text-[#691E2A] transition-colors" />
+                    <ArrowRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-[#691E2A] transition-colors" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-[#691E2A] transition-colors">
+                  <h3 className="text-lg font-bold mb-2 group-hover:text-[#691E2A] transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
                     {service.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
-                    {service.features.map((feat) => (
-                      <span key={feat} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted text-xs font-medium text-muted-foreground">
-                        <CheckCircle2 className="w-3 h-3 text-[#691E2A]" />
+                  <div className="flex flex-wrap gap-1.5">
+                    {service.features.slice(0, 3).map((feat) => (
+                      <span key={feat} className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-muted text-[11px] font-medium text-muted-foreground">
+                        <CheckCircle2 className="w-2.5 h-2.5 text-[#691E2A]" />
                         {feat}
                       </span>
                     ))}
@@ -615,15 +661,37 @@ function ProcessSection() {
 }
 
 function TestimonialsSection() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(true);
+
+  const scrollPrev = () => emblaApi?.scrollPrev();
+  const scrollNext = () => emblaApi?.scrollNext();
+
+  const onSelect = () => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
+  };
+
+  useState(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+    onSelect();
+  });
+
   return (
-    <section id="results" className="py-20 sm:py-28 relative">
+    <section id="results" className="py-20 sm:py-28 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={stagger}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-2xl mx-auto mb-12"
         >
           <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-sm font-semibold mb-4">
             <Users className="w-4 h-4" />
@@ -638,46 +706,77 @@ function TestimonialsSection() {
           </motion.p>
         </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={stagger}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {testimonials.map((t) => (
-            <motion.div
-              key={t.name}
-              variants={fadeUp}
-              className="bg-card rounded-2xl border border-border/60 p-7 hover:shadow-lg transition-shadow"
-            >
-              <div className="flex items-center gap-1 mb-2">
-                <Quote className="w-5 h-5 text-[#B28452]/40" />
-              </div>
-              <div className="flex gap-1 mb-4">
-                {Array.from({ length: t.rating }).map((_, i) => (
-                  <svg key={i} className="w-5 h-5 text-[#B28452]" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                "{t.text}"
-              </p>
-              <div className="flex items-center gap-3">
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  className="w-10 h-10 rounded-full object-cover border-2 border-[#691E2A]/20"
-                />
-                <div>
-                  <div className="text-sm font-semibold">{t.name}</div>
-                  <div className="text-xs text-muted-foreground">{t.business}</div>
+        {/* Carousel controls */}
+        <div className="flex items-center justify-end gap-2 mb-6">
+          <button
+            onClick={scrollPrev}
+            disabled={!canScrollPrev}
+            className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center hover:bg-muted transition-colors disabled:opacity-30"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={scrollNext}
+            disabled={!canScrollNext}
+            className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center hover:bg-muted transition-colors disabled:opacity-30"
+          >
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Swipeable carousel */}
+        <div ref={emblaRef} className="overflow-hidden">
+          <div className="flex gap-5">
+            {testimonials.map((t) => (
+              <div
+                key={t.name}
+                className="flex-none w-[85vw] sm:w-[420px] lg:w-[380px]"
+              >
+                <div className="h-full bg-card rounded-2xl border border-border/60 p-6 sm:p-7 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center gap-1 mb-2">
+                    <Quote className="w-5 h-5 text-[#B28452]/40" />
+                  </div>
+                  <div className="flex gap-1 mb-4">
+                    {Array.from({ length: t.rating }).map((_, i) => (
+                      <svg key={i} className="w-5 h-5 text-[#B28452]" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                    "{t.text}"
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={t.image}
+                      alt={t.name}
+                      className="w-10 h-10 rounded-full object-cover border-2 border-[#691E2A]/20"
+                    />
+                    <div>
+                      <div className="text-sm font-semibold">{t.name}</div>
+                      <div className="text-xs text-muted-foreground">{t.business}</div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dots */}
+        <div className="flex items-center justify-center gap-2 mt-8">
+          {testimonials.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => emblaApi?.scrollTo(i)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                i === selectedIndex
+                  ? "bg-[#691E2A] w-6"
+                  : "bg-border hover:bg-muted-foreground/30"
+              }`}
+            />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -968,7 +1067,7 @@ function Footer() {
             <h4 className="text-white font-semibold text-sm mb-4">Resources</h4>
             <ul className="space-y-2.5">
               <li><a href="#work" className="text-sm hover:text-white transition-colors">Our Work</a></li>
-              
+              <li><a href="#services" className="text-sm hover:text-white transition-colors">All Services</a></li>
               <li><a href="#process" className="text-sm hover:text-white transition-colors">How We Work</a></li>
               <li><a href="#results" className="text-sm hover:text-white transition-colors">Results</a></li>
             </ul>
