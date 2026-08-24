@@ -924,7 +924,7 @@ function LeadFormSection() {
                       onChange={handleChange}
                       placeholder="Your full name"
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     />
                   </div>
                   <div>
@@ -938,7 +938,7 @@ function LeadFormSection() {
                       onChange={handleChange}
                       placeholder="you@business.com"
                       required
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     />
                   </div>
                 </div>
@@ -954,7 +954,7 @@ function LeadFormSection() {
                       value={formState.phone}
                       onChange={handleChange}
                       placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     />
                   </div>
                   <div>
@@ -967,7 +967,7 @@ function LeadFormSection() {
                       value={formState.businessName}
                       onChange={handleChange}
                       placeholder="Your business name"
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     />
                   </div>
                 </div>
@@ -982,7 +982,7 @@ function LeadFormSection() {
                       value={formState.service}
                       onChange={handleChange}
                       required
-                      className="w-full appearance-none px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
+                      className="w-full appearance-none px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     >
                       <option value="" disabled className="bg-[#0F1D33] text-gray-400">
                         Select a service
@@ -1007,7 +1007,7 @@ function LeadFormSection() {
                     onChange={handleChange}
                     rows={3}
                     placeholder="What are you looking to achieve? Any specific goals or challenges?"
-                    className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-600 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all resize-none"
                   />
                 </div>
 
