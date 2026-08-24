@@ -25,6 +25,14 @@ import {
   Globe,
   Megaphone,
   Search,
+  Play,
+  BookOpen,
+  TrendingUpIcon,
+  Eye,
+  Layout,
+  Camera,
+  Code,
+  FileText,
 } from "lucide-react";
 
 const serviceIcons: Record<string, typeof Globe> = {
@@ -42,6 +50,96 @@ const fadeUp = {
 const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
+
+const projects = [
+  {
+    title: "Bloom Beauty Studio",
+    category: "Social Media Growth",
+    description: "Transformed a local beauty studio's Instagram presence from 500 to 8,000+ engaged followers in 3 months with strategic content and reels.",
+    results: ["16× follower growth", "40% new customers from social", "3× engagement rate"],
+    color: "from-[#691E2A]/10 to-[#B28452]/10",
+    icon: Camera,
+    metrics: { label: "Followers Gained", value: "7,500+" },
+  },
+  {
+    title: "TechFlow Solutions",
+    category: "Meta & Google Ads",
+    description: "Built and optimized a full-funnel ad campaign delivering 5× ROAS in the first month for a B2B SaaS company.",
+    results: ["5× ROAS", "60% lower CPA", "2.3M impressions"],
+    color: "from-[#B28452]/10 to-[#691E2A]/10",
+    icon: TrendingUpIcon,
+    metrics: { label: "Return on Ad Spend", value: "5×" },
+  },
+  {
+    title: "GreenLeaf Organics",
+    category: "Website & SEO",
+    description: "Complete website redesign with SEO optimization that doubled conversion rate and tripled organic traffic within 6 months.",
+    results: ["2× conversion rate", "3× organic traffic", "Page 1 rankings for 12 keywords"],
+    color: "from-[#430D12]/10 to-[#B28452]/10",
+    icon: Layout,
+    metrics: { label: "Conversion Lift", value: "2×" },
+  },
+  {
+    title: "Urban Bites Cafe",
+    category: "Full Digital Package",
+    description: "End-to-end digital transformation — social media, local SEO, Google Ads, and a new ordering website for a growing restaurant chain.",
+    results: ["500+ monthly orders online", "Top 3 Google Maps ranking", "4.8★ average review score"],
+    color: "from-[#691E2A]/8 to-[#D9B280]/10",
+    icon: Globe,
+    metrics: { label: "Monthly Online Orders", value: "500+" },
+  },
+];
+
+const tutorials = [
+  {
+    title: "How to Create Scroll-Stopping Instagram Reels",
+    category: "Social Media",
+    duration: "8 min read",
+    icon: Play,
+    description: "Learn the exact framework we use to create Instagram Reels that get 10× more views and drive real engagement.",
+    tags: ["Instagram", "Content Creation", "Reels"],
+  },
+  {
+    title: "Meta Ads Masterclass: From ₹0 to ₹1L Revenue",
+    category: "Paid Advertising",
+    duration: "12 min read",
+    icon: Megaphone,
+    description: "A step-by-step guide to setting up your first Meta Ads campaign — targeting, creatives, budgets, and scaling strategies.",
+    tags: ["Meta Ads", "Facebook", "ROI"],
+  },
+  {
+    title: "Local SEO: Get Your Business on Google Maps",
+    category: "SEO",
+    duration: "6 min read",
+    icon: Search,
+    description: "Everything you need to rank your business in Google Maps and local search results — from Google Business Profile to reviews.",
+    tags: ["Local SEO", "Google Maps", "Business Profile"],
+  },
+  {
+    title: "Building a Website That Actually Converts",
+    category: "Web Development",
+    duration: "10 min read",
+    icon: Code,
+    description: "The design principles and technical foundations behind websites that turn visitors into paying customers.",
+    tags: ["Web Design", "UX", "Conversion"],
+  },
+  {
+    title: "Content Calendar Template: Plan 30 Days in 1 Hour",
+    category: "Content Strategy",
+    duration: "5 min read",
+    icon: Calendar,
+    description: "Our proven template for planning an entire month of social media content in just one hour — with examples and fill-in prompts.",
+    tags: ["Planning", "Content Calendar", "Efficiency"],
+  },
+  {
+    title: "Email Marketing That Drives 40% Open Rates",
+    category: "Email Marketing",
+    duration: "7 min read",
+    icon: FileText,
+    description: "Craft compelling email campaigns with subject lines, copy, and sequences that your audience actually wants to open.",
+    tags: ["Email", "Copywriting", "Automation"],
+  },
+];
 
 const processSteps = [
   {
@@ -117,6 +215,12 @@ function Navbar() {
             <a href="#services" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Services
             </a>
+            <a href="#projects" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Projects
+            </a>
+            <a href="#tutorials" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Tutorials
+            </a>
             <a href="#process" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               How We Work
             </a>
@@ -152,6 +256,12 @@ function Navbar() {
             <a href="#services" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
               Services
             </a>
+            <a href="#projects" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
+              Projects
+            </a>
+            <a href="#tutorials" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
+              Tutorials
+            </a>
             <a href="#process" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
               How We Work
             </a>
@@ -184,7 +294,8 @@ function HeroSection() {
       <div className="absolute bottom-20 left-[5%] w-48 h-48 rounded-full bg-[#B28452]/10 blur-3xl animate-float-delayed" />
       <div className="absolute top-40 left-[20%] w-32 h-32 border border-[#691E2A]/20 rounded-2xl rotate-12 animate-float-delayed" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">          <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -237,7 +348,7 @@ function HeroSection() {
           >
             <img src={logo} alt="Grow with Anvaya" className="w-72 h-72 xl:w-96 xl:h-96 drop-shadow-2xl" />
           </motion.div>
-          </div>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -333,6 +444,195 @@ function ServicesSection() {
               </motion.div>
             );
           })}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectsSection() {
+  return (
+    <section id="projects" className="py-20 sm:py-28 bg-anvaya-dark-accent relative overflow-hidden">
+      <div className="absolute inset-0 bg-mesh-green opacity-30" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={stagger}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B28452]/10 text-[#B28452] text-sm font-semibold mb-4">
+            <Eye className="w-4 h-4" />
+            Our Work
+          </motion.div>
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Projects that{" "}
+            <span className="text-gradient-gold">delivered results</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
+            Real brands, real strategies, real growth. Here's a snapshot of the impact we've created for our clients.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={stagger}
+          className="grid sm:grid-cols-2 gap-6"
+        >
+          {projects.map((project) => (
+            <motion.div
+              key={project.title}
+              variants={fadeUp}
+              className="group relative bg-card rounded-2xl border border-border/60 overflow-hidden hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300"
+            >
+              {/* Top gradient bar */}
+              <div className={`h-1.5 bg-gradient-to-r ${project.color}`} />
+
+              <div className="p-7 sm:p-8">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#691E2A]/8 text-[#691E2A] text-xs font-semibold mb-3">
+                      {project.category}
+                    </span>
+                    <h3 className="text-xl font-bold group-hover:text-[#691E2A] transition-colors">
+                      {project.title}
+                    </h3>
+                  </div>
+                  <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br ${project.color} shrink-0`}>
+                    <project.icon className="w-5 h-5 text-[#691E2A]" />
+                  </div>
+                </div>
+
+                <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                  {project.description}
+                </p>
+
+                {/* Results tags */}
+                <div className="flex flex-wrap gap-2 mb-5">
+                  {project.results.map((r) => (
+                    <span
+                      key={r}
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#691E2A]/8 text-xs font-medium text-[#691E2A]"
+                    >
+                      <TrendingUp className="w-3 h-3" />
+                      {r}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Hero metric */}
+                <div className="flex items-center gap-3 p-4 rounded-xl bg-muted/60 border border-border/40">
+                  <div className="w-10 h-10 rounded-lg bg-[#691E2A]/10 flex items-center justify-center">
+                    <project.icon className="w-5 h-5 text-[#B28452]" />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-extrabold text-gradient-gold">{project.metrics.value}</div>
+                    <div className="text-xs text-muted-foreground">{project.metrics.label}</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 text-center"
+        >
+          <Link
+            to="/book"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-sm hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/25"
+          >
+            Let's Build Your Success Story
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function TutorialsSection() {
+  return (
+    <section id="tutorials" className="py-20 sm:py-28 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={stagger}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-sm font-semibold mb-4">
+            <BookOpen className="w-4 h-4" />
+            Learn & Grow
+          </motion.div>
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            Free digital marketing{" "}
+            <span className="text-gradient-green">tutorials</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
+            Practical guides and frameworks from our team — learn the strategies that power our clients' growth.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={stagger}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {tutorials.map((tutorial) => (
+            <motion.div
+              key={tutorial.title}
+              variants={fadeUp}
+              className="group bg-card rounded-2xl border border-border/60 p-6 hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300 cursor-pointer"
+            >
+              <div className="flex items-start justify-between mb-4">
+                <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[#691E2A]/8 to-[#B28452]/8`}>
+                  <tutorial.icon className="w-5 h-5 text-[#691E2A]" />
+                </div>
+                <span className="text-xs font-medium text-muted-foreground bg-muted/60 px-3 py-1 rounded-full">
+                  {tutorial.duration}
+                </span>
+              </div>
+
+              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#B28452]/10 text-[#B28452] text-[11px] font-semibold mb-3">
+                {tutorial.category}
+              </span>
+
+              <h3 className="text-base font-bold mb-2 group-hover:text-[#691E2A] transition-colors leading-snug">
+                {tutorial.title}
+              </h3>
+
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                {tutorial.description}
+              </p>
+
+              <div className="flex flex-wrap gap-1.5">
+                {tutorial.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2 py-0.5 rounded-md bg-muted text-[10px] font-medium text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-5 flex items-center gap-1.5 text-[#691E2A] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                Read Guide
+                <ArrowRight className="w-3.5 h-3.5" />
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
@@ -481,7 +781,6 @@ function LeadFormSection() {
     setIsSubmitting(true);
     setError(null);
     try {
-      // Save to DB first (fast)
       await submitLead({
         name: formState.name,
         email: formState.email,
@@ -565,8 +864,6 @@ function LeadFormSection() {
                 </div>
               </div>
             </motion.div>
-
-
           </motion.div>
 
           {/* Right: Form */}
@@ -735,7 +1032,6 @@ function Footer() {
             <p className="text-sm leading-relaxed max-w-xs">
               We help businesses grow through strategic digital marketing — creative content, performance advertising, and measurable results.
             </p>
-
           </div>
 
           {/* Services */}
@@ -752,19 +1048,26 @@ function Footer() {
             </ul>
           </div>
 
+          {/* Resources */}
+          <div>
+            <h4 className="text-white font-semibold text-sm mb-4">Resources</h4>
+            <ul className="space-y-2.5">
+              <li><a href="#projects" className="text-sm hover:text-white transition-colors">Our Projects</a></li>
+              <li><a href="#tutorials" className="text-sm hover:text-white transition-colors">Tutorials</a></li>
+              <li><a href="#process" className="text-sm hover:text-white transition-colors">How We Work</a></li>
+              <li><a href="#results" className="text-sm hover:text-white transition-colors">Results</a></li>
+            </ul>
+          </div>
+
           {/* Company */}
           <div>
             <h4 className="text-white font-semibold text-sm mb-4">Company</h4>
             <ul className="space-y-2.5">
-              <li><a href="#process" className="text-sm hover:text-white transition-colors">How We Work</a></li>
-              <li><a href="#results" className="text-sm hover:text-white transition-colors">Results</a></li>
               <li><a href="#contact" className="text-sm hover:text-white transition-colors">Contact Us</a></li>
+              <li><Link to="/book" className="text-sm hover:text-white transition-colors">Book a Call</Link></li>
               <li><Link to="/dashboard" className="text-sm hover:text-white transition-colors">Client Dashboard</Link></li>
-
             </ul>
           </div>
-
-
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -786,6 +1089,8 @@ export default function Landing() {
       <Navbar />
       <HeroSection />
       <ServicesSection />
+      <ProjectsSection />
+      <TutorialsSection />
       <ProcessSection />
       <TestimonialsSection />
       <LeadFormSection />
