@@ -238,73 +238,102 @@ function Navbar() {
   );
 }
 
-function GrowthChart() {
+function GrowthWidget() {
   return (
     <motion.div
       initial={{ opacity: 0, x: 40 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 0.6 }}
-      className="hidden lg:flex flex-col items-center"
+      className="hidden lg:block"
     >
-      <div className="relative w-64 h-64 xl:w-72 xl:h-72 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center overflow-hidden">
-        {/* Glow effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#691E2A]/10 via-transparent to-[#B28452]/10" />
+      <div className="relative w-72 xl:w-80 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 overflow-hidden">
+        {/* Header bar */}
+        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-400" />
+          <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
+          <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
+          <span className="text-[10px] text-gray-500 ml-2 font-medium">Campaign Dashboard</span>
+        </div>
 
-        {/* Big animated arrow */}
-        <motion.div
-          initial={{ scale: 0, rotate: -45 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ duration: 0.8, delay: 0.8, type: "spring", stiffness: 100 }}
-          className="relative z-10"
-        >
-          <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
-            {/* Arrow body */}
-            <motion.path
-              d="M20 120 L60 80 L60 95 L120 95 L120 65 L60 65 L60 80 Z"
-              fill="url(#arrowGradient)"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-            />
-            {/* Arrow head - bigger */}
-            <motion.path
-              d="M100 25 L140 55 L115 55 L115 95 L85 95 L85 55 L60 55 Z"
-              fill="url(#arrowHeadGradient)"
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5, delay: 1.3, type: "spring" }}
-              style={{ transformOrigin: "100px 60px" }}
-            />
-            <defs>
-              <linearGradient id="arrowGradient" x1="20" y1="120" x2="120" y2="65">
-                <stop offset="0%" stopColor="#691E2A" />
-                <stop offset="100%" stopColor="#9A4F5C" />
-              </linearGradient>
-              <linearGradient id="arrowHeadGradient" x1="60" y1="25" x2="140" y2="95">
-                <stop offset="0%" stopColor="#B28452" />
-                <stop offset="100%" stopColor="#D9B280" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </motion.div>
+        {/* Live campaign card */}
+        <div className="p-4">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.5 }}
+            className="flex items-center gap-3 mb-4 p-3 rounded-xl bg-white/5 border border-white/5"
+          >
+            <div className="w-10 h-10 rounded-lg bg-[#691E2A]/20 flex items-center justify-center shrink-0">
+              <Megaphone className="w-5 h-5 text-[#D9B280]" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="text-xs font-semibold text-white truncate">Meta Ads — Summer Sale</div>
+              <div className="text-[10px] text-gray-500">Running · Day 14</div>
+            </div>
+            <div className="px-2 py-0.5 rounded-full bg-green-500/15">
+              <span className="text-[10px] font-bold text-green-400">Active</span>
+            </div>
+          </motion.div>
 
-        {/* Floating metric bubbles */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.5 }}
-          className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-[#691E2A]/20 border border-[#691E2A]/30"
-        >
-          <span className="text-xs font-bold text-[#D9B280]">+247%</span>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.7, duration: 0.5 }}
-          className="absolute bottom-4 left-4 px-3 py-1.5 rounded-full bg-green-500/15 border border-green-500/20"
-        >
-          <span className="text-xs font-bold text-green-400">↑ Growing</span>
-        </motion.div>
+          {/* Metrics grid */}
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { label: "Impressions", value: "2.3M", change: "+45%", color: "text-[#D9B280]" },
+              { label: "Clicks", value: "18.7K", change: "+32%", color: "text-[#D9B280]" },
+              { label: "Conversions", value: "847", change: "+67%", color: "text-green-400" },
+              { label: "Revenue", value: "₹4.2L", change: "+5.2×", color: "text-green-400" },
+            ].map((metric, i) => (
+              <motion.div
+                key={metric.label}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.2 + i * 0.1, duration: 0.4 }}
+                className="p-3 rounded-xl bg-white/[0.03] border border-white/5"
+              >
+                <div className="text-[10px] text-gray-500 mb-1">{metric.label}</div>
+                <div className="text-lg font-extrabold text-white">{metric.value}</div>
+                <div className="text-[10px] font-bold text-green-400">↑ {metric.change}</div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Mini sparkline */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.8, duration: 0.5 }}
+            className="mt-3 p-3 rounded-xl bg-white/[0.03] border border-white/5"
+          >
+            <div className="flex items-center justify-between mb-2">
+              <span className="text-[10px] text-gray-500">ROAS Trend</span>
+              <span className="text-[10px] font-bold text-green-400">↑ 5.2×</span>
+            </div>
+            <svg viewBox="0 0 200 40" className="w-full h-8">
+              <motion.path
+                d="M0 35 Q20 30, 40 28 T80 22 T120 15 T160 10 T200 5"
+                stroke="#691E2A"
+                strokeWidth="2"
+                fill="none"
+                initial={{ pathLength: 0 }}
+                animate={{ pathLength: 1 }}
+                transition={{ duration: 1.5, delay: 2, ease: "easeOut" }}
+              />
+              <motion.path
+                d="M0 35 Q20 30, 40 28 T80 22 T120 15 T160 10 T200 5 L200 40 L0 40 Z"
+                fill="url(#sparklineFill)"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.3 }}
+                transition={{ delay: 2.5, duration: 0.5 }}
+              />
+              <defs>
+                <linearGradient id="sparklineFill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#691E2A" stopOpacity="0.4" />
+                  <stop offset="100%" stopColor="#691E2A" stopOpacity="0" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </motion.div>
+        </div>
       </div>
     </motion.div>
   );
@@ -378,7 +407,7 @@ function HeroSection() {
             </motion.div>
           </motion.div>
 
-          <GrowthChart />
+          <GrowthWidget />
         </div>
 
         <motion.div
