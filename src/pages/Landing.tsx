@@ -1238,10 +1238,8 @@ function Footer() {
 
 function CTABanner() {
   return (
-    <section className="py-16 bg-anvaya-dark text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-mesh-hero opacity-40" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#691E2A]/10 blur-3xl" />
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="py-16 bg-anvaya-dark text-white relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -1249,29 +1247,20 @@ function CTABanner() {
           variants={stagger}
         >
           <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-            Ready to <span className="text-gradient-gold">10× your growth?</span>
+            Ready to <span className="text-gradient-gold">grow your brand?</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Join 50+ brands that chose Grow with Anvaya to transform their digital presence. Your free strategy session is one click away.
+          <motion.p variants={fadeUp} className="text-gray-400 text-lg mb-6 max-w-2xl mx-auto">
+            Join 50+ brands that chose Grow with Anvaya to transform their digital presence. Let's talk about your growth.
           </motion.p>
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              to="/book"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#691E2A] text-white font-bold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5 animate-pulse-slow"
-            >
-              <Calendar className="w-5 h-5" />
-              Get Your Free Growth Plan
-            </Link>
+          <motion.div variants={fadeUp}>
             <a
-              href="tel:+919876543210"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all"
+              href="mailto:growwithanvaya@gmail.com"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#691E2A] text-white font-bold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5"
             >
-              📞 Call Us Now
+              <Send className="w-5 h-5" />
+              growwithanvaya@gmail.com
             </a>
           </motion.div>
-          <motion.p variants={fadeUp} className="mt-6 text-sm text-gray-500">
-            No commitment required · Response within 24 hours · Custom strategy included
-          </motion.p>
         </motion.div>
       </div>
     </section>
