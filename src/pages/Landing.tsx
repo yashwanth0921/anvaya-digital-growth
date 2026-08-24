@@ -605,6 +605,9 @@ function ClientLogosBar() {
                 className="h-8 w-auto max-w-[80px] object-contain opacity-50 hover:opacity-80 transition-opacity grayscale hover:grayscale-0"
                 loading="lazy"
               />
+              <span className="text-sm font-semibold text-muted-foreground hidden sm:inline">
+                {client.name}
+              </span>
             </motion.div>
           ))}
         </motion.div>

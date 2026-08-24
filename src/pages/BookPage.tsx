@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router";
 import { motion } from "framer-motion";
 import { useMutation } from "convex/react";
 import { api } from "convex/_generated/api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { services } from "@/lib/services-data";
 import { useAuth } from "@/hooks/use-auth";
@@ -98,6 +98,10 @@ function Navbar() {
 export default function BookPage() {
   const navigate = useNavigate();
   const { isAuthenticated } = useAuth();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const createBooking = useMutation(api.bookings.create);
   const [formState, setFormState] = useState({
     name: "",

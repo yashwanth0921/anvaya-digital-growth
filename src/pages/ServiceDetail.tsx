@@ -2,7 +2,7 @@ import { useParams, useNavigate, Link } from "react-router";
 import { motion } from "framer-motion";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "convex/_generated/api";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getServiceBySlug } from "@/lib/services-data";
 import { useAuth } from "@/hooks/use-auth";
 import logo from "@/assets/logo.svg";
@@ -206,6 +206,10 @@ export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const service = slug ? getServiceBySlug(slug) : undefined;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   if (!service) {
     return (
