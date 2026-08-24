@@ -59,14 +59,14 @@ const stagger = {
 
 
 const clientLogos = [
-  { name: "Bloom Beauty Studio", initials: "BB" },
-  { name: "TechFlow Solutions", initials: "TF" },
-  { name: "GreenLeaf Organics", initials: "GL" },
-  { name: "Urban Bites Cafe", initials: "UB" },
-  { name: "FreshCart India", initials: "FC" },
-  { name: "StyleCraft Salon", initials: "SC" },
-  { name: "Mindful Spaces", initials: "MS" },
-  { name: "PureFit Nutrition", initials: "PF" },
+  { name: "Bloom Beauty Studio", initials: "BB", logo: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=120&h=60&fit=crop&q=80" },
+  { name: "TechFlow Solutions", initials: "TF", logo: "https://images.unsplash.com/photo-1535303311164-664fc9ec6532?w=120&h=60&fit=crop&q=80" },
+  { name: "GreenLeaf Organics", initials: "GL", logo: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=120&h=60&fit=crop&q=80" },
+  { name: "Urban Bites Cafe", initials: "UB", logo: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=120&h=60&fit=crop&q=80" },
+  { name: "FreshCart India", initials: "FC", logo: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=120&h=60&fit=crop&q=80" },
+  { name: "StyleCraft Salon", initials: "SC", logo: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=120&h=60&fit=crop&q=80" },
+  { name: "Mindful Spaces", initials: "MS", logo: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=120&h=60&fit=crop&q=80" },
+  { name: "PureFit Nutrition", initials: "PF", logo: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=120&h=60&fit=crop&q=80" },
 ];
 
 const processSteps = [
@@ -599,12 +599,12 @@ function ClientLogosBar() {
               variants={fadeUp}
               className="flex items-center gap-3 px-5 py-3 rounded-xl bg-card border border-border/40 hover:border-[#691E2A]/20 hover:shadow-md transition-all"
             >
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#691E2A]/10 to-[#B28452]/10 flex items-center justify-center">
-                <span className="text-sm font-bold text-[#691E2A]">{client.initials}</span>
-              </div>
-              <span className="text-sm font-semibold text-muted-foreground hidden sm:inline">
-                {client.name}
-              </span>
+              <img
+                src={client.logo}
+                alt={client.name}
+                className="h-8 w-auto max-w-[80px] object-contain opacity-50 hover:opacity-80 transition-opacity grayscale hover:grayscale-0"
+                loading="lazy"
+              />
             </motion.div>
           ))}
         </motion.div>
