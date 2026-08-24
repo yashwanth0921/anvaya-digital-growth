@@ -239,21 +239,6 @@ function Navbar() {
 }
 
 function GrowthChart() {
-  const bars = [
-    { label: "Jan", height: 30 },
-    { label: "Feb", height: 40 },
-    { label: "Mar", height: 35 },
-    { label: "Apr", height: 55 },
-    { label: "May", height: 50 },
-    { label: "Jun", height: 70 },
-    { label: "Jul", height: 65 },
-    { label: "Aug", height: 80 },
-    { label: "Sep", height: 75 },
-    { label: "Oct", height: 90 },
-    { label: "Nov", height: 85 },
-    { label: "Dec", height: 95 },
-  ];
-
   return (
     <motion.div
       initial={{ opacity: 0, x: 40 }}
@@ -261,49 +246,65 @@ function GrowthChart() {
       transition={{ duration: 0.8, delay: 0.6 }}
       className="hidden lg:flex flex-col items-center"
     >
-      <div className="relative w-72 h-56 xl:w-80 xl:h-64 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 p-5">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <div className="text-xs font-semibold text-gray-400">Growth Rate</div>
-            <div className="text-xl font-extrabold text-[#D9B280]">+247%</div>
-          </div>
-          <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-green-500/15">
-            <TrendingUp className="w-3 h-3 text-green-400" />
-            <span className="text-[10px] font-bold text-green-400">↑ 32%</span>
-          </div>
-        </div>
+      <div className="relative w-64 h-64 xl:w-72 xl:h-72 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center overflow-hidden">
+        {/* Glow effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#691E2A]/10 via-transparent to-[#B28452]/10" />
 
-        {/* Bars */}
-        <div className="flex items-end gap-1.5 h-32">
-          {bars.map((bar, i) => (
-            <motion.div
-              key={bar.label}
-              className="flex-1 flex flex-col items-center gap-1"
-              initial={{ height: 0 }}
-              animate={{ height: `${bar.height}%` }}
-              transition={{ duration: 0.5, delay: 0.8 + i * 0.05, ease: "easeOut" }}
-            >
-              <div
-                className={`w-full rounded-t-sm ${
-                  i >= bars.length - 3
-                    ? "bg-gradient-to-t from-[#691E2A] to-[#9A4F5C]"
-                    : "bg-gradient-to-t from-[#691E2A]/40 to-[#691E2A]/70"
-                }`}
-                style={{ height: "100%" }}
-              />
-            </motion.div>
-          ))}
-        </div>
+        {/* Big animated arrow */}
+        <motion.div
+          initial={{ scale: 0, rotate: -45 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ duration: 0.8, delay: 0.8, type: "spring", stiffness: 100 }}
+          className="relative z-10"
+        >
+          <svg width="140" height="140" viewBox="0 0 140 140" fill="none">
+            {/* Arrow body */}
+            <motion.path
+              d="M20 120 L60 80 L60 95 L120 95 L120 65 L60 65 L60 80 Z"
+              fill="url(#arrowGradient)"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+            />
+            {/* Arrow head - bigger */}
+            <motion.path
+              d="M100 25 L140 55 L115 55 L115 95 L85 95 L85 55 L60 55 Z"
+              fill="url(#arrowHeadGradient)"
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 1.3, type: "spring" }}
+              style={{ transformOrigin: "100px 60px" }}
+            />
+            <defs>
+              <linearGradient id="arrowGradient" x1="20" y1="120" x2="120" y2="65">
+                <stop offset="0%" stopColor="#691E2A" />
+                <stop offset="100%" stopColor="#9A4F5C" />
+              </linearGradient>
+              <linearGradient id="arrowHeadGradient" x1="60" y1="25" x2="140" y2="95">
+                <stop offset="0%" stopColor="#B28452" />
+                <stop offset="100%" stopColor="#D9B280" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </motion.div>
 
-        {/* Labels */}
-        <div className="flex gap-1.5 mt-2">
-          {bars.map((bar) => (
-            <div key={bar.label} className="flex-1 text-center">
-              <span className="text-[8px] text-gray-600">{bar.label}</span>
-            </div>
-          ))}
-        </div>
+        {/* Floating metric bubbles */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.5 }}
+          className="absolute top-4 right-4 px-3 py-1.5 rounded-full bg-[#691E2A]/20 border border-[#691E2A]/30"
+        >
+          <span className="text-xs font-bold text-[#D9B280]">+247%</span>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.7, duration: 0.5 }}
+          className="absolute bottom-4 left-4 px-3 py-1.5 rounded-full bg-green-500/15 border border-green-500/20"
+        >
+          <span className="text-xs font-bold text-green-400">↑ Growing</span>
+        </motion.div>
       </div>
     </motion.div>
   );
