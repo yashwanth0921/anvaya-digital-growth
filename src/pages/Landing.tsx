@@ -376,7 +376,7 @@ function GrowthWidget() {
             </div>
             <div>
               <div className="text-[11px] font-bold text-gray-900">New Lead! 🎉</div>
-              <div className="text-[9px] text-gray-500">Priya from Mumbai</div>
+              <div className="text-[9px] text-gray-500">Shiva</div>
               <div className="text-[8px] text-green-600 font-medium">Booked a call</div>
             </div>
           </div>
@@ -844,25 +844,32 @@ function ProcessSection() {
 function TestimonialsSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [canScrollPrev, setCanScrollPrev] = useState(false);
-  const [canScrollNext, setCanScrollNext] = useState(true);
 
-  const scrollPrev = () => emblaApi?.scrollPrev();
-  const scrollNext = () => emblaApi?.scrollNext();
-
-  const onSelect = () => {
+  const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
-    setCanScrollPrev(emblaApi.canScrollPrev());
-    setCanScrollNext(emblaApi.canScrollNext());
-  };
+  }, [emblaApi]);
 
-  useState(() => {
+  useEffect(() => {
     if (!emblaApi) return;
     emblaApi.on("select", onSelect);
     emblaApi.on("reInit", onSelect);
     onSelect();
-  });
+    return () => {
+      emblaApi.off("select", onSelect);
+      emblaApi.off("reInit", onSelect);
+    };
+  }, [emblaApi, onSelect]);
+
+  // Auto-slide every 4 seconds
+  useEffect(() => {
+    if (!emblaApi) return;
+    const interval = setInterval(() => {
+      emblaApi.scrollNext();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [emblaApi]);
+
 
   return (
     <section id="results" className="py-20 sm:py-28 relative overflow-hidden">
@@ -887,23 +894,7 @@ function TestimonialsSection() {
           </motion.p>
         </motion.div>
 
-        {/* Carousel controls */}
-        <div className="flex items-center justify-end gap-2 mb-6">
-          <button
-            onClick={scrollPrev}
-            disabled={!canScrollPrev}
-            className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center hover:bg-muted transition-colors disabled:opacity-30"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={scrollNext}
-            disabled={!canScrollNext}
-            className="w-10 h-10 rounded-full border border-border/60 flex items-center justify-center hover:bg-muted transition-colors disabled:opacity-30"
-          >
-            <ArrowRight className="w-5 h-5" />
-          </button>
-        </div>
+
 
         {/* Swipeable carousel */}
         <div ref={emblaRef} className="overflow-hidden">
