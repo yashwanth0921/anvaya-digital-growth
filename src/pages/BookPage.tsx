@@ -107,6 +107,7 @@ export default function BookPage() {
     name: "",
     email: "",
     phone: "",
+    phoneCountry: "+91",
     service: "",
     preferredDate: "",
     preferredTime: "",
@@ -120,11 +121,28 @@ export default function BookPage() {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formState.email)) {
+      setError("Please enter a valid email address.");
+      setIsSubmitting(false);
+      toast.error("Please enter a valid email address.");
+      return;
+    }
+    
+    // Validate phone if provided
+    if (formState.phone && !/^\+\d{7,15}$/.test(formState.phone.replace(/\s/g, ''))) {
+      setError("Please enter a valid phone number with country code (e.g. +91 98765 43210).");
+      setIsSubmitting(false);
+      toast.error("Please enter a valid phone number with country code.");
+      return;
+    }
     try {
       await createBooking({
         name: formState.name,
         email: formState.email,
-        phone: formState.phone || undefined,
+        phone: formState.phone ? `${formState.phoneCountry} ${formState.phone}` : undefined,
         service: formState.service,
         preferredDate: formState.preferredDate,
         preferredTime: formState.preferredTime,
@@ -258,14 +276,32 @@ export default function BookPage() {
                     <label className="block text-sm font-medium text-muted-foreground mb-1.5">
                       Phone Number
                     </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formState.phone}
-                      onChange={handleChange}
-                      placeholder="+91 98765 43210"
-                      className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
-                    />
+                    <div className="flex gap-2">
+                      <select
+                        value={formState.phoneCountry || '+91'}
+                        onChange={(e) => setFormState(prev => ({ ...prev, phoneCountry: e.target.value }))}
+                        className="w-28 px-2 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all appearance-none"
+                      >
+                        <option value="+91">🇮🇳 +91</option>
+                        <option value="+1">🇺🇸 +1</option>
+                        <option value="+44">🇬🇧 +44</option>
+                        <option value="+61">🇦🇺 +61</option>
+                        <option value="+971">🇦🇪 +971</option>
+                        <option value="+65">🇸🇬 +65</option>
+                        <option value="+60">🇲🇾 +60</option>
+                        <option value="+92">🇵🇰 +92</option>
+                        <option value="+880">🇧🇩 +880</option>
+                        <option value="+94">🇱🇰 +94</option>
+                      </select>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formState.phone}
+                        onChange={handleChange}
+                        placeholder="98765 43210"
+                        className="flex-1 px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
+                      />
+                    </div>
                   </div>
                 </motion.div>
 
