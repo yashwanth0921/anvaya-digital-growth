@@ -26,10 +26,7 @@ import {
   Megaphone,
   Search,
 
-  TrendingUpIcon,
   Eye,
-  Layout,
-  Camera,
 
   Quote,
 } from "lucide-react";
@@ -50,52 +47,7 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
-const projects = [
-  {
-    title: "Bloom Beauty Studio",
-    category: "Social Media Growth",
-    description: "Transformed a local beauty studio's Instagram presence from 500 to 8,000+ engaged followers in 3 months with strategic content and reels.",
-    results: ["16× follower growth", "40% new customers from social", "3× engagement rate"],
-    color: "from-[#691E2A]/10 to-[#B28452]/10",
-    icon: Camera,
-    metrics: { label: "Followers Gained", value: "7,500+" },
-    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=450&fit=crop&q=80",
-    beforeAfter: { before: "500 followers, 1.2% engagement", after: "8,000+ followers, 4.8% engagement" },
-  },
-  {
-    title: "TechFlow Solutions",
-    category: "Meta & Google Ads",
-    description: "Built and optimized a full-funnel ad campaign delivering 5× ROAS in the first month for a B2B SaaS company.",
-    results: ["5× ROAS", "60% lower CPA", "2.3M impressions"],
-    color: "from-[#B28452]/10 to-[#691E2A]/10",
-    icon: TrendingUpIcon,
-    metrics: { label: "Return on Ad Spend", value: "5×" },
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&q=80",
-    beforeAfter: { before: "₹15 cost per lead", after: "₹6 cost per lead" },
-  },
-  {
-    title: "GreenLeaf Organics",
-    category: "Website & SEO",
-    description: "Complete website redesign with SEO optimization that doubled conversion rate and tripled organic traffic within 6 months.",
-    results: ["2× conversion rate", "3× organic traffic", "Page 1 rankings for 12 keywords"],
-    color: "from-[#430D12]/10 to-[#B28452]/10",
-    icon: Layout,
-    metrics: { label: "Conversion Lift", value: "2×" },
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop&q=80",
-    beforeAfter: { before: "1.8% conversion rate", after: "3.6% conversion rate" },
-  },
-  {
-    title: "Urban Bites Cafe",
-    category: "Full Digital Package",
-    description: "End-to-end digital transformation — social media, local SEO, Google Ads, and a new ordering website for a growing restaurant chain.",
-    results: ["500+ monthly orders online", "Top 3 Google Maps ranking", "4.8★ average review score"],
-    color: "from-[#691E2A]/8 to-[#D9B280]/10",
-    icon: Globe,
-    metrics: { label: "Monthly Online Orders", value: "500+" },
-    image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=450&fit=crop&q=80",
-    beforeAfter: { before: "0 online orders", after: "500+ monthly orders" },
-  },
-];
+
 
 
 
@@ -187,8 +139,8 @@ function Navbar() {
             <a href="#services" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Services
             </a>
-            <a href="#projects" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Projects
+            <a href="#work" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Work
             </a>
             
             <a href="#process" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
@@ -226,8 +178,8 @@ function Navbar() {
             <a href="#services" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
               Services
             </a>
-            <a href="#projects" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
-              Projects
+            <a href="#work" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
+              Work
             </a>
             
             <a href="#process" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
@@ -460,12 +412,58 @@ function ClientLogosBar() {
   );
 }
 
-function ProjectsSection() {
-  const [activeProject, setActiveProject] = useState<number | null>(null);
+const workShowcase = [
+  {
+    title: "Bloom Beauty Studio",
+    category: "Social Media Growth",
+    description: "Transformed a local beauty studio's Instagram presence from 500 to 8,000+ engaged followers in 3 months.",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    posterImage: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&h=500&fit=crop&q=80",
+    results: ["16× follower growth", "40% new customers from social", "3× engagement rate"],
+    metrics: { label: "Followers Gained", value: "7,500+" },
+    size: "large" as const,
+  },
+  {
+    title: "TechFlow Solutions",
+    category: "Meta & Google Ads",
+    description: "Built and optimized a full-funnel ad campaign delivering 5× ROAS in the first month for a B2B SaaS company.",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    posterImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=500&fit=crop&q=80",
+    results: ["5× ROAS", "60% lower CPA", "2.3M impressions"],
+    metrics: { label: "Return on Ad Spend", value: "5×" },
+    size: "small" as const,
+  },
+  {
+    title: "GreenLeaf Organics",
+    category: "Website & SEO",
+    description: "Complete website redesign with SEO optimization that doubled conversion rate and tripled organic traffic.",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    posterImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=500&fit=crop&q=80",
+    results: ["2× conversion rate", "3× organic traffic", "Page 1 for 12 keywords"],
+    metrics: { label: "Conversion Lift", value: "2×" },
+    size: "small" as const,
+  },
+  {
+    title: "Urban Bites Cafe",
+    category: "Full Digital Package",
+    description: "End-to-end digital transformation — social media, local SEO, Google Ads, and a new ordering website.",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    posterImage: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&h=500&fit=crop&q=80",
+    results: ["500+ monthly orders online", "Top 3 Google Maps", "4.8★ reviews"],
+    metrics: { label: "Monthly Orders", value: "500+" },
+    size: "large" as const,
+  },
+];
+
+function WorkShowcaseSection() {
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="py-20 sm:py-28 bg-anvaya-dark-accent relative overflow-hidden">
-      <div className="absolute inset-0 bg-mesh-green opacity-30" />
+    <section id="work" className="py-20 sm:py-28 bg-anvaya-dark relative overflow-hidden">
+      <div className="absolute inset-0 bg-mesh-hero opacity-30" />
+      <div className="absolute top-20 right-[5%] w-80 h-80 rounded-full bg-[#691E2A]/5 blur-3xl" />
+      <div className="absolute bottom-20 left-[5%] w-64 h-64 rounded-full bg-[#B28452]/5 blur-3xl" />
+
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -474,92 +472,109 @@ function ProjectsSection() {
           variants={stagger}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B28452]/10 text-[#B28452] text-sm font-semibold mb-4">
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B28452]/10 text-[#D9B280] text-sm font-semibold mb-4">
             <Eye className="w-4 h-4" />
             Our Work
           </motion.div>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Projects that{" "}
-            <span className="text-gradient-gold">delivered results</span>
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white">
+            Projects that <span className="text-gradient-gold">delivered results</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
-            Real brands, real strategies, real growth. Here's a snapshot of the impact we've created for our clients.
+          <motion.p variants={fadeUp} className="mt-4 text-gray-400 text-lg">
+            Real brands, real strategies, real growth. Watch how we've transformed businesses through creative digital marketing.
           </motion.p>
         </motion.div>
 
+        {/* Staggered video grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={stagger}
-          className="grid sm:grid-cols-2 gap-6"
+          className="grid md:grid-cols-2 gap-5"
         >
-          {projects.map((project, index) => (
+          {workShowcase.map((project, index) => (
             <motion.div
               key={project.title}
               variants={fadeUp}
-              className="group relative bg-card rounded-2xl border border-border/60 overflow-hidden hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300"
-              onMouseEnter={() => setActiveProject(index)}
-              onMouseLeave={() => setActiveProject(null)}
+              className={`group relative rounded-2xl overflow-hidden cursor-pointer ${
+                project.size === "large" ? "md:row-span-1" : ""
+              }`}
+              onMouseEnter={() => setActiveVideo(index)}
+              onMouseLeave={() => setActiveVideo(null)}
             >
-              {/* Hero Image */}
-              <div className="relative h-48 sm:h-52 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+              {/* Video / Image container */}
+              <div className="relative aspect-video overflow-hidden bg-black rounded-2xl">
+                {activeVideo === index ? (
+                  <iframe
+                    src={`${project.videoUrl}?autoplay=1&mute=1&loop=1&playlist=${project.videoUrl.split('/embed/')[1]}&controls=0&showinfo=0&rel=0&modestbranding=1`}
+                    className="absolute inset-0 w-full h-full"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    title={project.title}
+                  />
+                ) : (
+                  <>
+                    <img
+                      src={project.posterImage}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    {/* Dark overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 group-hover:from-black/90 group-hover:via-black/40 transition-all duration-500" />
 
-                {/* Category badge on image */}
-                <div className="absolute top-4 left-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-[#691E2A] text-xs font-semibold shadow-sm">
-                    {project.category}
-                  </span>
-                </div>
+                    {/* Play button */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <motion.div
+                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-[#691E2A]/80 group-hover:border-[#691E2A]/50 transition-all duration-500 group-hover:scale-110"
+                      >
+                        <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </motion.div>
+                    </div>
 
-                {/* Metric overlay on image */}
-                <div className="absolute bottom-4 right-4">
-                  <div className="px-3 py-2 rounded-lg bg-white/90 backdrop-blur-sm shadow-sm text-right">
-                    <div className="text-lg font-extrabold text-[#691E2A] leading-tight">{project.metrics.value}</div>
-                    <div className="text-[10px] text-muted-foreground">{project.metrics.label}</div>
+                    {/* Duration badge */}
+                    <div className="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      ▶ Play
+                    </div>
+                  </>
+                )}
+
+                {/* Bottom info overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
+                  <div className="flex items-end justify-between gap-4">
+                    <div className="flex-1 min-w-0">
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#691E2A]/80 text-white text-[11px] font-semibold mb-2">
+                        {project.category}
+                      </span>
+                      <h3 className="text-lg sm:text-xl font-bold text-white leading-tight mb-1">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-300 text-sm leading-relaxed line-clamp-2">
+                        {project.description}
+                      </p>
+                    </div>
+
+                    {/* Metric pill */}
+                    <div className="shrink-0 px-3 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-right">
+                      <div className="text-xl font-extrabold text-[#D9B280] leading-tight">{project.metrics.value}</div>
+                      <div className="text-[10px] text-gray-400">{project.metrics.label}</div>
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="p-6 sm:p-7">
-                <h3 className="text-xl font-bold mb-2 group-hover:text-[#691E2A] transition-colors">
-                  {project.title}
-                </h3>
-
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {project.description}
-                </p>
-
-                {/* Before / After comparison */}
-                <div className="grid grid-cols-2 gap-3 mb-4">
-                  <div className="p-3 rounded-xl bg-red-50 border border-red-100">
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-red-400 mb-1">Before</div>
-                    <div className="text-xs font-medium text-red-600">{project.beforeAfter.before}</div>
+                  {/* Results tags - slide up on hover */}
+                  <div className="mt-3 flex flex-wrap gap-1.5 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
+                    {project.results.map((r) => (
+                      <span
+                        key={r}
+                        className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-white/10 backdrop-blur-sm text-white text-[11px] font-medium"
+                      >
+                        <TrendingUp className="w-3 h-3 text-[#D9B280]" />
+                        {r}
+                      </span>
+                    ))}
                   </div>
-                  <div className="p-3 rounded-xl bg-green-50 border border-green-100">
-                    <div className="text-[10px] font-bold uppercase tracking-wider text-green-500 mb-1">After</div>
-                    <div className="text-xs font-medium text-green-600">{project.beforeAfter.after}</div>
-                  </div>
-                </div>
-
-                {/* Results tags */}
-                <div className="flex flex-wrap gap-2">
-                  {project.results.map((r) => (
-                    <span
-                      key={r}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#691E2A]/8 text-xs font-medium text-[#691E2A]"
-                    >
-                      <TrendingUp className="w-3 h-3" />
-                      {r}
-                    </span>
-                  ))}
                 </div>
               </div>
             </motion.div>
@@ -575,7 +590,7 @@ function ProjectsSection() {
         >
           <Link
             to="/book"
-            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-sm hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/25"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-sm hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/30"
           >
             Let's Build Your Success Story
             <ArrowRight className="w-4 h-4" />
@@ -1000,7 +1015,7 @@ function Footer() {
           <div>
             <h4 className="text-white font-semibold text-sm mb-4">Resources</h4>
             <ul className="space-y-2.5">
-              <li><a href="#projects" className="text-sm hover:text-white transition-colors">Our Projects</a></li>
+              <li><a href="#work" className="text-sm hover:text-white transition-colors">Our Work</a></li>
               
               <li><a href="#process" className="text-sm hover:text-white transition-colors">How We Work</a></li>
               <li><a href="#results" className="text-sm hover:text-white transition-colors">Results</a></li>
@@ -1037,7 +1052,7 @@ export default function Landing() {
       <HeroSection />
       <ServicesSection />
       <ClientLogosBar />
-      <ProjectsSection />
+      <WorkShowcaseSection />
       
       <ProcessSection />
       <TestimonialsSection />
