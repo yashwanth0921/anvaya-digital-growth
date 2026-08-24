@@ -244,7 +244,7 @@ function HeroSection() {
       <div className="absolute top-40 left-[20%] w-32 h-32 border border-[#691E2A]/20 rounded-2xl rotate-12 animate-float-delayed" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+        <div className="flex flex-col items-center lg:items-start">
           <motion.div
             initial="hidden"
             animate="visible"
@@ -289,14 +289,7 @@ function HeroSection() {
             </motion.div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="hidden lg:flex items-center justify-center"
-          >
-            <img src={logo} alt="Grow with Anvaya" className="w-72 h-72 xl:w-96 xl:h-96 drop-shadow-2xl" />
-          </motion.div>
+
         </div>
 
         <motion.div
@@ -474,6 +467,22 @@ const workShowcase = [
     results: ["500+ monthly orders online", "Top 3 Google Maps", "4.8★ reviews"],
     metrics: { label: "Monthly Orders", value: "500+" },
   },
+  {
+    title: "StyleCraft Salon",
+    category: "Brand Identity",
+    description: "Complete brand identity redesign — logo, color system, brand guidelines, and social media kit for a premium salon chain.",
+    posterImage: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&h=500&fit=crop&q=80",
+    results: ["3× brand recognition", "2× average ticket value", "Consistent cross-platform identity"],
+    metrics: { label: "Brand Recognition", value: "3×" },
+  },
+  {
+    title: "Mindful Spaces",
+    category: "App Development",
+    description: "Custom wellness app with booking, membership management, and push notifications — built for iOS and Android.",
+    posterImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&h=500&fit=crop&q=80",
+    results: ["10K+ downloads in 2 months", "4.8★ App Store rating", "60% retention rate"],
+    metrics: { label: "App Downloads", value: "10K+" },
+  },
 ];
 
 function WorkShowcaseSection() {
@@ -619,11 +628,11 @@ function ProcessSection() {
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {processSteps.map((step, i) => (
-            <motion.div key={step.step} variants={fadeUp} className="relative">
+            <motion.div key={step.step} variants={fadeUp} className="relative h-full">
               {i < processSteps.length - 1 && (
                 <div className="hidden lg:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-40px)] h-0.5 bg-gradient-to-r from-[#691E2A]/30 to-[#B28452]/30" />
               )}
-              <div className="relative bg-card rounded-2xl border border-border/60 p-7 text-center hover:shadow-lg transition-shadow">
+              <div className="relative bg-card rounded-2xl border border-border/60 p-7 text-center hover:shadow-lg transition-shadow flex flex-col items-center h-full">
                 <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#691E2A]/10 mb-5">
                   <step.icon className="w-7 h-7 text-[#691E2A]" />
                 </div>
