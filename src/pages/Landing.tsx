@@ -1081,7 +1081,7 @@ function LeadFormSection() {
     }
     
     // Validate phone if provided (must start with + and be at least 10 digits)
-    if (formState.phone && !/^\+\d{7,15}$/.test(formState.phone.replace(/\s/g, ''))) {
+    if (formState.phone && !/^\d{7,15}$/.test(formState.phone.replace(/\s/g, ''))) {
       setError("Please enter a valid phone number with country code (e.g. +91 98765 43210).");
       setIsSubmitting(false);
       toast.error("Please enter a valid phone number with country code.");
@@ -1250,7 +1250,9 @@ function LeadFormSection() {
                         name="phone"
                         value={formState.phone}
                         onChange={handleChange}
+                        inputMode="numeric"
                         placeholder="98765 43210"
+                        maxLength={15}
                         className="flex-1 px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                       />
                     </div>
