@@ -29,10 +29,8 @@ import logo from "@/assets/logo.svg";import {
   Smartphone,
   Palette,
   ChevronLeft,
-  MessageCircle,
   Clock,
   Award,
-  ArrowUp,
 } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useRef } from "react";
@@ -1030,7 +1028,7 @@ function LeadFormSection() {
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      Get Your Free Growth Plan
+                      Send Your Message
                     </>
                   )}
                 </button>
@@ -1085,98 +1083,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
   );
 }
 
-const socialProofNotifications = [
-  { name: "Rahul from Mumbai", action: "requested a free consultation", time: "2 min ago" },
-  { name: "Priya from Delhi", action: "booked a strategy call", time: "5 min ago" },
-  { name: "Arjun from Bangalore", action: "downloaded our growth guide", time: "8 min ago" },
-  { name: "Sneha from Chennai", action: "submitted an inquiry", time: "12 min ago" },
-  { name: "Vikram from Hyderabad", action: "requested a free consultation", time: "15 min ago" },
-  { name: "Meera from Pune", action: "booked a strategy call", time: "18 min ago" },
-];
 
-function SocialProofTicker() {
-  const [current, setCurrent] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % socialProofNotifications.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const notification = socialProofNotifications[current];
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      className="fixed bottom-6 left-6 z-50"
-    >
-      <motion.div
-        key={current}
-        initial={{ opacity: 0, x: -20, scale: 0.95 }}
-        animate={{ opacity: 1, x: 0, scale: 1 }}
-        exit={{ opacity: 0, x: -20, scale: 0.95 }}
-        className="bg-white/95 backdrop-blur-xl border border-border/60 rounded-2xl px-5 py-3.5 shadow-2xl max-w-xs"
-      >
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-[#691E2A]/10 flex items-center justify-center shrink-0">
-            <CheckCircle2 className="w-4 h-4 text-[#691E2A]" />
-          </div>
-          <div className="min-w-0">
-            <p className="text-xs font-semibold text-foreground truncate">
-              {notification.name}
-            </p>
-            <p className="text-[11px] text-muted-foreground truncate">
-              {notification.action}
-            </p>
-          </div>
-          <span className="text-[10px] text-muted-foreground whitespace-nowrap shrink-0">
-            {notification.time}
-          </span>
-        </div>
-      </motion.div>
-    </motion.div>
-  );
-}
-
-function FloatingCTA() {
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setShowScrollTop(window.scrollY > 600);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
-      {showScrollTop && (
-        <motion.button
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="w-11 h-11 rounded-full bg-white/90 backdrop-blur-xl border border-border/60 shadow-lg flex items-center justify-center hover:bg-muted transition-colors"
-        >
-          <ArrowUp className="w-4 h-4 text-foreground" />
-        </motion.button>
-      )}
-      <motion.a
-        href="https://wa.me/919876543210?text=Hi%20Grow%20with%20Anvaya%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="group relative w-14 h-14 rounded-full bg-[#25D366] shadow-lg shadow-[#25D366]/30 flex items-center justify-center hover:shadow-xl hover:shadow-[#25D366]/40 hover:scale-110 transition-all"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <MessageCircle className="w-6 h-6 text-white" />
-        <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
-          <span className="text-[9px] font-bold text-white">1</span>
-        </span>
-      </motion.a>
-    </div>
-  );
-}
 
 function Footer() {
   return (
@@ -1280,8 +1187,6 @@ export default function Landing() {
       <CTABanner />
       <LeadFormSection />
       <Footer />
-      <FloatingCTA />
-      <SocialProofTicker />
     </div>
   );
 }
