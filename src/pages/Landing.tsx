@@ -25,16 +25,12 @@ import {
   Globe,
   Megaphone,
   Search,
-  Play,
-  BookOpen,
+
   TrendingUpIcon,
   Eye,
   Layout,
   Camera,
-  Code,
-  FileText,
-  Video,
-  Award,
+
   Quote,
 } from "lucide-react";
 
@@ -101,89 +97,7 @@ const projects = [
   },
 ];
 
-const videos = [
-  {
-    title: "How We Grew Bloom Beauty's Instagram to 8K Followers",
-    description: "Watch the full breakdown of our social media strategy — from content planning to reel production to community engagement.",
-    thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=340&fit=crop&q=80",
-    duration: "4:32",
-    views: "12.5K views",
-    category: "Case Study",
-  },
-  {
-    title: "Meta Ads That Deliver 5× ROAS — Our Framework",
-    description: "A step-by-step walkthrough of the exact ad structure, targeting, and creative strategy behind our highest-performing campaigns.",
-    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop&q=80",
-    duration: "8:15",
-    views: "8.3K views",
-    category: "Tutorial",
-  },
-  {
-    title: "Website Redesign That Tripled Organic Traffic",
-    description: "See the before and after of GreenLeaf Organics' website transformation — design, SEO, and conversion optimization explained.",
-    thumbnail: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=340&fit=crop&q=80",
-    duration: "6:48",
-    views: "5.1K views",
-    category: "Case Study",
-  },
-];
 
-const tutorials = [
-  {
-    title: "How to Create Scroll-Stopping Instagram Reels",
-    category: "Social Media",
-    duration: "8 min read",
-    icon: Play,
-    description: "Learn the exact framework we use to create Instagram Reels that get 10× more views and drive real engagement.",
-    tags: ["Instagram", "Content Creation", "Reels"],
-    thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=240&fit=crop&q=80",
-  },
-  {
-    title: "Meta Ads Masterclass: From ₹0 to ₹1L Revenue",
-    category: "Paid Advertising",
-    duration: "12 min read",
-    icon: Megaphone,
-    description: "A step-by-step guide to setting up your first Meta Ads campaign — targeting, creatives, budgets, and scaling strategies.",
-    tags: ["Meta Ads", "Facebook", "ROI"],
-    thumbnail: "https://images.unsplash.com/photo-1553729459-afe8f2e2ed44?w=400&h=240&fit=crop&q=80",
-  },
-  {
-    title: "Local SEO: Get Your Business on Google Maps",
-    category: "SEO",
-    duration: "6 min read",
-    icon: Search,
-    description: "Everything you need to rank your business in Google Maps and local search results — from Google Business Profile to reviews.",
-    tags: ["Local SEO", "Google Maps", "Business Profile"],
-    thumbnail: "https://images.unsplash.com/photo-1553484771-047044b78a79?w=400&h=240&fit=crop&q=80",
-  },
-  {
-    title: "Building a Website That Actually Converts",
-    category: "Web Development",
-    duration: "10 min read",
-    icon: Code,
-    description: "The design principles and technical foundations behind websites that turn visitors into paying customers.",
-    tags: ["Web Design", "UX", "Conversion"],
-    thumbnail: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=240&fit=crop&q=80",
-  },
-  {
-    title: "Content Calendar Template: Plan 30 Days in 1 Hour",
-    category: "Content Strategy",
-    duration: "5 min read",
-    icon: Calendar,
-    description: "Our proven template for planning an entire month of social media content in just one hour — with examples and fill-in prompts.",
-    tags: ["Planning", "Content Calendar", "Efficiency"],
-    thumbnail: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=240&fit=crop&q=80",
-  },
-  {
-    title: "Email Marketing That Drives 40% Open Rates",
-    category: "Email Marketing",
-    duration: "7 min read",
-    icon: FileText,
-    description: "Craft compelling email campaigns with subject lines, copy, and sequences that your audience actually wants to open.",
-    tags: ["Email", "Copywriting", "Automation"],
-    thumbnail: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=400&h=240&fit=crop&q=80",
-  },
-];
 
 const clientLogos = [
   { name: "Bloom Beauty Studio", initials: "BB" },
@@ -276,12 +190,7 @@ function Navbar() {
             <a href="#projects" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Projects
             </a>
-            <a href="#videos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Videos
-            </a>
-            <a href="#tutorials" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Tutorials
-            </a>
+            
             <a href="#process" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               How We Work
             </a>
@@ -320,12 +229,7 @@ function Navbar() {
             <a href="#projects" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
               Projects
             </a>
-            <a href="#videos" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
-              Videos
-            </a>
-            <a href="#tutorials" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
-              Tutorials
-            </a>
+            
             <a href="#process" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
               How We Work
             </a>
@@ -682,188 +586,9 @@ function ProjectsSection() {
   );
 }
 
-function VideoShowcaseSection() {
-  return (
-    <section id="videos" className="py-20 sm:py-28 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={stagger}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-sm font-semibold mb-4">
-            <Video className="w-4 h-4" />
-            Watch Our Work
-          </motion.div>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            See the results{" "}
-            <span className="text-gradient-green">in action</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
-            Case study breakdowns, strategy walkthroughs, and behind-the-scenes looks at how we deliver results for our clients.
-          </motion.p>
-        </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={stagger}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {videos.map((video) => (
-            <motion.div
-              key={video.title}
-              variants={fadeUp}
-              className="group bg-card rounded-2xl border border-border/60 overflow-hidden hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300 cursor-pointer"
-            >
-              {/* Thumbnail */}
-              <div className="relative h-44 overflow-hidden">
-                <img
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
 
-                {/* Play button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                    <Play className="w-6 h-6 text-[#691E2A] ml-1" fill="currentColor" />
-                  </div>
-                </div>
 
-                {/* Duration badge */}
-                <div className="absolute bottom-3 right-3">
-                  <span className="px-2 py-0.5 rounded-md bg-black/70 text-white text-xs font-medium">
-                    {video.duration}
-                  </span>
-                </div>
-
-                {/* Category badge */}
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#691E2A]/90 text-white text-xs font-semibold">
-                    {video.category}
-                  </span>
-                </div>
-              </div>
-
-              {/* Info */}
-              <div className="p-5">
-                <h3 className="text-base font-bold mb-2 group-hover:text-[#691E2A] transition-colors leading-snug">
-                  {video.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-3">
-                  {video.description}
-                </p>
-                <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                  <Eye className="w-3.5 h-3.5" />
-                  {video.views}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
-function TutorialsSection() {
-  return (
-    <section id="tutorials" className="py-20 sm:py-28 bg-anvaya-dark-accent relative overflow-hidden">
-      <div className="absolute inset-0 bg-mesh-green opacity-20" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={stagger}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-sm font-semibold mb-4">
-            <BookOpen className="w-4 h-4" />
-            Learn & Grow
-          </motion.div>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Free digital marketing{" "}
-            <span className="text-gradient-green">tutorials</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
-            Practical guides and frameworks from our team — learn the strategies that power our clients' growth.
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={stagger}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
-        >
-          {tutorials.map((tutorial) => (
-            <motion.div
-              key={tutorial.title}
-              variants={fadeUp}
-              className="group bg-card rounded-2xl border border-border/60 overflow-hidden hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300 cursor-pointer"
-            >
-              {/* Thumbnail */}
-              <div className="relative h-40 overflow-hidden">
-                <img
-                  src={tutorial.thumbnail}
-                  alt={tutorial.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-
-                {/* Duration badge */}
-                <div className="absolute bottom-3 right-3">
-                  <span className="px-2 py-0.5 rounded-md bg-black/70 text-white text-xs font-medium">
-                    {tutorial.duration}
-                  </span>
-                </div>
-
-                {/* Category badge */}
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-0.5 rounded-full bg-white/90 text-[#691E2A] text-xs font-semibold">
-                    {tutorial.category}
-                  </span>
-                </div>
-              </div>
-
-              <div className="p-5">
-                <h3 className="text-base font-bold mb-2 group-hover:text-[#691E2A] transition-colors leading-snug">
-                  {tutorial.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                  {tutorial.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {tutorial.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-0.5 rounded-md bg-muted text-[10px] font-medium text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-4 flex items-center gap-1.5 text-[#691E2A] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                  Read Guide
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
 
 function ProcessSection() {
   return (
@@ -1276,8 +1001,7 @@ function Footer() {
             <h4 className="text-white font-semibold text-sm mb-4">Resources</h4>
             <ul className="space-y-2.5">
               <li><a href="#projects" className="text-sm hover:text-white transition-colors">Our Projects</a></li>
-              <li><a href="#videos" className="text-sm hover:text-white transition-colors">Videos</a></li>
-              <li><a href="#tutorials" className="text-sm hover:text-white transition-colors">Tutorials</a></li>
+              
               <li><a href="#process" className="text-sm hover:text-white transition-colors">How We Work</a></li>
               <li><a href="#results" className="text-sm hover:text-white transition-colors">Results</a></li>
             </ul>
@@ -1314,8 +1038,7 @@ export default function Landing() {
       <ServicesSection />
       <ClientLogosBar />
       <ProjectsSection />
-      <VideoShowcaseSection />
-      <TutorialsSection />
+      
       <ProcessSection />
       <TestimonialsSection />
       <LeadFormSection />
