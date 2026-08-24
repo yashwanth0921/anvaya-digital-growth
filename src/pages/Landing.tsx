@@ -417,47 +417,37 @@ const workShowcase = [
     title: "Bloom Beauty Studio",
     category: "Social Media Growth",
     description: "Transformed a local beauty studio's Instagram presence from 500 to 8,000+ engaged followers in 3 months.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     posterImage: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=900&h=500&fit=crop&q=80",
     results: ["16× follower growth", "40% new customers from social", "3× engagement rate"],
     metrics: { label: "Followers Gained", value: "7,500+" },
-    size: "large" as const,
   },
   {
     title: "TechFlow Solutions",
     category: "Meta & Google Ads",
     description: "Built and optimized a full-funnel ad campaign delivering 5× ROAS in the first month for a B2B SaaS company.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     posterImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=500&fit=crop&q=80",
     results: ["5× ROAS", "60% lower CPA", "2.3M impressions"],
     metrics: { label: "Return on Ad Spend", value: "5×" },
-    size: "small" as const,
   },
   {
     title: "GreenLeaf Organics",
     category: "Website & SEO",
     description: "Complete website redesign with SEO optimization that doubled conversion rate and tripled organic traffic.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     posterImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=500&fit=crop&q=80",
     results: ["2× conversion rate", "3× organic traffic", "Page 1 for 12 keywords"],
     metrics: { label: "Conversion Lift", value: "2×" },
-    size: "small" as const,
   },
   {
     title: "Urban Bites Cafe",
     category: "Full Digital Package",
     description: "End-to-end digital transformation — social media, local SEO, Google Ads, and a new ordering website.",
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     posterImage: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900&h=500&fit=crop&q=80",
     results: ["500+ monthly orders online", "Top 3 Google Maps", "4.8★ reviews"],
     metrics: { label: "Monthly Orders", value: "500+" },
-    size: "large" as const,
   },
 ];
 
 function WorkShowcaseSection() {
-  const [activeVideo, setActiveVideo] = useState<number | null>(null);
-
   return (
     <section id="work" className="py-20 sm:py-28 bg-anvaya-dark relative overflow-hidden">
       <div className="absolute inset-0 bg-mesh-hero opacity-30" />
@@ -480,11 +470,10 @@ function WorkShowcaseSection() {
             Projects that <span className="text-gradient-gold">delivered results</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-gray-400 text-lg">
-            Real brands, real strategies, real growth. Watch how we've transformed businesses through creative digital marketing.
+            Real brands, real strategies, real growth. Here's the impact we've created for our clients.
           </motion.p>
         </motion.div>
 
-        {/* Staggered video grid */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -492,54 +481,20 @@ function WorkShowcaseSection() {
           variants={stagger}
           className="grid md:grid-cols-2 gap-5"
         >
-          {workShowcase.map((project, index) => (
+          {workShowcase.map((project) => (
             <motion.div
               key={project.title}
               variants={fadeUp}
-              className={`group relative rounded-2xl overflow-hidden cursor-pointer ${
-                project.size === "large" ? "md:row-span-1" : ""
-              }`}
-              onMouseEnter={() => setActiveVideo(index)}
-              onMouseLeave={() => setActiveVideo(null)}
+              className="group relative rounded-2xl overflow-hidden"
             >
-              {/* Video / Image container */}
               <div className="relative aspect-video overflow-hidden bg-black rounded-2xl">
-                {activeVideo === index ? (
-                  <iframe
-                    src={`${project.videoUrl}?autoplay=1&mute=1&loop=1&playlist=${project.videoUrl.split('/embed/')[1]}&controls=0&showinfo=0&rel=0&modestbranding=1`}
-                    className="absolute inset-0 w-full h-full"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    title={project.title}
-                  />
-                ) : (
-                  <>
-                    <img
-                      src={project.posterImage}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    {/* Dark overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10 group-hover:from-black/90 group-hover:via-black/40 transition-all duration-500" />
-
-                    {/* Play button */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <motion.div
-                        className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/15 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-[#691E2A]/80 group-hover:border-[#691E2A]/50 transition-all duration-500 group-hover:scale-110"
-                      >
-                        <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white ml-1" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </motion.div>
-                    </div>
-
-                    {/* Duration badge */}
-                    <div className="absolute top-4 right-4 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-sm text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      ▶ Play
-                    </div>
-                  </>
-                )}
+                <img
+                  src={project.posterImage}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
                 {/* Bottom info overlay */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 z-10">
@@ -556,14 +511,12 @@ function WorkShowcaseSection() {
                       </p>
                     </div>
 
-                    {/* Metric pill */}
                     <div className="shrink-0 px-3 py-2 rounded-xl bg-white/10 backdrop-blur-md border border-white/10 text-right">
                       <div className="text-xl font-extrabold text-[#D9B280] leading-tight">{project.metrics.value}</div>
                       <div className="text-[10px] text-gray-400">{project.metrics.label}</div>
                     </div>
                   </div>
 
-                  {/* Results tags - slide up on hover */}
                   <div className="mt-3 flex flex-wrap gap-1.5 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">
                     {project.results.map((r) => (
                       <span
@@ -581,7 +534,6 @@ function WorkShowcaseSection() {
           ))}
         </motion.div>
 
-        {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
