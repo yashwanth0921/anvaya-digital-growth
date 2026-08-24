@@ -1372,7 +1372,6 @@ function Footer() {
             <ul className="space-y-2.5">
               <li><a href="#contact" className="text-sm hover:text-white transition-colors">Contact Us</a></li>
               <li><Link to="/book" className="text-sm hover:text-white transition-colors">Book a Call</Link></li>
-              <li><Link to="/dashboard" className="text-sm hover:text-white transition-colors">Client Dashboard</Link></li>
             </ul>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import '@vly-ai/integrations';
 import { Toaster } from "@/components/ui/sonner";
 import { RequireAuth } from "@/components/RequireAuth";
+import { RequireAdmin } from "@/components/RequireAdmin";
 import { VlyToolbar } from "../vly-toolbar-readonly.tsx";
 import { ConvexAuthProvider } from "@convex-dev/auth/react";
 import { ConvexReactClient } from "convex/react";
@@ -124,16 +125,16 @@ createRoot(document.getElementById("root")!).render(
               <Route path="/" element={<Landing />} />
               <Route
                 path="/auth"
-                element={<AuthPage redirectAfterAuth="/dashboard" />}
+                element={<AuthPage redirectAfterAuth="/" />}
               />
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/book" element={<BookPage />} />
               <Route
                 path="/dashboard"
                 element={
-                  <RequireAuth>
+                  <RequireAdmin>
                     <Dashboard />
-                  </RequireAuth>
+                  </RequireAdmin>
                 }
               />
               <Route path="*" element={<NotFound />} />
