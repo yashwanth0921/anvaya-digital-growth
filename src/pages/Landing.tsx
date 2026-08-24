@@ -33,6 +33,9 @@ import {
   Camera,
   Code,
   FileText,
+  Video,
+  Award,
+  Quote,
 } from "lucide-react";
 
 const serviceIcons: Record<string, typeof Globe> = {
@@ -60,6 +63,8 @@ const projects = [
     color: "from-[#691E2A]/10 to-[#B28452]/10",
     icon: Camera,
     metrics: { label: "Followers Gained", value: "7,500+" },
+    image: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&h=450&fit=crop&q=80",
+    beforeAfter: { before: "500 followers, 1.2% engagement", after: "8,000+ followers, 4.8% engagement" },
   },
   {
     title: "TechFlow Solutions",
@@ -69,6 +74,8 @@ const projects = [
     color: "from-[#B28452]/10 to-[#691E2A]/10",
     icon: TrendingUpIcon,
     metrics: { label: "Return on Ad Spend", value: "5×" },
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=450&fit=crop&q=80",
+    beforeAfter: { before: "₹15 cost per lead", after: "₹6 cost per lead" },
   },
   {
     title: "GreenLeaf Organics",
@@ -78,6 +85,8 @@ const projects = [
     color: "from-[#430D12]/10 to-[#B28452]/10",
     icon: Layout,
     metrics: { label: "Conversion Lift", value: "2×" },
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=450&fit=crop&q=80",
+    beforeAfter: { before: "1.8% conversion rate", after: "3.6% conversion rate" },
   },
   {
     title: "Urban Bites Cafe",
@@ -87,6 +96,35 @@ const projects = [
     color: "from-[#691E2A]/8 to-[#D9B280]/10",
     icon: Globe,
     metrics: { label: "Monthly Online Orders", value: "500+" },
+    image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&h=450&fit=crop&q=80",
+    beforeAfter: { before: "0 online orders", after: "500+ monthly orders" },
+  },
+];
+
+const videos = [
+  {
+    title: "How We Grew Bloom Beauty's Instagram to 8K Followers",
+    description: "Watch the full breakdown of our social media strategy — from content planning to reel production to community engagement.",
+    thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=340&fit=crop&q=80",
+    duration: "4:32",
+    views: "12.5K views",
+    category: "Case Study",
+  },
+  {
+    title: "Meta Ads That Deliver 5× ROAS — Our Framework",
+    description: "A step-by-step walkthrough of the exact ad structure, targeting, and creative strategy behind our highest-performing campaigns.",
+    thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop&q=80",
+    duration: "8:15",
+    views: "8.3K views",
+    category: "Tutorial",
+  },
+  {
+    title: "Website Redesign That Tripled Organic Traffic",
+    description: "See the before and after of GreenLeaf Organics' website transformation — design, SEO, and conversion optimization explained.",
+    thumbnail: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=340&fit=crop&q=80",
+    duration: "6:48",
+    views: "5.1K views",
+    category: "Case Study",
   },
 ];
 
@@ -98,6 +136,7 @@ const tutorials = [
     icon: Play,
     description: "Learn the exact framework we use to create Instagram Reels that get 10× more views and drive real engagement.",
     tags: ["Instagram", "Content Creation", "Reels"],
+    thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=400&h=240&fit=crop&q=80",
   },
   {
     title: "Meta Ads Masterclass: From ₹0 to ₹1L Revenue",
@@ -106,6 +145,7 @@ const tutorials = [
     icon: Megaphone,
     description: "A step-by-step guide to setting up your first Meta Ads campaign — targeting, creatives, budgets, and scaling strategies.",
     tags: ["Meta Ads", "Facebook", "ROI"],
+    thumbnail: "https://images.unsplash.com/photo-1553729459-afe8f2e2ed44?w=400&h=240&fit=crop&q=80",
   },
   {
     title: "Local SEO: Get Your Business on Google Maps",
@@ -114,6 +154,7 @@ const tutorials = [
     icon: Search,
     description: "Everything you need to rank your business in Google Maps and local search results — from Google Business Profile to reviews.",
     tags: ["Local SEO", "Google Maps", "Business Profile"],
+    thumbnail: "https://images.unsplash.com/photo-1553484771-047044b78a79?w=400&h=240&fit=crop&q=80",
   },
   {
     title: "Building a Website That Actually Converts",
@@ -122,6 +163,7 @@ const tutorials = [
     icon: Code,
     description: "The design principles and technical foundations behind websites that turn visitors into paying customers.",
     tags: ["Web Design", "UX", "Conversion"],
+    thumbnail: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=400&h=240&fit=crop&q=80",
   },
   {
     title: "Content Calendar Template: Plan 30 Days in 1 Hour",
@@ -130,6 +172,7 @@ const tutorials = [
     icon: Calendar,
     description: "Our proven template for planning an entire month of social media content in just one hour — with examples and fill-in prompts.",
     tags: ["Planning", "Content Calendar", "Efficiency"],
+    thumbnail: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=240&fit=crop&q=80",
   },
   {
     title: "Email Marketing That Drives 40% Open Rates",
@@ -138,7 +181,19 @@ const tutorials = [
     icon: FileText,
     description: "Craft compelling email campaigns with subject lines, copy, and sequences that your audience actually wants to open.",
     tags: ["Email", "Copywriting", "Automation"],
+    thumbnail: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=400&h=240&fit=crop&q=80",
   },
+];
+
+const clientLogos = [
+  { name: "Bloom Beauty Studio", initials: "BB" },
+  { name: "TechFlow Solutions", initials: "TF" },
+  { name: "GreenLeaf Organics", initials: "GL" },
+  { name: "Urban Bites Cafe", initials: "UB" },
+  { name: "FreshCart India", initials: "FC" },
+  { name: "StyleCraft Salon", initials: "SC" },
+  { name: "Mindful Spaces", initials: "MS" },
+  { name: "PureFit Nutrition", initials: "PF" },
 ];
 
 const processSteps = [
@@ -178,18 +233,21 @@ const testimonials = [
     business: "Bloom Beauty Studio",
     text: "Our Instagram grew from 500 to 8,000 engaged followers in just three months. Nearly 40% of our new customers now find us through social media — the ROI speaks for itself.",
     rating: 5,
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=120&h=120&fit=crop&q=80",
   },
   {
     name: "Rahul Mehta",
     business: "TechFlow Solutions",
     text: "The Meta Ads campaign they built delivered a 5x return in the very first month. They understand how to target precisely and convert efficiently — exactly what we needed.",
     rating: 5,
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&q=80",
   },
   {
     name: "Ananya Desai",
     business: "GreenLeaf Organics",
     text: "Our website redesign doubled our conversion rate. The team was responsive, creative, and genuinely invested in getting the details right. The best decision we made for our business.",
     rating: 5,
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&q=80",
   },
 ];
 
@@ -217,6 +275,9 @@ function Navbar() {
             </a>
             <a href="#projects" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Projects
+            </a>
+            <a href="#videos" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Videos
             </a>
             <a href="#tutorials" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Tutorials
@@ -258,6 +319,9 @@ function Navbar() {
             </a>
             <a href="#projects" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
               Projects
+            </a>
+            <a href="#videos" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
+              Videos
             </a>
             <a href="#tutorials" onClick={() => setIsOpen(false)} className="px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-muted transition-colors">
               Tutorials
@@ -450,7 +514,51 @@ function ServicesSection() {
   );
 }
 
+function ClientLogosBar() {
+  return (
+    <section className="py-12 border-y border-border/40 bg-muted/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={stagger}
+          className="text-center mb-8"
+        >
+          <motion.p variants={fadeUp} className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+            Trusted by forward-thinking brands
+          </motion.p>
+        </motion.div>
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={stagger}
+          className="flex flex-wrap items-center justify-center gap-6 sm:gap-10"
+        >
+          {clientLogos.map((client) => (
+            <motion.div
+              key={client.name}
+              variants={fadeUp}
+              className="flex items-center gap-3 px-5 py-3 rounded-xl bg-card border border-border/40 hover:border-[#691E2A]/20 hover:shadow-md transition-all"
+            >
+              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#691E2A]/10 to-[#B28452]/10 flex items-center justify-center">
+                <span className="text-sm font-bold text-[#691E2A]">{client.initials}</span>
+              </div>
+              <span className="text-sm font-semibold text-muted-foreground hidden sm:inline">
+                {client.name}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function ProjectsSection() {
+  const [activeProject, setActiveProject] = useState<number | null>(null);
+
   return (
     <section id="projects" className="py-20 sm:py-28 bg-anvaya-dark-accent relative overflow-hidden">
       <div className="absolute inset-0 bg-mesh-green opacity-30" />
@@ -482,36 +590,63 @@ function ProjectsSection() {
           variants={stagger}
           className="grid sm:grid-cols-2 gap-6"
         >
-          {projects.map((project) => (
+          {projects.map((project, index) => (
             <motion.div
               key={project.title}
               variants={fadeUp}
               className="group relative bg-card rounded-2xl border border-border/60 overflow-hidden hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300"
+              onMouseEnter={() => setActiveProject(index)}
+              onMouseLeave={() => setActiveProject(null)}
             >
-              {/* Top gradient bar */}
-              <div className={`h-1.5 bg-gradient-to-r ${project.color}`} />
+              {/* Hero Image */}
+              <div className="relative h-48 sm:h-52 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
-              <div className="p-7 sm:p-8">
-                <div className="flex items-start justify-between mb-4">
-                  <div>
-                    <span className="inline-flex items-center px-3 py-1 rounded-full bg-[#691E2A]/8 text-[#691E2A] text-xs font-semibold mb-3">
-                      {project.category}
-                    </span>
-                    <h3 className="text-xl font-bold group-hover:text-[#691E2A] transition-colors">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br ${project.color} shrink-0`}>
-                    <project.icon className="w-5 h-5 text-[#691E2A]" />
-                  </div>
+                {/* Category badge on image */}
+                <div className="absolute top-4 left-4">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-white/90 backdrop-blur-sm text-[#691E2A] text-xs font-semibold shadow-sm">
+                    {project.category}
+                  </span>
                 </div>
 
-                <p className="text-muted-foreground text-sm leading-relaxed mb-5">
+                {/* Metric overlay on image */}
+                <div className="absolute bottom-4 right-4">
+                  <div className="px-3 py-2 rounded-lg bg-white/90 backdrop-blur-sm shadow-sm text-right">
+                    <div className="text-lg font-extrabold text-[#691E2A] leading-tight">{project.metrics.value}</div>
+                    <div className="text-[10px] text-muted-foreground">{project.metrics.label}</div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-6 sm:p-7">
+                <h3 className="text-xl font-bold mb-2 group-hover:text-[#691E2A] transition-colors">
+                  {project.title}
+                </h3>
+
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                   {project.description}
                 </p>
 
+                {/* Before / After comparison */}
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <div className="p-3 rounded-xl bg-red-50 border border-red-100">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-red-400 mb-1">Before</div>
+                    <div className="text-xs font-medium text-red-600">{project.beforeAfter.before}</div>
+                  </div>
+                  <div className="p-3 rounded-xl bg-green-50 border border-green-100">
+                    <div className="text-[10px] font-bold uppercase tracking-wider text-green-500 mb-1">After</div>
+                    <div className="text-xs font-medium text-green-600">{project.beforeAfter.after}</div>
+                  </div>
+                </div>
+
                 {/* Results tags */}
-                <div className="flex flex-wrap gap-2 mb-5">
+                <div className="flex flex-wrap gap-2">
                   {project.results.map((r) => (
                     <span
                       key={r}
@@ -521,17 +656,6 @@ function ProjectsSection() {
                       {r}
                     </span>
                   ))}
-                </div>
-
-                {/* Hero metric */}
-                <div className="flex items-center gap-3 p-4 rounded-xl bg-muted/60 border border-border/40">
-                  <div className="w-10 h-10 rounded-lg bg-[#691E2A]/10 flex items-center justify-center">
-                    <project.icon className="w-5 h-5 text-[#B28452]" />
-                  </div>
-                  <div>
-                    <div className="text-2xl font-extrabold text-gradient-gold">{project.metrics.value}</div>
-                    <div className="text-xs text-muted-foreground">{project.metrics.label}</div>
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -558,10 +682,101 @@ function ProjectsSection() {
   );
 }
 
+function VideoShowcaseSection() {
+  return (
+    <section id="videos" className="py-20 sm:py-28 relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={stagger}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-sm font-semibold mb-4">
+            <Video className="w-4 h-4" />
+            Watch Our Work
+          </motion.div>
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
+            See the results{" "}
+            <span className="text-gradient-green">in action</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
+            Case study breakdowns, strategy walkthroughs, and behind-the-scenes looks at how we deliver results for our clients.
+          </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={stagger}
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        >
+          {videos.map((video) => (
+            <motion.div
+              key={video.title}
+              variants={fadeUp}
+              className="group bg-card rounded-2xl border border-border/60 overflow-hidden hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300 cursor-pointer"
+            >
+              {/* Thumbnail */}
+              <div className="relative h-44 overflow-hidden">
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
+
+                {/* Play button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <Play className="w-6 h-6 text-[#691E2A] ml-1" fill="currentColor" />
+                  </div>
+                </div>
+
+                {/* Duration badge */}
+                <div className="absolute bottom-3 right-3">
+                  <span className="px-2 py-0.5 rounded-md bg-black/70 text-white text-xs font-medium">
+                    {video.duration}
+                  </span>
+                </div>
+
+                {/* Category badge */}
+                <div className="absolute top-3 left-3">
+                  <span className="px-2.5 py-0.5 rounded-full bg-[#691E2A]/90 text-white text-xs font-semibold">
+                    {video.category}
+                  </span>
+                </div>
+              </div>
+
+              {/* Info */}
+              <div className="p-5">
+                <h3 className="text-base font-bold mb-2 group-hover:text-[#691E2A] transition-colors leading-snug">
+                  {video.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                  {video.description}
+                </p>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <Eye className="w-3.5 h-3.5" />
+                  {video.views}
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function TutorialsSection() {
   return (
-    <section id="tutorials" className="py-20 sm:py-28 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="tutorials" className="py-20 sm:py-28 bg-anvaya-dark-accent relative overflow-hidden">
+      <div className="absolute inset-0 bg-mesh-green opacity-20" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -593,43 +808,54 @@ function TutorialsSection() {
             <motion.div
               key={tutorial.title}
               variants={fadeUp}
-              className="group bg-card rounded-2xl border border-border/60 p-6 hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300 cursor-pointer"
+              className="group bg-card rounded-2xl border border-border/60 overflow-hidden hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300 cursor-pointer"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[#691E2A]/8 to-[#B28452]/8`}>
-                  <tutorial.icon className="w-5 h-5 text-[#691E2A]" />
-                </div>
-                <span className="text-xs font-medium text-muted-foreground bg-muted/60 px-3 py-1 rounded-full">
-                  {tutorial.duration}
-                </span>
-              </div>
+              {/* Thumbnail */}
+              <div className="relative h-40 overflow-hidden">
+                <img
+                  src={tutorial.thumbnail}
+                  alt={tutorial.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full bg-[#B28452]/10 text-[#B28452] text-[11px] font-semibold mb-3">
-                {tutorial.category}
-              </span>
-
-              <h3 className="text-base font-bold mb-2 group-hover:text-[#691E2A] transition-colors leading-snug">
-                {tutorial.title}
-              </h3>
-
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                {tutorial.description}
-              </p>
-
-              <div className="flex flex-wrap gap-1.5">
-                {tutorial.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-0.5 rounded-md bg-muted text-[10px] font-medium text-muted-foreground"
-                  >
-                    {tag}
+                {/* Duration badge */}
+                <div className="absolute bottom-3 right-3">
+                  <span className="px-2 py-0.5 rounded-md bg-black/70 text-white text-xs font-medium">
+                    {tutorial.duration}
                   </span>
-                ))}
+                </div>
+
+                {/* Category badge */}
+                <div className="absolute top-3 left-3">
+                  <span className="px-2.5 py-0.5 rounded-full bg-white/90 text-[#691E2A] text-xs font-semibold">
+                    {tutorial.category}
+                  </span>
+                </div>
               </div>
 
-              <div className="mt-5 flex items-center gap-1.5 text-[#691E2A] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                Read Guide
-                <ArrowRight className="w-3.5 h-3.5" />
+              <div className="p-5">
+                <h3 className="text-base font-bold mb-2 group-hover:text-[#691E2A] transition-colors leading-snug">
+                  {tutorial.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  {tutorial.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {tutorial.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-0.5 rounded-md bg-muted text-[10px] font-medium text-muted-foreground"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <div className="mt-4 flex items-center gap-1.5 text-[#691E2A] text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
+                  Read Guide
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </div>
               </div>
             </motion.div>
           ))}
@@ -641,7 +867,7 @@ function TutorialsSection() {
 
 function ProcessSection() {
   return (
-    <section id="process" className="py-20 sm:py-28 bg-anvaya-dark-accent relative overflow-hidden">
+    <section id="process" className="py-20 sm:py-28 relative overflow-hidden">
       <div className="absolute inset-0 bg-mesh-green opacity-40" />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
@@ -733,6 +959,9 @@ function TestimonialsSection() {
               variants={fadeUp}
               className="bg-card rounded-2xl border border-border/60 p-7 hover:shadow-lg transition-shadow"
             >
+              <div className="flex items-center gap-1 mb-2">
+                <Quote className="w-5 h-5 text-[#B28452]/40" />
+              </div>
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: t.rating }).map((_, i) => (
                   <svg key={i} className="w-5 h-5 text-[#B28452]" fill="currentColor" viewBox="0 0 20 20">
@@ -744,11 +973,11 @@ function TestimonialsSection() {
                 "{t.text}"
               </p>
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#691E2A]/10 flex items-center justify-center">
-                  <span className="text-sm font-bold text-[#691E2A]">
-                    {t.name.split(" ").map((n) => n[0]).join("")}
-                  </span>
-                </div>
+                <img
+                  src={t.image}
+                  alt={t.name}
+                  className="w-10 h-10 rounded-full object-cover border-2 border-[#691E2A]/20"
+                />
                 <div>
                   <div className="text-sm font-semibold">{t.name}</div>
                   <div className="text-xs text-muted-foreground">{t.business}</div>
@@ -789,7 +1018,6 @@ function LeadFormSection() {
         service: formState.service,
         message: formState.message || undefined,
       });
-      // Notifications (email + sheet) are scheduled automatically by the mutation
       setIsSubmitted(true);
       toast.success("Inquiry submitted successfully!");
     } catch (err) {
@@ -816,7 +1044,6 @@ function LeadFormSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left: Info */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -866,7 +1093,6 @@ function LeadFormSection() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -1026,7 +1252,6 @@ function Footer() {
     <footer className="bg-[#430D12] text-gray-400 py-14 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <img src={logo} alt="Grow with Anvaya" className="h-20 mb-4" />
             <p className="text-sm leading-relaxed max-w-xs">
@@ -1034,7 +1259,6 @@ function Footer() {
             </p>
           </div>
 
-          {/* Services */}
           <div>
             <h4 className="text-white font-semibold text-sm mb-4">Services</h4>
             <ul className="space-y-2.5">
@@ -1048,18 +1272,17 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Resources */}
           <div>
             <h4 className="text-white font-semibold text-sm mb-4">Resources</h4>
             <ul className="space-y-2.5">
               <li><a href="#projects" className="text-sm hover:text-white transition-colors">Our Projects</a></li>
+              <li><a href="#videos" className="text-sm hover:text-white transition-colors">Videos</a></li>
               <li><a href="#tutorials" className="text-sm hover:text-white transition-colors">Tutorials</a></li>
               <li><a href="#process" className="text-sm hover:text-white transition-colors">How We Work</a></li>
               <li><a href="#results" className="text-sm hover:text-white transition-colors">Results</a></li>
             </ul>
           </div>
 
-          {/* Company */}
           <div>
             <h4 className="text-white font-semibold text-sm mb-4">Company</h4>
             <ul className="space-y-2.5">
@@ -1089,7 +1312,9 @@ export default function Landing() {
       <Navbar />
       <HeroSection />
       <ServicesSection />
+      <ClientLogosBar />
       <ProjectsSection />
+      <VideoShowcaseSection />
       <TutorialsSection />
       <ProcessSection />
       <TestimonialsSection />
