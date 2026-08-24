@@ -29,8 +29,13 @@ import logo from "@/assets/logo.svg";import {
   Smartphone,
   Palette,
   ChevronLeft,
+  MessageCircle,
+  Clock,
+  Award,
+  ArrowUp,
 } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
+import { useEffect, useRef } from "react";
 
 const serviceIcons: Record<string, typeof Globe> = {
   "social-media-marketing": Megaphone,
@@ -274,7 +279,7 @@ function HeroSection() {
             <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
                 to="/book"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5 animate-pulse-slow"
               >
                 <Calendar className="w-4 h-4" />
                 Book a Free Consultation
@@ -286,6 +291,20 @@ function HeroSection() {
                 Explore Services
                 <ArrowRight className="w-4 h-4" />
               </a>
+            </motion.div>
+
+            {/* Trust badges */}
+            <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
+              {[
+                { icon: Shield, text: "100% Free Consultation" },
+                { icon: Clock, text: "24-Hour Response" },
+                { icon: Award, text: "50+ Brands Served" },
+              ].map((badge) => (
+                <div key={badge.text} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
+                  <badge.icon className="w-3.5 h-3.5 text-[#D9B280]" />
+                  <span className="text-xs font-medium text-gray-400">{badge.text}</span>
+                </div>
+              ))}
             </motion.div>
           </motion.div>
 
@@ -299,15 +318,13 @@ function HeroSection() {
           className="mt-16 grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8"
         >
           {[
-            { value: "50+", label: "Brands Scaled" },
-            { value: "5×", label: "Average ROAS" },
-            { value: "10M+", label: "Impressions Generated" },
-            { value: "98%", label: "Client Retention" },
+            { target: 50, suffix: "+", label: "Brands Scaled" },
+            { target: 5, suffix: "×", label: "Average ROAS" },
+            { target: 10, suffix: "M+", label: "Impressions Generated" },
+            { target: 98, suffix: "%", label: "Client Retention" },
           ].map((stat) => (
             <div key={stat.label} className="text-center sm:text-left">
-              <div className="text-2xl sm:text-3xl font-extrabold text-gradient-gold">
-                {stat.value}
-              </div>
+              <AnimatedCounter target={stat.target} suffix={stat.suffix} />
               <div className="text-sm text-gray-500 mt-1">{stat.label}</div>
             </div>
           ))}
@@ -1030,6 +1047,137 @@ function LeadFormSection() {
   );
 }
 
+function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          const duration = 2000;
+          const steps = 60;
+          const increment = target / steps;
+          let current = 0;
+          const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+              setCount(target);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(current));
+            }
+          }, duration / steps);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target]);
+
+  return (
+    <div ref={ref} className="text-2xl sm:text-3xl font-extrabold text-gradient-gold">
+      {count}{suffix}
+    </div>
+  );
+}
+
+const socialProofNotifications = [
+  { name: "Rahul from Mumbai", action: "requested a free consultation", time: "2 min ago" },
+  { name: "Priya from Delhi", action: "booked a strategy call", time: "5 min ago" },
+  { name: "Arjun from Bangalore", action: "downloaded our growth guide", time: "8 min ago" },
+  { name: "Sneha from Chennai", action: "submitted an inquiry", time: "12 min ago" },
+  { name: "Vikram from Hyderabad", action: "requested a free consultation", time: "15 min ago" },
+  { name: "Meera from Pune", action: "booked a strategy call", time: "18 min ago" },
+];
+
+function SocialProofTicker() {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % socialProofNotifications.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const notification = socialProofNotifications[current];
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="fixed bottom-6 left-6 z-50"
+    >
+      <motion.div
+        key={current}
+        initial={{ opacity: 0, x: -20, scale: 0.95 }}
+        animate={{ opacity: 1, x: 0, scale: 1 }}
+        exit={{ opacity: 0, x: -20, scale: 0.95 }}
+        className="bg-white/95 backdrop-blur-xl border border-border/60 rounded-2xl px-5 py-3.5 shadow-2xl max-w-xs"
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-9 h-9 rounded-full bg-[#691E2A]/10 flex items-center justify-center shrink-0">
+            <CheckCircle2 className="w-4 h-4 text-[#691E2A]" />
+          </div>
+          <div className="min-w-0">
+            <p className="text-xs font-semibold text-foreground truncate">
+              {notification.name}
+            </p>
+            <p className="text-[11px] text-muted-foreground truncate">
+              {notification.action}
+            </p>
+          </div>
+          <span className="text-[10px] text-muted-foreground whitespace-nowrap shrink-0">
+            {notification.time}
+          </span>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function FloatingCTA() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setShowScrollTop(window.scrollY > 600);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div className="fixed bottom-6 right-6 z-50 flex flex-col gap-3 items-end">
+      {showScrollTop && (
+        <motion.button
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="w-11 h-11 rounded-full bg-white/90 backdrop-blur-xl border border-border/60 shadow-lg flex items-center justify-center hover:bg-muted transition-colors"
+        >
+          <ArrowUp className="w-4 h-4 text-foreground" />
+        </motion.button>
+      )}
+      <motion.a
+        href="https://wa.me/919876543210?text=Hi%20Grow%20with%20Anvaya%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group relative w-14 h-14 rounded-full bg-[#25D366] shadow-lg shadow-[#25D366]/30 flex items-center justify-center hover:shadow-xl hover:shadow-[#25D366]/40 hover:scale-110 transition-all"
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <MessageCircle className="w-6 h-6 text-white" />
+        <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+          <span className="text-[9px] font-bold text-white">1</span>
+        </span>
+      </motion.a>
+    </div>
+  );
+}
+
 function Footer() {
   return (
     <footer className="bg-[#430D12] text-gray-400 py-14 border-t border-white/5">
@@ -1088,6 +1236,48 @@ function Footer() {
   );
 }
 
+function CTABanner() {
+  return (
+    <section className="py-16 bg-anvaya-dark text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-mesh-hero opacity-40" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-[#691E2A]/10 blur-3xl" />
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={stagger}
+        >
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+            Ready to <span className="text-gradient-gold">10× your growth?</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+            Join 50+ brands that chose Grow with Anvaya to transform their digital presence. Your free strategy session is one click away.
+          </motion.p>
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              to="/book"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#691E2A] text-white font-bold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5 animate-pulse-slow"
+            >
+              <Calendar className="w-5 h-5" />
+              Get Your Free Growth Plan
+            </Link>
+            <a
+              href="tel:+919876543210"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all"
+            >
+              📞 Call Us Now
+            </a>
+          </motion.div>
+          <motion.p variants={fadeUp} className="mt-6 text-sm text-gray-500">
+            No commitment required · Response within 24 hours · Custom strategy included
+          </motion.p>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 export default function Landing() {
   return (
     <div className="min-h-screen">
@@ -1096,11 +1286,13 @@ export default function Landing() {
       <ServicesSection />
       <ClientLogosBar />
       <WorkShowcaseSection />
-      
       <ProcessSection />
       <TestimonialsSection />
+      <CTABanner />
       <LeadFormSection />
       <Footer />
+      <FloatingCTA />
+      <SocialProofTicker />
     </div>
   );
 }
