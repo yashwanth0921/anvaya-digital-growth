@@ -1770,11 +1770,11 @@ function WhyUsSection() {
         >
           <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-sm font-semibold mb-4">
             <Sparkles className="w-4 h-4" />
-            How We Work
+            Why Choose Us
           </motion.div>
           <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
-            A proven path to{" "}
-            <span className="text-gradient-gold">digital growth</span>
+            Why{" "}
+            <span className="text-gradient-gold">Grow With Anvaya</span>?
           </motion.h2>
         </motion.div>
 
