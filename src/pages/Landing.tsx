@@ -1438,66 +1438,134 @@ function Footer() {
 }
 
 
-function CTABanner() {
+function WhoWeAreSection() {
   return (
-    <section className="py-16 bg-anvaya-dark text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-mesh-hero opacity-30" />
-      <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#691E2A]/10 blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-[#B28452]/10 blur-3xl" />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={stagger}
-        >
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-            Ready to <span className="text-gradient-gold">grow your brand?</span>
-          </motion.h2>
-          <motion.p variants={fadeUp} className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
-            Join 50+ brands that chose Grow with Anvaya to transform their digital presence. Let's talk about your growth.
-          </motion.p>
-          <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-6 mb-8">
-            <div className="flex items-center gap-2">
-              <div className="flex -space-x-2">
-                {[1,2,3,4].map((i) => (
-                  <div key={i} className="w-8 h-8 rounded-full border-2 border-[#430D12] bg-gradient-to-br from-[#691E2A] to-[#B28452] flex items-center justify-center">
-                    <span className="text-[10px] font-bold text-white">{["P","R","A","V"][i-1]}</span>
+    <section className="py-20 sm:py-28 bg-anvaya-dark text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-mesh-hero opacity-40" />
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#691E2A]/8 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-[#B28452]/8 blur-3xl" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left: Rotating Badge */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, rotate: -30 }}
+            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex items-center justify-center"
+          >
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80">
+              {/* Outer ring */}
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute inset-0"
+              >
+                <svg viewBox="0 0 320 320" className="w-full h-full">
+                  <defs>
+                    <path
+                      id="circlePath"
+                      d="M160,160 m-130,0 a130,130 0 1,1 260,0 a130,130 0 1,1 -260,0"
+                    />
+                  </defs>
+                  <circle cx="160" cy="160" r="130" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="2" />
+                  <circle cx="160" cy="160" r="115" fill="none" stroke="rgba(180,132,82,0.2)" strokeWidth="1" />
+                  <text fill="rgba(255,255,255,0.6)" fontSize="13" fontWeight="700" letterSpacing="6">
+                    <textPath href="#circlePath" startOffset="0%">
+                      STRATEGY • CREATIVITY • MEDIA • TECHNOLOGY • GROWTH • DESIGN •
+                    </textPath>
+                  </text>
+                </svg>
+              </motion.div>
+              {/* Center badge */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                  className="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-2 border-[#B28452]/40 flex items-center justify-center bg-anvaya-dark/80 backdrop-blur-sm"
+                >
+                  <div className="text-center">
+                    <div className="text-4xl sm:text-5xl font-extrabold text-gradient-gold">GA</div>
+                    <div className="text-[10px] sm:text-xs font-semibold text-[#D9B280] tracking-widest mt-1">GROW WITH ANVAYA</div>
                   </div>
-                ))}
+                </motion.div>
               </div>
-              <span className="text-sm text-gray-400">50+ happy clients</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              {[1,2,3,4,5].map((i) => (
-                <span key={i} className="text-[#D9B280]">★</span>
-              ))}
-              <span className="text-sm text-gray-400 ml-1">4.9/5 rating</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-[#D9B280]" />
-              <span className="text-sm text-gray-400">24-hour response</span>
+              {/* Orange star accent */}
+              <motion.div
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-[#D9B280] shadow-lg shadow-[#D9B280]/50"
+              />
             </div>
           </motion.div>
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="mailto:growwithanvaya@gmail.com"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#691E2A] text-white font-bold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5 animate-pulse-slow"
-            >
-              <Send className="w-5 h-5" />
-              Send Us a Message
-            </a>
-            <Link
-              to="/book"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-bold text-base hover:bg-white/10 transition-all"
-            >
-              <Calendar className="w-5 h-5" />
-              Book a Free Call
-            </Link>
+
+          {/* Right: Text */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={stagger}
+          >
+            <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+              Who <span className="text-gradient-gold">We Are</span>
+            </motion.h2>
+            <motion.h3 variants={fadeUp} className="text-lg sm:text-xl font-semibold text-[#D9B280] mb-6">
+              Where Strategic Clarity Meets Creative Execution And Scalable Digital Growth.
+            </motion.h3>
+            <motion.p variants={fadeUp} className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8">
+              Grow with Anvaya is a brand-building and digital growth partner for ambitious businesses that want sharper positioning, stronger market presence, and more meaningful results. We bring together strategy, creative thinking, media activation, digital marketing, design, and technology to solve growth challenges with discipline and direction.
+            </motion.p>
+            <motion.div variants={fadeUp}>
+              <Link
+                to="/book"
+                className="group inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#D9B280] text-anvaya-dark font-bold text-base hover:bg-[#B28452] transition-all hover:shadow-xl hover:shadow-[#D9B280]/30 hover:-translate-y-0.5"
+              >
+                Talk to Anvaya
+                <span className="w-8 h-8 rounded-full bg-anvaya-dark/10 flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
+                  <ArrowRight className="w-4 h-4 text-anvaya-dark" />
+                </span>
+              </Link>
+            </motion.div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
+  );
+}
+
+function MarqueeBanner() {
+  return (
+    <div className="py-8 sm:py-12 bg-anvaya-dark border-y border-white/5 overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="flex whitespace-nowrap"
+      >
+        <motion.div
+          animate={{ x: [0, -2400] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="flex shrink-0"
+        >
+          {Array.from({ length: 8 }).map((_, i) => (
+            <span key={i} className="text-6xl sm:text-8xl md:text-[10rem] font-extrabold text-white/[0.03] tracking-tighter select-none mx-4">
+              GROW WITH ANVAYA
+            </span>
+          ))}
+        </motion.div>
+        <motion.div
+          animate={{ x: [0, -2400] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="flex shrink-0"
+        >
+          {Array.from({ length: 8 }).map((_, i) => (
+            <span key={`b-${i}`} className="text-6xl sm:text-8xl md:text-[10rem] font-extrabold text-white/[0.03] tracking-tighter select-none mx-4">
+              GROW WITH ANVAYA
+            </span>
+          ))}
+        </motion.div>
+      </motion.div>
+    </div>
   );
 }
 
@@ -1506,12 +1574,13 @@ export default function Landing() {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <WhoWeAreSection />
+      <MarqueeBanner />
       <ServicesSection />
       <ClientLogosBar />
       <WorkShowcaseSection />
       <ProcessSection />
       <TestimonialsSection />
-      <CTABanner />
       <LeadFormSection />
       <Footer />
     </div>
