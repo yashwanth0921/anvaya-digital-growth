@@ -1551,10 +1551,12 @@ function WhoWeAreSection() {
               Who <span className="text-gradient-gold">We Are</span>
             </motion.h2>
             <motion.h3 variants={fadeUp} className="text-lg sm:text-xl font-semibold text-[#D9B280] mb-6">
-              Where Strategic Clarity Meets Creative Execution And Scalable Digital Growth.
+              We Don't Just Market. We Build Growth.
             </motion.h3>
             <motion.p variants={fadeUp} className="text-gray-400 text-base sm:text-lg leading-relaxed mb-8">
-              Grow with Anvaya is a brand-building and digital growth partner for ambitious businesses that want sharper positioning, stronger market presence, and more meaningful results. We bring together strategy, creative thinking, media activation, digital marketing, design, and technology to solve growth challenges with discipline and direction.
+              Grow With Anvaya is a digital marketing and technology agency built to help ambitious businesses grow in the digital world.
+
+We combine strategy, creativity, performance marketing and technology to create solutions that don't just look good—they work.
             </motion.p>
             <motion.div variants={fadeUp}>
               <Link
