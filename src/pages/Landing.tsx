@@ -510,7 +510,7 @@ const serviceCategories = [
     color: "from-[#691E2A] to-[#8B2E3D]",
     borderColor: "hover:border-[#691E2A]/40",
     items: ["Performance Marketing", "Google Ads", "Meta Ads", "SEO", "Social Media Marketing", "Content Marketing"],
-    link: "/services/performance-marketing",
+    link: "/services/digital-marketing",
     linkText: "View Services",
   },
   {
@@ -521,7 +521,7 @@ const serviceCategories = [
     color: "from-[#B28452] to-[#D4A843]",
     borderColor: "hover:border-[#B28452]/40",
     items: ["Website Development", "Web Applications", "AI Solutions", "Chatbots", "Automation", "Custom Solutions"],
-    link: "/services/website-development",
+    link: "/services/technology",
     linkText: "Explore Technology",
   },
   {
@@ -532,7 +532,7 @@ const serviceCategories = [
     color: "from-[#8B2E3D] to-[#691E2A]",
     borderColor: "hover:border-[#8B2E3D]/40",
     items: ["Branding", "Graphic Design", "Video", "Reels", "Content Creation", "Creative Campaigns"],
-    link: "/services/brand-identity",
+    link: "/services/creative",
     linkText: "See Creative Work",
   },
 ];
