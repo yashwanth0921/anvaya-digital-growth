@@ -440,14 +440,11 @@ export default function ServiceDetail() {
             {/* Features */}
             <motion.div variants={fadeUp} className="mb-16">
               <h2 className="text-2xl font-bold mb-6">What's Included</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <motion.div variants={stagger} className="grid sm:grid-cols-2 gap-4">
                 {service.features.map((feat, i) => (
                   <motion.div
                     key={feat}
-                    initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1, duration: 0.4 }}
+                    variants={i % 2 === 0 ? fadeLeft : fadeRight}
                     whileHover={{ scale: 1.02, x: 4 }}
                     className="flex items-center gap-3 p-5 rounded-xl bg-gradient-to-r from-muted/50 to-muted/20 border border-border/40 hover:border-[#691E2A]/30 hover:shadow-md transition-all cursor-default"
                   >
@@ -457,20 +454,17 @@ export default function ServiceDetail() {
                     <span className="text-sm font-semibold">{feat}</span>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* Benefits */}
             <motion.div variants={fadeUp} className="mb-16">
               <h2 className="text-2xl font-bold mb-6">Why It Matters</h2>
-              <div className="grid sm:grid-cols-3 gap-5">
+              <motion.div variants={stagger} className="grid sm:grid-cols-3 gap-5">
                 {service.benefits.map((b, i) => (
                   <motion.div
                     key={b.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.15, duration: 0.5 }}
+                    variants={fadeUp}
                     whileHover={{ y: -6 }}
                     className="relative bg-white rounded-2xl border border-border/60 p-6 overflow-hidden group"
                   >
@@ -484,21 +478,18 @@ export default function ServiceDetail() {
                     </p>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* Deliverables */}
             <motion.div variants={fadeUp} className="mb-16">
               <h2 className="text-2xl font-bold mb-6">What You Receive</h2>
               <div className="bg-gradient-to-br from-[#691E2A]/5 to-[#B28452]/5 rounded-2xl border border-[#691E2A]/10 p-8">
-                <div className="grid sm:grid-cols-2 gap-4">
+                <motion.div variants={stagger} className="grid sm:grid-cols-2 gap-4">
                   {service.deliverables.map((d, i) => (
                     <motion.div
                       key={d}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.05 }}
+                      variants={scaleIn}
                       className="flex items-center gap-3"
                     >
                       <div className="w-6 h-6 rounded-full bg-[#B28452]/20 flex items-center justify-center shrink-0">
@@ -507,7 +498,7 @@ export default function ServiceDetail() {
                       <span className="text-sm text-muted-foreground">{d}</span>
                     </motion.div>
                   ))}
-                </div>
+                </motion.div>
               </div>
             </motion.div>
 

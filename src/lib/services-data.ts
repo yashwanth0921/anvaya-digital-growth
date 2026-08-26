@@ -37,7 +37,7 @@ export const services: ServiceData[] = [
     color: "from-purple-500/20 to-pink-500/20",
     iconColor: "text-purple-500",
 
-    heroImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=600&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=1200&h=600&fit=crop",
     features: [
       "Content Strategy",
       "Community Management",
@@ -83,7 +83,7 @@ export const services: ServiceData[] = [
     color: "from-blue-500/20 to-cyan-500/20",
     iconColor: "text-blue-500",
 
-    heroImage: "https://images.unsplash.com/photo-1553729459-afe8f2e2ed80?w=1200&h=600&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1573164713988-8665fc963095?w=1200&h=600&fit=crop",
     features: [
       "Facebook & Instagram Ads",
       "Google Search & Display",
