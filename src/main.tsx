@@ -15,6 +15,7 @@ const Landing = lazy(() => import("./pages/Landing.tsx"));
 const AuthPage = lazy(() => import("./pages/Auth.tsx"));
 const Dashboard = lazy(() => import("./pages/Dashboard.tsx"));
 const ServiceDetail = lazy(() => import("./pages/ServiceDetail.tsx"));
+const ServiceCategory = lazy(() => import("./pages/ServiceCategory.tsx"));
 const BookPage = lazy(() => import("./pages/BookPage.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
@@ -127,6 +128,9 @@ createRoot(document.getElementById("root")!).render(
                 path="/auth"
                 element={<AuthPage redirectAfterAuth="/" />}
               />
+              <Route path="/services/digital-marketing" element={<ServiceCategory />} />
+              <Route path="/services/technology" element={<ServiceCategory />} />
+              <Route path="/services/creative" element={<ServiceCategory />} />
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/book" element={<BookPage />} />
               <Route
