@@ -426,9 +426,12 @@ function HeroSection() {
               Your Growth Partner
             </motion.div>
 
+            <motion.p variants={fadeUp} className="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-[#B28452]/80 mb-4">
+              Digital Marketing × Technology × Creativity
+            </motion.p>
             <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
-              <span className="block text-[#F9EEE4]">Grow with</span>
-              <span className="block text-[#F9EEE4]">Anvaya</span>
+              <span className="block text-[#F9EEE4]">We Help Brands</span>
+              <span className="block text-gradient-gold">Grow Digitally.</span>
             </motion.h1>
 
             <motion.p variants={fadeUp} className="mt-4 text-sm sm:text-base font-semibold uppercase tracking-[0.25em] text-[#B28452]">
@@ -436,9 +439,7 @@ function HeroSection() {
             </motion.p>
 
             <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl">
-              Strategy. Growth. Impact. We partner with businesses that are ready
-              to stand out, scale faster, and build lasting digital presence through
-              creative marketing that delivers measurable results.
+              It is a digital marketing and technology agency helping businesses build stronger brands, reach the right audience, and turn digital presence into real growth.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -447,7 +448,7 @@ function HeroSection() {
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5 animate-pulse-slow"
               >
                 <Calendar className="w-4 h-4" />
-                Book a Free Consultation
+                Start a Project
               </Link>
               <a
                 href="#services"
