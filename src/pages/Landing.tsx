@@ -31,6 +31,7 @@ import logo from "@/assets/logo.svg";import {
   ChevronLeft,
   Clock,
   Award,
+  Mail,
 } from "lucide-react";
 import useEmblaCarousel from "embla-carousel-react";
 import { useEffect, useRef, useCallback } from "react";
@@ -42,7 +43,8 @@ const serviceIcons: Record<string, typeof Globe> = {
   "seo-analytics": Search,
   "app-development": Smartphone,
   "brand-identity": Palette,
-
+  "performance-marketing": TrendingUp,
+  "email-marketing": Mail,
 };
 
 const fadeUp = {
@@ -154,6 +156,7 @@ const serviceOptions = [
   "SEO & Analytics",
   "App Development",
   "Brand Identity & Design",
+  "Email Marketing",
   "Full Digital Package",
 ];
 
@@ -976,6 +979,7 @@ const dropdownServiceIcons: Record<string, typeof Globe> = {
   "SEO & Analytics": Search,
   "App Development": Smartphone,
   "Brand Identity & Design": Palette,
+  "Email Marketing": Mail,
   "Full Digital Package": Sparkles,
 };
 

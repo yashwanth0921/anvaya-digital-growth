@@ -6,6 +6,7 @@ import {
   Smartphone,
   Palette,
   TrendingUp,
+  Mail,
   type LucideIcon,
 } from "lucide-react";
 
@@ -343,6 +344,51 @@ export const services: ServiceData[] = [
       "Landing page recommendations",
       "Weekly performance reports",
       "Monthly strategy review",
+    ],
+
+  },
+  {
+    slug: "email-marketing",
+    title: "Email Marketing",
+    tagline: "Inbox that converts, not just fills.",
+    description:
+      "Craft high-converting email campaigns — from welcome sequences to product launches. We design, write, and automate emails that drive opens, clicks, and revenue.",
+    longDescription:
+      "Email marketing remains one of the highest-ROI digital channels, but only when done right. We build complete email marketing systems — from strategy and list segmentation to copywriting, design, and automation. Whether it's welcome sequences that onboard new subscribers, abandoned cart emails that recover lost sales, or newsletter campaigns that nurture loyal customers, every email is crafted to drive action. We track open rates, click-through rates, and conversions to continuously optimize your email performance and maximize revenue per subscriber.",
+    icon: Mail,
+    color: "from-cyan-500/20 to-blue-500/20",
+    iconColor: "text-cyan-500",
+    heroImage: "https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=1200&h=600&fit=crop",
+    features: [
+      "Email Automation",
+      "Newsletter Campaigns",
+      "Drip Sequences",
+      "A/B Testing",
+    ],
+    benefits: [
+      {
+        title: "Highest ROI Channel",
+        description:
+          "Email marketing delivers an average of ₹36 for every ₹1 spent — making it the most cost-effective channel in your marketing mix.",
+      },
+      {
+        title: "Automated Revenue",
+        description:
+          "Set up once, earn forever. Automated sequences work 24/7 — nurturing leads, recovering carts, and upselling customers while you sleep.",
+      },
+      {
+        title: "Direct Audience Access",
+        description:
+          "Unlike social media, your email list is yours. No algorithm changes, no reach restrictions — you connect directly with your audience.",
+      },
+    ],
+    deliverables: [
+      "Email strategy & segmentation plan",
+      "Custom email template design",
+      "Welcome & onboarding sequences",
+      "Product launch campaigns",
+      "A/B testing & optimization",
+      "Monthly performance reports",
     ],
 
   },
