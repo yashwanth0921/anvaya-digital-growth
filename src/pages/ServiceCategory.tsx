@@ -129,6 +129,13 @@ const categories: Record<
         image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&h=500&fit=crop",
         features: ["Workflow Automation", "CRM Integration", "Email Sequences", "Data Sync"],
       },
+      {
+        slug: "chatbots",
+        title: "Chatbots",
+        brief: "AI-powered chatbots that handle customer queries 24/7. Instant responses, zero wait time, happy customers.",
+        image: "https://images.unsplash.com/photo-1531746790095-e5995f614585?w=800&h=500&fit=crop",
+        features: ["24/7 Support", "Natural Language", "Lead Capture", "Multi-Platform"],
+      },
     ],
   },
   "creative": {
@@ -152,6 +159,13 @@ const categories: Record<
         brief: "Eye-catching visuals for social media, ads, presentations, and print. We design graphics that communicate and convert.",
         image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=500&fit=crop",
         features: ["Social Media Graphics", "Ad Creatives", "Presentations", "Print Design"],
+      },
+      {
+        slug: "reels-content",
+        title: "Reels & Content Creation",
+        brief: "Scroll-stopping Reels, short-form videos, and creative content for Instagram, TikTok, and YouTube. Formats that engage.",
+        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=500&fit=crop",
+        features: ["Instagram Reels", "TikTok Content", "Short-Form Video", "Content Strategy"],
       },
     ],
   },

@@ -474,6 +474,46 @@ export const services: ServiceData[] = [
     ],
     deliverables: ["Social media templates", "Ad creative design", "Presentation decks", "Print materials", "Brand collateral", "Design system"],
   },
+  {
+    slug: "chatbots",
+    title: "Chatbots",
+    tagline: "24/7 support that never sleeps.",
+    description:
+      "AI-powered chatbots that handle customer queries 24/7. Instant responses, zero wait time, happy customers.",
+    longDescription:
+      "AI-powered chatbots transform your customer support. Available 24/7, they handle FAQs, qualify leads, book appointments, and route complex issues to your team. Using natural language processing, they understand context and provide human-like responses — reducing support costs while improving customer satisfaction.",
+    icon: Sparkles,
+    color: "from-cyan-500/20 to-teal-500/20",
+    iconColor: "text-cyan-500",
+    heroImage: "https://images.unsplash.com/photo-1531746790095-e5995f614585?w=1200&h=600&fit=crop",
+    features: ["24/7 Support", "Natural Language", "Lead Capture", "Multi-Platform"],
+    benefits: [
+      { title: "Always Available", description: "Never miss a customer query — bots respond instantly, any time of day or night." },
+      { title: "Cost Savings", description: "Reduce support costs by up to 70% while maintaining quality customer interactions." },
+      { title: "Lead Qualification", description: "Automatically qualify leads and route high-intent customers to your sales team." },
+    ],
+    deliverables: ["Custom chatbot design", "Knowledge base setup", "Integration with website", "Multi-platform deployment", "Analytics dashboard", "Ongoing training"],
+  },
+  {
+    slug: "reels-content",
+    title: "Reels & Content Creation",
+    tagline: "Content that stops the scroll.",
+    description:
+      "Scroll-stopping Reels, short-form videos, and creative content for Instagram, TikTok, and YouTube. Formats that engage.",
+    longDescription:
+      "Short-form video is the most engaging content format today. We create scroll-stopping Reels, TikToks, and YouTube Shorts that capture attention in the first second. From trending audio and visual effects to storytelling and brand integration, we produce content that gets views, shares, and followers.",
+    icon: Megaphone,
+    color: "from-rose-500/20 to-pink-500/20",
+    iconColor: "text-rose-500",
+    heroImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=600&fit=crop",
+    features: ["Instagram Reels", "TikTok Content", "Short-Form Video", "Content Strategy"],
+    benefits: [
+      { title: "Viral Potential", description: "Short-form content has the highest chance of reaching new audiences organically." },
+      { title: "Brand Personality", description: "Reels showcase your brand's human side — building connection and trust with viewers." },
+      { title: "Cross-Platform", description: "One video optimized for Instagram, TikTok, YouTube Shorts, and Facebook Reels." },
+    ],
+    deliverables: ["Content strategy", "Script writing", "Video production", "Editing & effects", "Thumbnail design", "Posting schedule"],
+  },
 
 ];
 
