@@ -369,7 +369,7 @@ export const services: ServiceData[] = [
       {
         title: "Highest ROI Channel",
         description:
-          "Email marketing consistently outperforms other channels in driving engagement and conversions — making it one of the most powerful tools in your marketing mix.",
+          "Email marketing delivers an average of 36 for every 1 spent — making it one of the most powerful tools in your marketing mix.",
       },
       {
         title: "Automated Revenue",
