@@ -475,24 +475,24 @@ function HeroSection() {
         {/* Floating elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {[
-            { icon: "📊", x: "8%", y: "20%", delay: 0, label: "Analytics" },
-            { icon: "🎯", x: "85%", y: "15%", delay: 1.5, label: "Ads" },
-            { icon: "🌐", x: "90%", y: "60%", delay: 3, label: "Websites" },
-            { icon: "📱", x: "5%", y: "70%", delay: 0.8, label: "Social" },
-            { icon: "🤖", x: "75%", y: "80%", delay: 2.2, label: "AI" },
+            { icon: "📊", x: "5%", y: "18%", delay: 0, label: "Analytics" },
+            { icon: "🎯", x: "82%", y: "12%", delay: 1.5, label: "Ads" },
+            { icon: "🌐", x: "85%", y: "55%", delay: 3, label: "Websites" },
+            { icon: "📱", x: "3%", y: "65%", delay: 0.8, label: "Social" },
+            { icon: "🤖", x: "78%", y: "75%", delay: 2.2, label: "AI" },
           ].map((el, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 0.15, scale: 1 }}
               transition={{ delay: 1 + el.delay, duration: 0.8, type: "spring" }}
-              className="absolute hidden lg:flex flex-col items-center gap-1"
+              className="absolute flex flex-col items-center gap-1"
               style={{ left: el.x, top: el.y }}
             >
               <motion.span
                 animate={{ y: [-4, 4, -4] }}
                 transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: el.delay }}
-                className="text-2xl"
+                className="text-xl sm:text-2xl"
               >
                 {el.icon}
               </motion.span>
