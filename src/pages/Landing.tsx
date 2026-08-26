@@ -501,6 +501,42 @@ function HeroSection() {
   );
 }
 
+const serviceCategories = [
+  {
+    title: "Digital Marketing",
+    tagline: "DIGITAL MARKETING",
+    description: "Reach the right people, generate demand and turn attention into measurable results.",
+    icon: Megaphone,
+    color: "from-[#691E2A] to-[#8B2E3D]",
+    borderColor: "hover:border-[#691E2A]/40",
+    items: ["Performance Marketing", "Google Ads", "Meta Ads", "SEO", "Social Media Marketing", "Content Marketing"],
+    link: "/services/performance-marketing",
+    linkText: "View Services",
+  },
+  {
+    title: "Technology",
+    tagline: "TECHNOLOGY",
+    description: "Build smarter digital experiences with technology designed around your business.",
+    icon: Globe,
+    color: "from-[#B28452] to-[#D4A843]",
+    borderColor: "hover:border-[#B28452]/40",
+    items: ["Website Development", "Web Applications", "AI Solutions", "Chatbots", "Automation", "Custom Solutions"],
+    link: "/services/website-development",
+    linkText: "Explore Technology",
+  },
+  {
+    title: "Creative",
+    tagline: "CREATIVE",
+    description: "Make your brand impossible to ignore with content and design that connects.",
+    icon: Palette,
+    color: "from-[#8B2E3D] to-[#691E2A]",
+    borderColor: "hover:border-[#8B2E3D]/40",
+    items: ["Branding", "Graphic Design", "Video", "Reels", "Content Creation", "Creative Campaigns"],
+    link: "/services/brand-identity",
+    linkText: "See Creative Work",
+  },
+];
+
 function ServicesSection() {
   return (
     <section id="services" className="py-20 sm:py-28 relative">
@@ -510,18 +546,18 @@ function ServicesSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={stagger}
-          className="text-center max-w-2xl mx-auto mb-16"
+          className="text-center max-w-3xl mx-auto mb-16"
         >
           <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-sm font-semibold mb-4">
             <Sparkles className="w-4 h-4" />
-            Our Services
+            What We Do
           </motion.div>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Every channel that{" "}
-            <span className="text-gradient-green">drives growth</span>
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+            Everything You Need to{" "}
+            <span className="text-gradient-gold">Grow Online</span>
           </motion.h2>
-          <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
-            From social media to search engines, we deliver end-to-end digital marketing and tech solutions built around your business goals.
+          <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
+            From strategy to execution, we bring marketing, technology and creativity together to build digital experiences that move your business forward.
           </motion.p>
         </motion.div>
 
@@ -530,56 +566,56 @@ function ServicesSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={stagger}
-          className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto"
+          className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto"
         >
-          {services.map((service, idx) => {
-            const Icon = serviceIcons[service.slug] ?? Globe;
-            return (
-              <motion.div
-                key={service.slug}
-                variants={fadeUp}
-                whileHover={{ y: -8, scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          {serviceCategories.map((cat, idx) => (
+            <motion.div
+              key={cat.title}
+              variants={fadeUp}
+              whileHover={{ y: -8 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <Link
+                to={cat.link}
+                className={`group block relative bg-card rounded-2xl border border-border/60 p-7 sm:p-8 hover:shadow-2xl hover:shadow-[#691E2A]/10 ${cat.borderColor} transition-all duration-300 overflow-hidden h-full`}
               >
-                <Link
-                  to={`/services/${service.slug}`}
-                  className="group block relative bg-card rounded-2xl border border-border/60 p-7 hover:shadow-2xl hover:shadow-[#691E2A]/10 hover:border-[#691E2A]/40 transition-all duration-300 overflow-hidden"
-                >
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#691E2A] to-[#B28452] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#691E2A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="relative">
-                    <div className="flex items-start justify-between mb-5">
-                      <motion.div
-                        whileHover={{ rotate: 10, scale: 1.1 }}
-                        className={`inline-flex items-center justify-center w-13 h-13 rounded-2xl bg-gradient-to-br ${service.color} shadow-sm group-hover:shadow-md transition-shadow`
-                      }>
-                        <Icon className={`w-6 h-6 ${service.iconColor}`} />
-                      </motion.div>
-                      <motion.div
-                        className="w-8 h-8 rounded-full bg-muted/50 flex items-center justify-center group-hover:bg-[#691E2A]/10 transition-colors"
-                      >
-                        <ArrowRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-[#691E2A] group-hover:translate-x-0.5 transition-all" />
-                      </motion.div>
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-[#691E2A] transition-colors">
-                      {service.title}
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-5 line-clamp-2">
-                      {service.description}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {service.features.slice(0, 3).map((feat) => (
-                        <span key={feat} className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-muted/80 text-[11px] font-medium text-muted-foreground group-hover:bg-[#691E2A]/10 group-hover:text-[#691E2A] transition-colors">
-                          <CheckCircle2 className="w-2.5 h-2.5 text-[#691E2A]" />
-                          {feat}
-                        </span>
-                      ))}
-                    </div>
+                <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${cat.color} scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left`} />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#691E2A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="relative">
+                  <motion.div
+                    whileHover={{ rotate: 10, scale: 1.1 }}
+                    className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br ${cat.color} shadow-sm mb-5`}
+                  >
+                    <cat.icon className="w-7 h-7 text-white" />
+                  </motion.div>
+
+                  <p className="text-xs font-bold uppercase tracking-widest text-[#B28452] mb-2">
+                    {cat.tagline}
+                  </p>
+                  <h3 className="text-xl sm:text-2xl font-extrabold mb-3 group-hover:text-[#691E2A] transition-colors">
+                    {cat.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    {cat.description}
+                  </p>
+
+                  <div className="space-y-2.5 mb-8">
+                    {cat.items.map((item) => (
+                      <div key={item} className="flex items-center gap-2.5 text-sm text-muted-foreground">
+                        <CheckCircle2 className="w-4 h-4 text-[#691E2A] shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
-                </Link>
-              </motion.div>
-            );
-          })}
+
+                  <div className="flex items-center gap-2 text-sm font-bold text-[#691E2A] group-hover:gap-3 transition-all">
+                    {cat.linkText}
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>
