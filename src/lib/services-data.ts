@@ -5,6 +5,7 @@ import {
   Search,
   Smartphone,
   Palette,
+  TrendingUp,
   type LucideIcon,
 } from "lucide-react";
 
@@ -17,6 +18,7 @@ export interface ServiceData {
   icon: LucideIcon;
   color: string;
   iconColor: string;
+  heroImage: string;
   features: string[];
   benefits: { title: string; description: string }[];
   deliverables: string[];
@@ -34,6 +36,8 @@ export const services: ServiceData[] = [
     icon: Instagram,
     color: "from-purple-500/20 to-pink-500/20",
     iconColor: "text-purple-500",
+
+    heroImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=600&fit=crop",
     features: [
       "Content Strategy",
       "Community Management",
@@ -78,6 +82,8 @@ export const services: ServiceData[] = [
     icon: Megaphone,
     color: "from-blue-500/20 to-cyan-500/20",
     iconColor: "text-blue-500",
+
+    heroImage: "https://images.unsplash.com/photo-1553729459-afe8f2e2ed80?w=1200&h=600&fit=crop",
     features: [
       "Facebook & Instagram Ads",
       "Google Search & Display",
@@ -122,6 +128,8 @@ export const services: ServiceData[] = [
     icon: Globe,
     color: "from-emerald-500/20 to-teal-500/20",
     iconColor: "text-emerald-500",
+
+    heroImage: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=600&fit=crop",
     features: [
       "Custom Design",
       "E-Commerce Solutions",
@@ -166,6 +174,8 @@ export const services: ServiceData[] = [
     icon: Search,
     color: "from-amber-500/20 to-orange-500/20",
     iconColor: "text-amber-600",
+
+    heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
     features: [
       "Keyword Research",
       "On-Page SEO",
@@ -210,6 +220,8 @@ export const services: ServiceData[] = [
     icon: Smartphone,
     color: "from-indigo-500/20 to-violet-500/20",
     iconColor: "text-indigo-500",
+
+    heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=1200&h=600&fit=crop",
     features: [
       "iOS & Android Apps",
       "Cross-Platform",
@@ -254,6 +266,8 @@ export const services: ServiceData[] = [
     icon: Palette,
     color: "from-rose-500/20 to-pink-500/20",
     iconColor: "text-rose-500",
+
+    heroImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=600&fit=crop",
     features: [
       "Logo Design",
       "Brand Guidelines",
@@ -284,6 +298,51 @@ export const services: ServiceData[] = [
       "Business card and stationery design",
       "Social media brand kit",
       "Brand voice guidelines",
+    ],
+
+  },
+  {
+    slug: "performance-marketing",
+    title: "Performance Marketing",
+    tagline: "Every rupee spent, every result measured.",
+    description:
+      "Data-driven performance campaigns across Google, Meta, LinkedIn & more. We optimize for ROAS, CPA, and real business outcomes — not vanity metrics.",
+    longDescription:
+      "Performance marketing is about accountability — every ad dollar must deliver measurable results. We design and manage end-to-end performance campaigns across multiple channels: Google Ads, Meta Ads, LinkedIn Ads, programmatic display, and affiliate networks. Our team continuously monitors campaign metrics, adjusts targeting, tests creatives, and reallocates budget to the highest-performing channels. From funnel design and conversion tracking to attribution modeling and ROAS optimization, we ensure your marketing spend generates predictable, scalable growth.",
+    icon: TrendingUp,
+    color: "from-orange-500/20 to-red-500/20",
+    iconColor: "text-orange-500",
+    heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop",
+    features: [
+      "Multi-Channel Campaigns",
+      "Conversion Tracking",
+      "A/B & Split Testing",
+      "ROAS Optimization",
+    ],
+    benefits: [
+      {
+        title: "Measurable ROI",
+        description:
+          "Every campaign is tied to a business outcome — leads, sales, sign-ups — so you know exactly what your marketing budget is producing.",
+      },
+      {
+        title: "Rapid Scaling",
+        description:
+          "Once we find what works, we pour fuel on the fire — scaling winning campaigns across channels to maximize growth.",
+      },
+      {
+        title: "Full Transparency",
+        description:
+          "Real-time dashboards and weekly reports give you complete visibility into spend, performance, and optimization actions.",
+      },
+    ],
+    deliverables: [
+      "Performance audit & strategy",
+      "Campaign setup across channels",
+      "Creative testing & optimization",
+      "Landing page recommendations",
+      "Weekly performance reports",
+      "Monthly strategy review",
     ],
 
   },
