@@ -475,11 +475,11 @@ function HeroSection() {
         {/* Floating elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           {[
-            { icon: "📊", x: "5%", y: "18%", delay: 0, label: "Analytics" },
-            { icon: "🎯", x: "82%", y: "12%", delay: 1.5, label: "Ads" },
-            { icon: "🌐", x: "85%", y: "55%", delay: 3, label: "Websites" },
-            { icon: "📱", x: "3%", y: "65%", delay: 0.8, label: "Social" },
-            { icon: "🤖", x: "78%", y: "75%", delay: 2.2, label: "AI" },
+            { icon: "📊", x: "80%", y: "15%", delay: 0, label: "Analytics" },
+            { icon: "🎯", x: "90%", y: "35%", delay: 1.5, label: "Ads" },
+            { icon: "🌐", x: "82%", y: "55%", delay: 3, label: "Websites" },
+            { icon: "📱", x: "88%", y: "72%", delay: 0.8, label: "Social" },
+            { icon: "🤖", x: "75%", y: "85%", delay: 2.2, label: "AI" },
           ].map((el, i) => (
             <motion.div
               key={i}
