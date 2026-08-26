@@ -427,12 +427,12 @@ function HeroSection() {
             </motion.div>
 
             <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
-              <span className="block text-[#F9EEE4]">We Help Brands</span>
-              <span className="block text-gradient-gold">Grow Digitally.</span>
+              <span className="block text-[#F9EEE4]">Grow with</span>
+              <span className="block text-[#F9EEE4]">Anvaya</span>
             </motion.h1>
 
             <motion.p variants={fadeUp} className="mt-4 text-sm sm:text-base font-semibold uppercase tracking-[0.25em] text-[#B28452]">
-              Social Media | Ads | Websites | SEO
+              Growing Brands Digitally
             </motion.p>
 
             <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl">
