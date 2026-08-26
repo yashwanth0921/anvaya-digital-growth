@@ -531,7 +531,7 @@ const serviceCategories = [
     icon: Palette,
     color: "from-[#8B2E3D] to-[#691E2A]",
     borderColor: "hover:border-[#8B2E3D]/40",
-    items: ["Branding", "Graphic Design", "Video", "Reels", "Content Creation", "Creative Campaigns"],
+    items: ["Branding", "Graphic Design", "Reels", "Short-Form Video"],
     link: "/services/creative",
     linkText: "See Creative Work",
   },

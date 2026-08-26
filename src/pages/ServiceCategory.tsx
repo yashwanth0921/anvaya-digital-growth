@@ -133,7 +133,7 @@ const categories: Record<
         slug: "chatbots",
         title: "Chatbots",
         brief: "AI-powered chatbots that handle customer queries 24/7. Instant responses, zero wait time, happy customers.",
-        image: "https://images.unsplash.com/photo-1531746790095-e5995f614585?w=800&h=500&fit=crop",
+        image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=800&h=500&fit=crop",
         features: ["24/7 Support", "Natural Language", "Lead Capture", "Multi-Platform"],
       },
       {
