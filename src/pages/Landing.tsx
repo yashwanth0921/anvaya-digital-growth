@@ -430,8 +430,7 @@ function HeroSection() {
               Digital Marketing × Technology × Creativity
             </motion.p>
             <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
-              <span className="block text-[#F9EEE4]">We Help Brands</span>
-              <span className="block text-gradient-gold">Grow Digitally.</span>
+              <span className="block text-gradient-gold">Grow</span>
             </motion.h1>
 
             <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl">
@@ -441,7 +440,7 @@ function HeroSection() {
             <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
                 to="/book"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5 animate-pulse-slow"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all"
               >
                 Start a Project
                 <ArrowRight className="w-4 h-4" />
