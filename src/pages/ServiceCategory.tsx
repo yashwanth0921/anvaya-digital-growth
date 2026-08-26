@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router";
+import { useParams, useLocation, Link } from "react-router";
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import {
@@ -196,8 +196,9 @@ function Navbar() {
 }
 
 export default function ServiceCategory() {
-  const { slug } = useParams<{ slug: string }>();
-  const category = slug ? categories[slug] : undefined;
+  const location = useLocation();
+  const slug = location.pathname.split("/").pop() || "";
+  const category = categories[slug];
 
   useEffect(() => {
     window.scrollTo(0, 0);
