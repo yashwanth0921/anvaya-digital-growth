@@ -1627,10 +1627,25 @@ function WeServeSection() {
         <rect width="60" height="13.33" fill="#FF9933"/>
         <rect y="13.33" width="60" height="13.33" fill="#FFFFFF"/>
         <rect y="26.67" width="60" height="13.33" fill="#138808"/>
+        <circle cx="30" cy="20" r="5.5" fill="#000088"/>
+        <circle cx="30" cy="20" r="5" fill="#FFFFFF"/>
         <circle cx="30" cy="20" r="5" fill="#000088"/>
-        <circle cx="30" cy="20" r="4.2" fill="#fff"/>
-        <circle cx="30" cy="20" r="4.2" fill="#000088"/>
-        <circle cx="30" cy="20" r="1.5" fill="#fff"/>
+        <circle cx="30" cy="20" r="1.2" fill="#000088"/>
+        {Array.from({ length: 24 }).map((_, i) => {
+          const angle = (i * 15 * Math.PI) / 180;
+          const x1 = 30 + 1.5 * Math.cos(angle);
+          const y1 = 20 + 1.5 * Math.sin(angle);
+          const x2 = 30 + 4.8 * Math.cos(angle);
+          const y2 = 20 + 4.8 * Math.sin(angle);
+          return <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} stroke="#000088" strokeWidth="0.35"/>;
+        })}
+        {Array.from({ length: 24 }).map((_, i) => {
+          const angle = (i * 15 * Math.PI) / 180;
+          const x = 30 + 4.2 * Math.cos(angle);
+          const y = 20 + 4.2 * Math.sin(angle);
+          return <circle key={`d-${i}`} cx={x} cy={y} r="0.3" fill="#000088"/>;
+        })}
+        <circle cx="30" cy="20" r="4.8" fill="none" stroke="#000088" strokeWidth="0.3"/>
       </svg>
     );
   };
