@@ -430,7 +430,7 @@ function HeroSection() {
               Digital Marketing × Technology × Creativity
             </motion.p>
             <motion.h1 variants={fadeUp} className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.05]">
-              <span className="block text-[#F9EEE4]">Grow with</span>
+              <span className="block text-[#F9EEE4] mb-2">Grow with</span>
               <span className="block text-gradient-gold">Anvaya</span>
             </motion.h1>
 
