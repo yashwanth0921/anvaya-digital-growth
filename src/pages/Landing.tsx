@@ -1324,7 +1324,7 @@ function LeadFormSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#691E2A] text-white font-semibold text-sm hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/30 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#691E2A] to-[#8B2E3D] text-white font-bold text-base hover:from-[#531822] hover:to-[#691E2A] transition-all hover:shadow-xl hover:shadow-[#691E2A]/40 disabled:opacity-50 disabled:cursor-not-allowed border border-[#8B2E3D]/50"
                 >
                   {isSubmitting ? (
                     <>
