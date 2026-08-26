@@ -472,34 +472,6 @@ function HeroSection() {
           <GrowthWidget />
         </div>
 
-        {/* Floating elements */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {[
-            { icon: "📊", x: "80%", y: "15%", delay: 0, label: "Analytics" },
-            { icon: "🎯", x: "90%", y: "35%", delay: 1.5, label: "Ads" },
-            { icon: "🌐", x: "82%", y: "55%", delay: 3, label: "Websites" },
-            { icon: "📱", x: "88%", y: "72%", delay: 0.8, label: "Social" },
-            { icon: "🤖", x: "75%", y: "85%", delay: 2.2, label: "AI" },
-          ].map((el, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 0.5, scale: 1 }}
-              transition={{ delay: 1 + el.delay, duration: 0.8, type: "spring" }}
-              className="absolute flex flex-col items-center gap-1"
-              style={{ left: el.x, top: el.y }}
-            >
-              <motion.span
-                animate={{ y: [-4, 4, -4] }}
-                transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: el.delay }}
-                className="text-2xl sm:text-3xl md:text-4xl"
-              >
-                {el.icon}
-              </motion.span>
-            </motion.div>
-          ))}
-        </div>
-
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
