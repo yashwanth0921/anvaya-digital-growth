@@ -432,7 +432,7 @@ function HeroSection() {
             </motion.h1>
 
             <motion.p variants={fadeUp} className="mt-4 text-sm sm:text-base font-semibold uppercase tracking-[0.25em] text-[#B28452]">
-              Growing Brands Digitally
+              We Help Brands Grow Digitally
             </motion.p>
 
             <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl">
