@@ -459,7 +459,6 @@ function HeroSection() {
             <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-4">
               {[
                 { icon: Shield, text: "100% Free Consultation" },
-                { icon: Clock, text: "24-Hour Response" },
                 { icon: Award, text: "50+ Brands Served" },
               ].map((badge) => (
                 <div key={badge.text} className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
@@ -1150,15 +1149,7 @@ function LeadFormSection() {
                   <div className="text-gray-400 text-xs">A free strategy session with zero obligation</div>
                 </div>
               </motion.div>
-              <motion.div variants={fadeUp} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#B28452]/30 transition-all">
-                <div className="w-12 h-12 rounded-xl bg-[#B28452]/20 flex items-center justify-center shrink-0">
-                  <Zap className="w-6 h-6 text-[#D9B280]" />
-                </div>
-                <div>
-                  <div className="font-semibold text-sm text-white">24-Hour Response</div>
-                  <div className="text-gray-400 text-xs">You'll hear from us within one business day</div>
-                </div>
-              </motion.div>
+
               <motion.div variants={fadeUp} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#B28452]/30 transition-all">
                 <div className="w-12 h-12 rounded-xl bg-[#B28452]/20 flex items-center justify-center shrink-0">
                   <Target className="w-6 h-6 text-[#D9B280]" />
@@ -1170,15 +1161,7 @@ function LeadFormSection() {
               </motion.div>
             </motion.div>
 
-            <motion.div variants={fadeUp} className="mt-8">
-              <Link
-                to="/book"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all"
-              >
-                <Calendar className="w-4 h-4" />
-                Book a Free Strategy Call
-              </Link>
-            </motion.div>
+
           </motion.div>
 
           <motion.div
