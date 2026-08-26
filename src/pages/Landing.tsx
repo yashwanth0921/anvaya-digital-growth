@@ -1577,11 +1577,56 @@ function MarqueeBanner() {
   );
 }
 
+
+function WeServeSection() {
+  const countries = [
+    { flag: "🇺🇸", name: "USA", code: "us" },
+    { flag: "🇦🇪", name: "UAE", code: "ae" },
+    { flag: "🇬🇧", name: "UK", code: "uk" },
+    { flag: "🇮🇳", name: "India", code: "in" },
+  ];
+
+  return (
+    <section className="py-10 bg-white border-y border-border/40">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10"
+        >
+          <span className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">
+            We Serve In
+          </span>
+          <div className="flex items-center gap-4 sm:gap-6">
+            {countries.map((c, i) => (
+              <motion.div
+                key={c.code}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+                whileHover={{ y: -4, scale: 1.1 }}
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-muted/50 border border-border/40 hover:border-[#691E2A]/30 hover:shadow-md transition-all cursor-default"
+              >
+                <span className="text-2xl">{c.flag}</span>
+                <span className="text-sm font-bold text-foreground">{c.name}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 export default function Landing() {
   return (
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
+      <WeServeSection />
       <ServicesSection />
       <ClientLogosBar />
       <WhoWeAreSection />
