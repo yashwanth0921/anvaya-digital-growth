@@ -136,6 +136,13 @@ const categories: Record<
         image: "https://images.unsplash.com/photo-1531746790095-e5995f614585?w=800&h=500&fit=crop",
         features: ["24/7 Support", "Natural Language", "Lead Capture", "Multi-Platform"],
       },
+      {
+        slug: "custom-solutions",
+        title: "Custom Solutions",
+        brief: "Bespoke digital solutions tailored to your specific business challenges. When off-the-shelf doesn't fit, we build it from scratch.",
+        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&h=500&fit=crop",
+        features: ["Custom Development", "API Integration", "Dashboard Design", "Workflow Tools"],
+      },
     ],
   },
   "creative": {

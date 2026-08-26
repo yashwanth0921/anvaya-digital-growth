@@ -495,6 +495,26 @@ export const services: ServiceData[] = [
     deliverables: ["Custom chatbot design", "Knowledge base setup", "Integration with website", "Multi-platform deployment", "Analytics dashboard", "Ongoing training"],
   },
   {
+    slug: "custom-solutions",
+    title: "Custom Solutions",
+    tagline: "Built for your unique needs.",
+    description:
+      "Bespoke digital solutions tailored to your specific business challenges. When off-the-shelf doesn't fit, we build it from scratch.",
+    longDescription:
+      "Every business is unique, and sometimes standard tools don't cut it. We build custom digital solutions — from internal dashboards and client portals to specialized tools and integrations. Our team works closely with you to understand your workflow, then designs and develops a solution that fits perfectly.",
+    icon: Globe,
+    color: "from-indigo-500/20 to-blue-500/20",
+    iconColor: "text-indigo-500",
+    heroImage: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1200&h=600&fit=crop",
+    features: ["Custom Development", "API Integration", "Dashboard Design", "Workflow Tools"],
+    benefits: [
+      { title: "Perfect Fit", description: "Solutions designed around your exact workflow — no compromises, no workarounds." },
+      { title: "Scalable Architecture", description: "Built to grow with your business — easy to extend and modify as needs change." },
+      { title: "Full Ownership", description: "You own the code and the solution — no vendor lock-in, complete control." },
+    ],
+    deliverables: ["Requirements analysis", "Custom development", "Testing & QA", "Deployment", "Documentation", "Ongoing support"],
+  },
+  {
     slug: "reels-content",
     title: "Reels & Content Creation",
     tagline: "Content that stops the scroll.",
