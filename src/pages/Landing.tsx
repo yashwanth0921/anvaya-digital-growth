@@ -1334,7 +1334,7 @@ function LeadFormSection() {
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      Send Your Message
+                      Let's Connect
                     </>
                   )}
                 </button>
