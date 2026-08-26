@@ -1580,11 +1580,60 @@ function MarqueeBanner() {
 
 function WeServeSection() {
   const countries = [
-    { flag: "🇺🇸", name: "USA", code: "us" },
-    { flag: "🇦🇪", name: "UAE", code: "ae" },
-    { flag: "🇬🇧", name: "UK", code: "uk" },
-    { flag: "🇮🇳", name: "India", code: "in" },
+    { name: "USA", code: "us", colors: ["#B22234", "#FFFFFF", "#3C3B6E"] },
+    { name: "UAE", code: "ae", colors: ["#00732F", "#FFFFFF", "#FF0000", "#000000"] },
+    { name: "UK", code: "uk", colors: ["#012169", "#FFFFFF", "#C8102E"] },
+    { name: "India", code: "in", colors: ["#FF9933", "#FFFFFF", "#138808"] },
   ];
+
+  const FlagSVG = ({ code, className }: { code: string; className?: string }) => {
+    const base = "rounded-md shadow-md " + (className || "");
+    if (code === "us") return (
+      <svg viewBox="0 0 60 40" className={base}>
+        <rect width="60" height="40" fill="#B22234"/>
+        <rect y="3.08" width="60" height="3.08" fill="#fff"/>
+        <rect y="9.23" width="60" height="3.08" fill="#fff"/>
+        <rect y="15.38" width="60" height="3.08" fill="#fff"/>
+        <rect y="21.54" width="60" height="3.08" fill="#fff"/>
+        <rect y="27.69" width="60" height="3.08" fill="#fff"/>
+        <rect y="33.85" width="60" height="3.08" fill="#fff"/>
+        <rect width="24" height="21.54" fill="#3C3B6E"/>
+        <g fill="#fff">
+          {[0,1,2,3,4].map(r => [0,1,2,3,4,5].map(c => (
+            <circle key={`${r}-${c}`} cx={2.5+c*4} cy={2+r*4} r="0.8"/>
+          )))}
+        </g>
+      </svg>
+    );
+    if (code === "ae") return (
+      <svg viewBox="0 0 60 40" className={base}>
+        <rect width="60" height="13.33" fill="#00732F"/>
+        <rect y="13.33" width="60" height="13.33" fill="#FFFFFF"/>
+        <rect y="26.67" width="60" height="13.33" fill="#000000"/>
+        <rect width="15" height="40" fill="#FF0000"/>
+      </svg>
+    );
+    if (code === "uk") return (
+      <svg viewBox="0 0 60 40" className={base}>
+        <rect width="60" height="40" fill="#012169"/>
+        <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fff" strokeWidth="6"/>
+        <path d="M0,0 L60,40 M60,0 L0,40" stroke="#C8102E" strokeWidth="2.5"/>
+        <path d="M30,0 V40 M0,20 H60" stroke="#fff" strokeWidth="10"/>
+        <path d="M30,0 V40 M0,20 H60" stroke="#C8102E" strokeWidth="6"/>
+      </svg>
+    );
+    return (
+      <svg viewBox="0 0 60 40" className={base}>
+        <rect width="60" height="13.33" fill="#FF9933"/>
+        <rect y="13.33" width="60" height="13.33" fill="#FFFFFF"/>
+        <rect y="26.67" width="60" height="13.33" fill="#138808"/>
+        <circle cx="30" cy="20" r="5" fill="#000088"/>
+        <circle cx="30" cy="20" r="4.2" fill="#fff"/>
+        <circle cx="30" cy="20" r="4.2" fill="#000088"/>
+        <circle cx="30" cy="20" r="1.5" fill="#fff"/>
+      </svg>
+    );
+  };
 
   return (
     <section className="py-12 bg-gradient-to-r from-anvaya-dark via-[#4D1018] to-anvaya-dark border-y border-white/5">
@@ -1615,7 +1664,7 @@ function WeServeSection() {
               We Serve In
             </motion.h3>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             {countries.map((c, i) => (
               <motion.div
                 key={c.code}
@@ -1624,10 +1673,10 @@ function WeServeSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.15 + i * 0.1, type: "spring", stiffness: 200, damping: 15 }}
                 whileHover={{ y: -6, scale: 1.08 }}
-                className="group relative flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D9B280]/40 hover:bg-white/10 hover:shadow-lg hover:shadow-[#D9B280]/10 transition-all duration-300 cursor-default"
+                className="group relative flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D9B280]/40 hover:bg-white/10 hover:shadow-lg hover:shadow-[#D9B280]/10 transition-all duration-300 cursor-default"
               >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#D9B280]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="relative text-5xl sm:text-6xl leading-none drop-shadow-lg" role="img" aria-label={c.name}>{c.flag}</span>
+                <FlagSVG code={c.code} className="relative w-12 h-8 sm:w-14 sm:h-9" />
                 <span className="relative text-sm sm:text-base font-bold text-white group-hover:text-[#D9B280] transition-colors">{c.name}</span>
                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-0.5 bg-gradient-to-r from-transparent via-[#D9B280] to-transparent transition-all duration-300" />
               </motion.div>
