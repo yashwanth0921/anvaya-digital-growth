@@ -852,8 +852,8 @@ function ProcessSection() {
             How We Work
           </motion.div>
           <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            A proven path to{" "}
-            <span className="text-gradient-gold">digital growth</span>
+            Why{" "}
+            <span className="text-gradient-gold">Grow With Anvaya</span>?
           </motion.h2>
           <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
             Our process is transparent and structured, so you always know where your investment is going and what it's delivering.
