@@ -1728,6 +1728,95 @@ function WeServeSection() {
   );
 }
 
+
+function WhyUsSection() {
+  const reasons = [
+    {
+      num: "01",
+      title: "Strategy First",
+      description: "We start with your business goals—not random marketing tactics.",
+      icon: Target,
+    },
+    {
+      num: "02",
+      title: "Data Driven",
+      description: "We measure what matters, optimize continuously and make decisions based on performance.",
+      icon: BarChart3,
+    },
+    {
+      num: "03",
+      title: "Creative + Technology",
+      description: "We combine creativity, marketing and technology to create stronger digital experiences.",
+      icon: Sparkles,
+    },
+    {
+      num: "04",
+      title: "Built for Growth",
+      description: "We don't just focus on likes and impressions. We focus on helping your business move forward.",
+      icon: Rocket,
+    },
+  ];
+
+  return (
+    <section className="py-20 sm:py-28 relative overflow-hidden">
+      <div className="absolute inset-0 bg-mesh-green opacity-30" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={stagger}
+          className="text-center max-w-2xl mx-auto mb-16"
+        >
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/10 text-[#691E2A] text-sm font-semibold mb-4">
+            <Sparkles className="w-4 h-4" />
+            Why Choose Us
+          </motion.div>
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight">
+            Why{" "}
+            <span className="text-gradient-gold">Grow With Anvaya</span>?
+          </motion.h2>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={stagger}
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {reasons.map((reason, i) => (
+            <motion.div
+              key={reason.num}
+              variants={fadeUp}
+              whileHover={{ y: -8, scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="group relative bg-card rounded-2xl border border-border/60 p-7 hover:shadow-2xl hover:shadow-[#691E2A]/10 hover:border-[#691E2A]/30 transition-all duration-300 overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#691E2A] to-[#B28452] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#691E2A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="relative">
+                <div className="text-4xl font-extrabold text-[#691E2A]/15 mb-3">
+                  {reason.num}
+                </div>
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#691E2A]/15 to-[#B28452]/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <reason.icon className="w-6 h-6 text-[#691E2A]" />
+                </div>
+                <h3 className="text-lg font-bold mb-3 group-hover:text-[#691E2A] transition-colors">
+                  {reason.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {reason.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 export default function Landing() {
   return (
     <div className="min-h-screen">
@@ -1735,6 +1824,7 @@ export default function Landing() {
       <HeroSection />
       <WeServeSection />
       <ServicesSection />
+      <WhyUsSection />
       <ClientLogosBar />
       <WhoWeAreSection />
       <MarqueeBanner />
