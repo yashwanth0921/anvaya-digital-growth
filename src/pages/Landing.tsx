@@ -1819,6 +1819,51 @@ function WhyUsSection() {
   );
 }
 
+
+function CTABanner() {
+  return (
+    <section className="py-20 sm:py-28 bg-anvaya-dark text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-mesh-hero opacity-40" />
+      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#691E2A]/10 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-[#B28452]/10 blur-3xl" />
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={stagger}
+        >
+          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/15 border border-[#691E2A]/30 text-[#D9B280] text-sm font-semibold mb-6">
+            <Sparkles className="w-4 h-4" />
+            Let's Connect
+          </motion.div>
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+            Ready to <span className="text-gradient-gold">Grow Your Brand?</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
+            Tell us where you want to go. We'll help you build the strategy, technology and creative to get there.
+          </motion.p>
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              to="/book"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#691E2A] text-white font-bold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30"
+            >
+              Start a Project
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <a
+              href="mailto:growwithanvaya@gmail.com"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-bold text-base hover:bg-white/10 transition-all"
+            >
+              Talk to Us
+            </a>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 export default function Landing() {
   return (
     <div className="min-h-screen">
@@ -1833,6 +1878,7 @@ export default function Landing() {
       <WorkShowcaseSection />
       <ProcessSection />
       <TestimonialsSection />
+      <CTABanner />
       <LeadFormSection />
       <Footer />
     </div>
