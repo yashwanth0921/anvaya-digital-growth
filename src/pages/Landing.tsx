@@ -839,10 +839,18 @@ function ProcessSection() {
               {i < processSteps.length - 1 && (
                 <div className="hidden lg:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-40px)] h-0.5 bg-gradient-to-r from-[#691E2A]/30 to-[#B28452]/30" />
               )}
-              <div className="relative bg-card rounded-2xl border border-border/60 p-7 text-center hover:shadow-lg transition-shadow flex flex-col items-center h-full">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#691E2A]/10 mb-5">
+              <motion.div
+                whileHover={{ y: -10, scale: 1.04 }}
+                transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                className="relative bg-card rounded-2xl border border-border/60 p-7 text-center hover:shadow-2xl hover:shadow-[#691E2A]/15 hover:border-[#691E2A]/30 transition-all duration-300 flex flex-col items-center h-full cursor-default"
+              >
+                <motion.div
+                  whileHover={{ rotate: 15, scale: 1.2 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                  className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#691E2A]/10 mb-5 group-hover:bg-[#691E2A]/20 transition-colors"
+                >
                   <step.icon className="w-7 h-7 text-[#691E2A]" />
-                </div>
+                </motion.div>
                 <div className="text-xs font-bold text-[#B28452] uppercase tracking-widest mb-2">
                   Step {step.step}
                 </div>
@@ -850,7 +858,7 @@ function ProcessSection() {
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {step.description}
                 </p>
-              </div>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>
@@ -860,7 +868,7 @@ function ProcessSection() {
 }
 
 function TestimonialsSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", dragFree: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const onSelect = useCallback(() => {
@@ -915,14 +923,14 @@ function TestimonialsSection() {
 
 
         {/* Swipeable carousel */}
-        <div ref={emblaRef} className="overflow-hidden">
+        <div ref={emblaRef} className="overflow-hidden cursor-grab active:cursor-grabbing">
           <div className="flex gap-5">
             {testimonials.map((t) => (
               <div
                 key={t.name}
                 className="flex-none w-[85vw] sm:w-[420px] lg:w-[380px]"
               >
-                <div className="h-full bg-card rounded-2xl border border-border/60 p-6 sm:p-7 hover:shadow-lg transition-shadow">
+                <div className="h-full bg-card rounded-2xl border border-border/60 p-6 sm:p-7 hover:shadow-xl hover:shadow-[#691E2A]/10 hover:border-[#691E2A]/20 transition-all duration-300">
                   <div className="flex items-center gap-1 mb-2">
                     <Quote className="w-5 h-5 text-[#B28452]/40" />
                   </div>
