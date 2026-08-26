@@ -1462,16 +1462,13 @@ function WhoWeAreSection() {
               </motion.div>
               {/* Center badge */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                  className="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-2 border-[#B28452]/40 flex items-center justify-center bg-anvaya-dark/80 backdrop-blur-sm"
+                <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full border-2 border-[#B28452]/40 flex items-center justify-center bg-anvaya-dark/80 backdrop-blur-sm"
                 >
                   <div className="text-center">
                     <div className="text-4xl sm:text-5xl font-extrabold text-gradient-gold">GA</div>
                     <div className="text-[10px] sm:text-xs font-semibold text-[#D9B280] tracking-widest mt-1">GROW WITH ANVAYA</div>
                   </div>
-                </motion.div>
+                </div>
               </div>
               {/* Orange star accent */}
               <motion.div
@@ -1557,10 +1554,10 @@ export default function Landing() {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
-      <WhoWeAreSection />
-      <MarqueeBanner />
       <ServicesSection />
       <ClientLogosBar />
+      <WhoWeAreSection />
+      <MarqueeBanner />
       <WorkShowcaseSection />
       <ProcessSection />
       <TestimonialsSection />
