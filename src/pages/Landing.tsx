@@ -434,10 +434,6 @@ function HeroSection() {
               <span className="block text-gradient-gold">Grow Digitally.</span>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="mt-4 text-sm sm:text-base font-semibold uppercase tracking-[0.25em] text-[#B28452]">
-              We Help Brands Grow Digitally
-            </motion.p>
-
             <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl">
               It is a digital marketing and technology agency helping businesses build stronger brands, reach the right audience, and turn digital presence into real growth.
             </motion.p>
@@ -447,8 +443,8 @@ function HeroSection() {
                 to="/book"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#691E2A] text-white font-semibold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5 animate-pulse-slow"
               >
-                <Calendar className="w-4 h-4" />
                 Start a Project
+                <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="#services"
