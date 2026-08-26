@@ -1627,7 +1627,7 @@ function WeServeSection() {
                 className="group relative flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D9B280]/40 hover:bg-white/10 hover:shadow-lg hover:shadow-[#D9B280]/10 transition-all duration-300 cursor-default"
               >
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#D9B280]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <span className="relative text-3xl sm:text-4xl drop-shadow-lg">{c.flag}</span>
+                <span className="relative text-5xl sm:text-6xl leading-none drop-shadow-lg" role="img" aria-label={c.name}>{c.flag}</span>
                 <span className="relative text-sm sm:text-base font-bold text-white group-hover:text-[#D9B280] transition-colors">{c.name}</span>
                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-0.5 bg-gradient-to-r from-transparent via-[#D9B280] to-transparent transition-all duration-300" />
               </motion.div>
