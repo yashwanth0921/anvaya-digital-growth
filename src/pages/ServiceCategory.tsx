@@ -171,7 +171,7 @@ const categories: Record<
         slug: "reels-content",
         title: "Reels & Short-Form",
         brief: "Scroll-stopping Reels and short-form videos for Instagram, TikTok, and YouTube Shorts. Trending formats that engage.",
-        image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=800&h=500&fit=crop",
+        image: "https://images.unsplash.com/photo-1611162616223-69dd0d5655a5?w=800&h=500&fit=crop",
         features: ["Instagram Reels", "TikTok Content", "YouTube Shorts", "Trending Edits"],
       },
     ],
