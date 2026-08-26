@@ -7,6 +7,8 @@ import {
   Palette,
   TrendingUp,
   Mail,
+  Sparkles,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 
@@ -391,6 +393,86 @@ export const services: ServiceData[] = [
       "Monthly performance reports",
     ],
 
+  },
+  {
+    slug: "web-applications",
+    title: "Web Applications",
+    tagline: "Custom web apps built for scale.",
+    description:
+      "Custom web apps built with modern frameworks. From dashboards to SaaS platforms — scalable, secure, and lightning fast.",
+    longDescription:
+      "We build custom web applications using modern frameworks like React, Next.js, and Node.js. Whether you need a customer dashboard, an internal tool, or a full SaaS platform, we deliver scalable, secure solutions that grow with your business. Our apps are designed for performance, with cloud hosting, API integrations, and real-time capabilities.",
+    icon: Globe,
+    color: "from-blue-500/20 to-indigo-500/20",
+    iconColor: "text-blue-500",
+    heroImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=600&fit=crop",
+    features: ["React/Next.js", "Node.js Backend", "Cloud Hosting", "API Integration"],
+    benefits: [
+      { title: "Scalable Architecture", description: "Built to handle growth — from 100 to 100,000 users without performance issues." },
+      { title: "Modern Tech Stack", description: "Latest frameworks and tools for fast development and future-proof solutions." },
+      { title: "Secure by Design", description: "Enterprise-grade security with authentication, encryption, and data protection." },
+    ],
+    deliverables: ["Custom web application", "Admin dashboard", "API development", "Cloud deployment", "Performance optimization", "Maintenance support"],
+  },
+  {
+    slug: "ai-solutions",
+    title: "AI Solutions",
+    tagline: "Intelligence that works for you.",
+    description:
+      "Integrate artificial intelligence into your business. From chatbots to predictive analytics — automation that works.",
+    longDescription:
+      "We help businesses leverage artificial intelligence to automate processes, gain insights, and deliver personalized experiences. From AI-powered chatbots that handle customer support to predictive analytics that forecast trends, we build solutions that save time and drive growth.",
+    icon: Sparkles,
+    color: "from-violet-500/20 to-purple-500/20",
+    iconColor: "text-violet-500",
+    heroImage: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
+    features: ["AI Chatbots", "Predictive Analytics", "Process Automation", "Custom AI Models"],
+    benefits: [
+      { title: "24/7 Automation", description: "AI works around the clock — handling customer queries, processing data, and making decisions." },
+      { title: "Data-Driven Insights", description: "Extract valuable patterns from your data to make smarter business decisions." },
+      { title: "Cost Efficiency", description: "Reduce manual work and operational costs while improving accuracy and speed." },
+    ],
+    deliverables: ["AI strategy consultation", "Chatbot development", "Analytics dashboard", "Automation workflows", "Training & documentation", "Ongoing support"],
+  },
+  {
+    slug: "automation",
+    title: "Automation",
+    tagline: "Work smarter, not harder.",
+    description:
+      "Automate repetitive tasks and workflows. Save time, reduce errors, and let your team focus on what matters.",
+    longDescription:
+      "We design and implement automation solutions that eliminate repetitive tasks, streamline workflows, and connect your tools. From email sequences and CRM integrations to data syncing and process automation, we help your business run more efficiently.",
+    icon: Zap,
+    color: "from-amber-500/20 to-yellow-500/20",
+    iconColor: "text-amber-500",
+    heroImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&h=600&fit=crop",
+    features: ["Workflow Automation", "CRM Integration", "Email Sequences", "Data Sync"],
+    benefits: [
+      { title: "Time Savings", description: "Automate hours of manual work every week — freeing your team for strategic tasks." },
+      { title: "Error Reduction", description: "Eliminate human errors in repetitive processes with consistent automated workflows." },
+      { title: "Connected Tools", description: "Sync data across your apps seamlessly — no more copy-pasting between platforms." },
+    ],
+    deliverables: ["Automation audit", "Workflow design", "Tool integration", "Testing & optimization", "Training documentation", "Ongoing monitoring"],
+  },
+  {
+    slug: "graphic-design",
+    title: "Graphic Design",
+    tagline: "Visuals that speak volumes.",
+    description:
+      "Eye-catching visuals for social media, ads, presentations, and print. We design graphics that communicate and convert.",
+    longDescription:
+      "Great design is more than aesthetics — it's communication. We create stunning visual content for every channel: social media posts, ad creatives, presentation decks, brochures, and print materials. Every design is crafted to capture attention, convey your message, and drive action.",
+    icon: Palette,
+    color: "from-pink-500/20 to-rose-500/20",
+    iconColor: "text-pink-500",
+    heroImage: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=600&fit=crop",
+    features: ["Social Media Graphics", "Ad Creatives", "Presentations", "Print Design"],
+    benefits: [
+      { title: "Visual Impact", description: "Eye-catching designs that stop the scroll and grab attention in crowded feeds." },
+      { title: "Brand Consistency", description: "Every design aligns with your brand guidelines for a cohesive visual identity." },
+      { title: "Multi-Format Delivery", description: "Designs optimized for every platform — social, web, print, and beyond." },
+    ],
+    deliverables: ["Social media templates", "Ad creative design", "Presentation decks", "Print materials", "Brand collateral", "Design system"],
   },
 
 ];

@@ -153,27 +153,6 @@ const categories: Record<
         image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=500&fit=crop",
         features: ["Social Media Graphics", "Ad Creatives", "Presentations", "Print Design"],
       },
-      {
-        slug: "video-production",
-        title: "Video Production",
-        brief: "Professional video content that tells your brand story. From product videos to brand films — we make it move.",
-        image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=500&fit=crop",
-        features: ["Brand Videos", "Product Demos", "Explainer Videos", "Motion Graphics"],
-      },
-      {
-        slug: "reels-content",
-        title: "Reels & Short-Form",
-        brief: "Scroll-stopping Reels and short-form content for Instagram, TikTok, and YouTube Shorts. Trending formats that engage.",
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=500&fit=crop",
-        features: ["Instagram Reels", "TikTok Content", "YouTube Shorts", "Trending Edits"],
-      },
-      {
-        slug: "creative-campaigns",
-        title: "Creative Campaigns",
-        brief: "End-to-end creative campaigns that capture attention and drive action. We ideate, design, and execute memorable campaigns.",
-        image: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?w=800&h=500&fit=crop",
-        features: ["Campaign Strategy", "Creative Direction", "Multi-Channel Launch", "Performance Tracking"],
-      },
     ],
   },
 };
