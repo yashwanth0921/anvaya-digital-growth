@@ -530,35 +530,51 @@ function ServicesSection() {
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
           variants={stagger}
-          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
+          className="grid sm:grid-cols-2 gap-5 max-w-4xl mx-auto"
         >
-          {services.map((service) => {
+          {services.map((service, idx) => {
             const Icon = serviceIcons[service.slug] ?? Globe;
             return (
-              <motion.div key={service.slug} variants={fadeUp}>
+              <motion.div
+                key={service.slug}
+                variants={fadeUp}
+                whileHover={{ y: -8, scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
                 <Link
                   to={`/services/${service.slug}`}
-                  className="group block relative bg-card rounded-2xl border border-border/60 p-6 hover:shadow-xl hover:border-[#691E2A]/30 transition-all duration-300"
+                  className="group block relative bg-card rounded-2xl border border-border/60 p-7 hover:shadow-2xl hover:shadow-[#691E2A]/10 hover:border-[#691E2A]/40 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={`inline-flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br ${service.color}`}>
-                      <Icon className={`w-5 h-5 ${service.iconColor}`} />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#691E2A] to-[#B28452] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#691E2A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative">
+                    <div className="flex items-start justify-between mb-5">
+                      <motion.div
+                        whileHover={{ rotate: 10, scale: 1.1 }}
+                        className={`inline-flex items-center justify-center w-13 h-13 rounded-2xl bg-gradient-to-br ${service.color} shadow-sm group-hover:shadow-md transition-shadow`
+                      }>
+                        <Icon className={`w-6 h-6 ${service.iconColor}`} />
+                      </motion.div>
+                      <motion.div
+                        className="w-8 h-8 rounded-full bg-muted/50 flex items-center justify-center group-hover:bg-[#691E2A]/10 transition-colors"
+                      >
+                        <ArrowRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-[#691E2A] group-hover:translate-x-0.5 transition-all" />
+                      </motion.div>
                     </div>
-                    <ArrowRight className="w-4 h-4 text-muted-foreground/40 group-hover:text-[#691E2A] transition-colors" />
-                  </div>
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-[#691E2A] transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
-                    {service.description}
-                  </p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {service.features.slice(0, 3).map((feat) => (
-                      <span key={feat} className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-muted text-[11px] font-medium text-muted-foreground">
-                        <CheckCircle2 className="w-2.5 h-2.5 text-[#691E2A]" />
-                        {feat}
-                      </span>
-                    ))}
+                    <h3 className="text-xl font-bold mb-2 group-hover:text-[#691E2A] transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-5 line-clamp-2">
+                      {service.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {service.features.slice(0, 3).map((feat) => (
+                        <span key={feat} className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-muted/80 text-[11px] font-medium text-muted-foreground group-hover:bg-[#691E2A]/10 group-hover:text-[#691E2A] transition-colors">
+                          <CheckCircle2 className="w-2.5 h-2.5 text-[#691E2A]" />
+                          {feat}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </Link>
               </motion.div>
