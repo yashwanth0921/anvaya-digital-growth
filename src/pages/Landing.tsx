@@ -1548,7 +1548,7 @@ function MarqueeBanner() {
           className="flex shrink-0"
         >
           {Array.from({ length: 8 }).map((_, i) => (
-            <span key={i} className="text-6xl sm:text-8xl md:text-[10rem] font-extrabold text-white/[0.03] tracking-tighter select-none mx-4">
+            <span key={i} className="text-6xl sm:text-8xl md:text-[10rem] font-extrabold text-white/[0.15] tracking-tighter select-none mx-4">
               GROW WITH ANVAYA
             </span>
           ))}
@@ -1559,7 +1559,7 @@ function MarqueeBanner() {
           className="flex shrink-0"
         >
           {Array.from({ length: 8 }).map((_, i) => (
-            <span key={`b-${i}`} className="text-6xl sm:text-8xl md:text-[10rem] font-extrabold text-white/[0.03] tracking-tighter select-none mx-4">
+            <span key={`b-${i}`} className="text-6xl sm:text-8xl md:text-[10rem] font-extrabold text-white/[0.15] tracking-tighter select-none mx-4">
               GROW WITH ANVAYA
             </span>
           ))}
