@@ -484,7 +484,7 @@ function HeroSection() {
             <motion.div
               key={i}
               initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 0.15, scale: 1 }}
+              animate={{ opacity: 0.5, scale: 1 }}
               transition={{ delay: 1 + el.delay, duration: 0.8, type: "spring" }}
               className="absolute flex flex-col items-center gap-1"
               style={{ left: el.x, top: el.y }}
@@ -492,7 +492,7 @@ function HeroSection() {
               <motion.span
                 animate={{ y: [-4, 4, -4] }}
                 transition={{ duration: 3 + i * 0.5, repeat: Infinity, ease: "easeInOut", delay: el.delay }}
-                className="text-xl sm:text-2xl"
+                className="text-2xl sm:text-3xl md:text-4xl"
               >
                 {el.icon}
               </motion.span>
