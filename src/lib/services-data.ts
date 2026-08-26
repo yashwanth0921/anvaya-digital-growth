@@ -75,11 +75,11 @@ export const services: ServiceData[] = [
   {
     slug: "meta-google-ads",
     title: "Meta & Google Ads",
-    tagline: "Turn ad spend into measurable growth.",
+    tagline: "Turn every click into a measurable result.",
     description:
       "Maximize your ROI with precision-targeted ad campaigns. We handle everything from creative to bidding strategy to bring qualified leads straight to your business.",
     longDescription:
-      "Advertising done right isn't about spending more — it's about spending smarter. We design and manage high-performing campaigns across Meta (Facebook & Instagram) and Google, targeting your ideal customers with precision. From audience research and creative development to A/B testing and budget optimization, we manage every detail so you see a clear return on every rupee spent. Our approach is built on continuous testing, transparent reporting, and relentless optimization.",
+      "Advertising done right is about working smarter, not harder. We design and manage high-performing campaigns across Meta (Facebook & Instagram) and Google, targeting your ideal customers with precision. From audience research and creative development to A/B testing and performance optimization, we manage every detail so you see measurable growth. Our approach is built on continuous testing, transparent reporting, and relentless optimization.",
     icon: Megaphone,
     color: "from-blue-500/20 to-cyan-500/20",
     iconColor: "text-blue-500",
@@ -95,7 +95,7 @@ export const services: ServiceData[] = [
       {
         title: "Maximized ROI",
         description:
-          "We continuously optimize bids, audiences, and creatives to ensure every rupee of your ad budget works harder.",
+          "We continuously optimize bids, audiences, and creatives to ensure every part of your campaign works harder.",
       },
       {
         title: "Precision Targeting",
@@ -105,7 +105,7 @@ export const services: ServiceData[] = [
       {
         title: "Transparent Reporting",
         description:
-          "Clear, jargon-free reports showing exactly what's working, what we're testing, and where your budget is going.",
+          "Clear, jargon-free reports showing exactly what's working, what we're testing, and where to focus next.",
       },
     ],
     deliverables: [
@@ -305,11 +305,11 @@ export const services: ServiceData[] = [
   {
     slug: "performance-marketing",
     title: "Performance Marketing",
-    tagline: "Every rupee spent, every result measured.",
+    tagline: "Every click measured, every result tracked.",
     description:
       "Data-driven performance campaigns across Google, Meta, LinkedIn & more. We optimize for ROAS, CPA, and real business outcomes — not vanity metrics.",
     longDescription:
-      "Performance marketing is about accountability — every ad dollar must deliver measurable results. We design and manage end-to-end performance campaigns across multiple channels: Google Ads, Meta Ads, LinkedIn Ads, programmatic display, and affiliate networks. Our team continuously monitors campaign metrics, adjusts targeting, tests creatives, and reallocates budget to the highest-performing channels. From funnel design and conversion tracking to attribution modeling and ROAS optimization, we ensure your marketing spend generates predictable, scalable growth.",
+      "Performance marketing is about accountability — every ad dollar must deliver measurable results. We design and manage end-to-end performance campaigns across multiple channels: Google Ads, Meta Ads, LinkedIn Ads, programmatic display, and affiliate networks. Our team continuously monitors campaign metrics, adjusts targeting, tests creatives, and focuses efforts on the highest-performing channels. From funnel design and conversion tracking to attribution modeling and ROAS optimization, we ensure your campaigns generate predictable, scalable growth.",
     icon: TrendingUp,
     color: "from-orange-500/20 to-red-500/20",
     iconColor: "text-orange-500",
@@ -324,7 +324,7 @@ export const services: ServiceData[] = [
       {
         title: "Measurable ROI",
         description:
-          "Every campaign is tied to a business outcome — leads, sales, sign-ups — so you know exactly what your marketing budget is producing.",
+          "Every campaign is tied to a business outcome — leads, sales, sign-ups — so you know exactly what your campaigns are producing.",
       },
       {
         title: "Rapid Scaling",
@@ -334,7 +334,7 @@ export const services: ServiceData[] = [
       {
         title: "Full Transparency",
         description:
-          "Real-time dashboards and weekly reports give you complete visibility into spend, performance, and optimization actions.",
+          "Real-time dashboards and weekly reports give you complete visibility into performance, results, and optimization actions.",
       },
     ],
     deliverables: [
@@ -369,7 +369,7 @@ export const services: ServiceData[] = [
       {
         title: "Highest ROI Channel",
         description:
-          "Email marketing delivers an average of ₹36 for every ₹1 spent — making it the most cost-effective channel in your marketing mix.",
+          "Email marketing consistently outperforms other channels in driving engagement and conversions — making it one of the most powerful tools in your marketing mix.",
       },
       {
         title: "Automated Revenue",
