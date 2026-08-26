@@ -42,7 +42,7 @@ const serviceIcons: Record<string, typeof Globe> = {
   "seo-analytics": Search,
   "app-development": Smartphone,
   "brand-identity": Palette,
-  "performance-marketing": TrendingUp,
+
 };
 
 const fadeUp = {
@@ -154,7 +154,6 @@ const serviceOptions = [
   "SEO & Analytics",
   "App Development",
   "Brand Identity & Design",
-  "Performance Marketing",
   "Full Digital Package",
 ];
 
@@ -962,7 +961,6 @@ const dropdownServiceIcons: Record<string, typeof Globe> = {
   "SEO & Analytics": Search,
   "App Development": Smartphone,
   "Brand Identity & Design": Palette,
-  "Performance Marketing": TrendingUp,
   "Full Digital Package": Sparkles,
 };
 
@@ -1430,6 +1428,69 @@ function Footer() {
 }
 
 
+function CTABanner() {
+  return (
+    <section className="py-16 bg-anvaya-dark text-white relative overflow-hidden">
+      <div className="absolute inset-0 bg-mesh-hero opacity-30" />
+      <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-[#691E2A]/10 blur-3xl" />
+      <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-[#B28452]/10 blur-3xl" />
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={stagger}
+        >
+          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+            Ready to <span className="text-gradient-gold">grow your brand?</span>
+          </motion.h2>
+          <motion.p variants={fadeUp} className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+            Join 50+ brands that chose Grow with Anvaya to transform their digital presence. Let's talk about your growth.
+          </motion.p>
+          <motion.div variants={fadeUp} className="flex flex-wrap items-center justify-center gap-6 mb-8">
+            <div className="flex items-center gap-2">
+              <div className="flex -space-x-2">
+                {[1,2,3,4].map((i) => (
+                  <div key={i} className="w-8 h-8 rounded-full border-2 border-[#430D12] bg-gradient-to-br from-[#691E2A] to-[#B28452] flex items-center justify-center">
+                    <span className="text-[10px] font-bold text-white">{["P","R","A","V"][i-1]}</span>
+                  </div>
+                ))}
+              </div>
+              <span className="text-sm text-gray-400">50+ happy clients</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              {[1,2,3,4,5].map((i) => (
+                <span key={i} className="text-[#D9B280]">★</span>
+              ))}
+              <span className="text-sm text-gray-400 ml-1">4.9/5 rating</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4 text-[#D9B280]" />
+              <span className="text-sm text-gray-400">24-hour response</span>
+            </div>
+          </motion.div>
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a
+              href="mailto:growwithanvaya@gmail.com"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#691E2A] text-white font-bold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30 hover:-translate-y-0.5 animate-pulse-slow"
+            >
+              <Send className="w-5 h-5" />
+              Send Us a Message
+            </a>
+            <Link
+              to="/book"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-bold text-base hover:bg-white/10 transition-all"
+            >
+              <Calendar className="w-5 h-5" />
+              Book a Free Call
+            </Link>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 export default function Landing() {
   return (
     <div className="min-h-screen">
@@ -1440,6 +1501,7 @@ export default function Landing() {
       <WorkShowcaseSection />
       <ProcessSection />
       <TestimonialsSection />
+      <CTABanner />
       <LeadFormSection />
       <Footer />
     </div>

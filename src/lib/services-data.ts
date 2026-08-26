@@ -5,7 +5,6 @@ import {
   Search,
   Smartphone,
   Palette,
-  TrendingUp,
   type LucideIcon,
 } from "lucide-react";
 
@@ -285,50 +284,6 @@ export const services: ServiceData[] = [
       "Business card and stationery design",
       "Social media brand kit",
       "Brand voice guidelines",
-    ],
-
-  },
-  {
-    slug: "performance-marketing",
-    title: "Performance Marketing",
-    tagline: "Every rupee spent, every result measured.",
-    description:
-      "Data-driven performance campaigns across Google, Meta, LinkedIn & more. We optimize for ROAS, CPA, and real business outcomes — not vanity metrics.",
-    longDescription:
-      "Performance marketing is about accountability — every ad dollar must deliver measurable results. We design and manage end-to-end performance campaigns across multiple channels: Google Ads, Meta Ads, LinkedIn Ads, programmatic display, and affiliate networks. Our team continuously monitors campaign metrics, adjusts targeting, tests creatives, and reallocates budget to the highest-performing channels. From funnel design and conversion tracking to attribution modeling and ROAS optimization, we ensure your marketing spend generates predictable, scalable growth.",
-    icon: TrendingUp,
-    color: "from-orange-500/20 to-red-500/20",
-    iconColor: "text-orange-500",
-    features: [
-      "Multi-Channel Campaigns",
-      "Conversion Tracking",
-      "A/B & Split Testing",
-      "ROAS Optimization",
-    ],
-    benefits: [
-      {
-        title: "Measurable ROI",
-        description:
-          "Every campaign is tied to a business outcome — leads, sales, sign-ups — so you know exactly what your marketing budget is producing.",
-      },
-      {
-        title: "Rapid Scaling",
-        description:
-          "Once we find what works, we pour fuel on the fire — scaling winning campaigns across channels to maximize growth.",
-      },
-      {
-        title: "Full Transparency",
-        description:
-          "Real-time dashboards and weekly reports give you complete visibility into spend, performance, and optimization actions.",
-      },
-    ],
-    deliverables: [
-      "Performance audit & strategy",
-      "Campaign setup across channels",
-      "Creative testing & optimization",
-      "Landing page recommendations",
-      "Weekly performance reports",
-      "Monthly strategy review",
     ],
 
   },
