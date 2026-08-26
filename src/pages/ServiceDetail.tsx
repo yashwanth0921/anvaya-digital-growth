@@ -71,7 +71,7 @@ function Navbar() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/25"
             >
               <Calendar className="w-4 h-4" />
-              Book a Call
+              Book a Strategy Call
             </Link>
           </div>
           <button
@@ -104,7 +104,7 @@ function Navbar() {
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-semibold mt-1"
             >
               <Calendar className="w-4 h-4" />
-              Book a Call
+              Book a Strategy Call
             </Link>
           </div>
         </motion.div>
@@ -445,11 +445,11 @@ export default function ServiceDetail() {
                   <motion.div
                     key={feat}
                     variants={i % 2 === 0 ? fadeLeft : fadeRight}
-                    whileHover={{ scale: 1.02, x: 4 }}
-                    className="flex items-center gap-3 p-5 rounded-xl bg-gradient-to-r from-muted/50 to-muted/20 border border-border/40 hover:border-[#691E2A]/30 hover:shadow-md transition-all cursor-default"
+                    whileHover={{ scale: 1.03, x: 6, boxShadow: "0 8px 30px rgba(105,30,42,0.12)" }}
+                    className="flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-r from-muted/60 to-muted/30 border border-border/50 hover:border-[#691E2A]/40 transition-all cursor-default"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-[#691E2A]/10 flex items-center justify-center shrink-0">
-                      <CheckCircle2 className="w-5 h-5 text-[#691E2A]" />
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#691E2A]/20 to-[#B28452]/20 flex items-center justify-center shrink-0 shadow-sm">
+                      <CheckCircle2 className="w-6 h-6 text-[#691E2A]" />
                     </div>
                     <span className="text-sm font-semibold">{feat}</span>
                   </motion.div>
@@ -469,8 +469,12 @@ export default function ServiceDetail() {
                     className="relative bg-white rounded-2xl border border-border/60 p-6 overflow-hidden group"
                   >
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#691E2A] to-[#B28452] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-                    <div className="text-3xl font-extrabold text-[#691E2A]/10 mb-2">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#691E2A]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="text-4xl font-extrabold text-[#691E2A]/15 mb-3">
                       {String(i + 1).padStart(2, "0")}
+                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#691E2A]/15 to-[#B28452]/15 flex items-center justify-center mb-3">
+                      {i === 0 ? <Target className="w-5 h-5 text-[#691E2A]" /> : i === 1 ? <TrendingUp className="w-5 h-5 text-[#B28452]" /> : <Sparkles className="w-5 h-5 text-[#691E2A]" />}
                     </div>
                     <h3 className="font-bold mb-2">{b.title}</h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
@@ -492,8 +496,8 @@ export default function ServiceDetail() {
                       variants={scaleIn}
                       className="flex items-center gap-3"
                     >
-                      <div className="w-6 h-6 rounded-full bg-[#B28452]/20 flex items-center justify-center shrink-0">
-                        <span className="text-xs font-bold text-[#B28452]">{i + 1}</span>
+                      <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-[#691E2A]/15 to-[#B28452]/15 flex items-center justify-center shrink-0">
+                        <CheckCircle2 className="w-4 h-4 text-[#B28452]" />
                       </div>
                       <span className="text-sm text-muted-foreground">{d}</span>
                     </motion.div>

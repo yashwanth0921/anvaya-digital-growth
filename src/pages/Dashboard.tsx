@@ -274,7 +274,7 @@ export default function Dashboard() {
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all w-full justify-center"
                 >
                   <Calendar className="w-4 h-4" />
-                  Book a Call
+                  Book a Strategy Call
                 </Link>
               </div>
             </div>

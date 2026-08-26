@@ -61,7 +61,7 @@ function Navbar() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/25"
             >
               <Calendar className="w-4 h-4" />
-              Book a Call
+              Book a Strategy Call
             </Link>
           </div>
           <button

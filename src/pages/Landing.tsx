@@ -189,7 +189,7 @@ function Navbar() {
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all hover:shadow-lg hover:shadow-[#691E2A]/25"
             >
               <Calendar className="w-4 h-4" />
-              Book a Call
+              Book a Strategy Call
             </Link>
           </div>
           <button
@@ -229,7 +229,7 @@ function Navbar() {
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-[#691E2A] text-white text-sm font-semibold mt-1"
             >
               <Calendar className="w-4 h-4" />
-              Book a Call
+              Book a Strategy Call
             </Link>
           </div>
         </motion.div>
@@ -1141,33 +1141,43 @@ function LeadFormSection() {
             </motion.p>
 
             <motion.div variants={fadeUp} className="space-y-5">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#691E2A]/15 flex items-center justify-center shrink-0">
-                  <Shield className="w-5 h-5 text-[#691E2A]" />
+              <motion.div variants={fadeUp} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#691E2A]/30 transition-all">
+                <div className="w-12 h-12 rounded-xl bg-[#691E2A]/20 flex items-center justify-center shrink-0">
+                  <Shield className="w-6 h-6 text-[#D9B280]" />
                 </div>
                 <div>
-                  <div className="font-semibold text-sm">No Commitment</div>
-                  <div className="text-gray-500 text-xs">A free strategy session with zero obligation</div>
+                  <div className="font-semibold text-sm text-white">No Commitment</div>
+                  <div className="text-gray-400 text-xs">A free strategy session with zero obligation</div>
                 </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#B28452]/15 flex items-center justify-center shrink-0">
-                  <Zap className="w-5 h-5 text-[#B28452]" />
-                </div>
-                <div>
-                  <div className="font-semibold text-sm">24-Hour Response</div>
-                  <div className="text-gray-500 text-xs">You'll hear from us within one business day</div>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#B28452]/15 flex items-center justify-center shrink-0">
-                  <Target className="w-5 h-5 text-[#B28452]" />
+              </motion.div>
+              <motion.div variants={fadeUp} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#B28452]/30 transition-all">
+                <div className="w-12 h-12 rounded-xl bg-[#B28452]/20 flex items-center justify-center shrink-0">
+                  <Zap className="w-6 h-6 text-[#D9B280]" />
                 </div>
                 <div>
-                  <div className="font-semibold text-sm">Custom Strategy</div>
-                  <div className="text-gray-500 text-xs">A plan built around your specific goals and market</div>
+                  <div className="font-semibold text-sm text-white">24-Hour Response</div>
+                  <div className="text-gray-400 text-xs">You'll hear from us within one business day</div>
                 </div>
-              </div>
+              </motion.div>
+              <motion.div variants={fadeUp} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#B28452]/30 transition-all">
+                <div className="w-12 h-12 rounded-xl bg-[#B28452]/20 flex items-center justify-center shrink-0">
+                  <Target className="w-6 h-6 text-[#D9B280]" />
+                </div>
+                <div>
+                  <div className="font-semibold text-sm text-white">Custom Strategy</div>
+                  <div className="text-gray-400 text-xs">A plan built around your specific goals and market</div>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            <motion.div variants={fadeUp} className="mt-8">
+              <Link
+                to="/book"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/10 transition-all"
+              >
+                <Calendar className="w-4 h-4" />
+                Book a Free Strategy Call
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -1409,7 +1419,7 @@ function Footer() {
             <h4 className="text-white font-semibold text-sm mb-4">Company</h4>
             <ul className="space-y-2.5">
               <li><a href="#contact" className="text-sm hover:text-white transition-colors">Contact Us</a></li>
-              <li><Link to="/book" className="text-sm hover:text-white transition-colors">Book a Call</Link></li>
+              <li><Link to="/book" className="text-sm hover:text-white transition-colors">Book a Strategy Call</Link></li>
             </ul>
           </div>
         </div>
