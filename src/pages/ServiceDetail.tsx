@@ -1,17 +1,13 @@
 import { useParams, useNavigate, Link } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
-import { useMutation, useQuery } from "convex/react";
-import { api } from "convex/_generated/api";
 import { useState, useEffect } from "react";
 import { getServiceBySlug, services } from "@/lib/services-data";
-import { useAuth } from "@/hooks/use-auth";
 import logo from "@/assets/logo.svg";
 import {
   ArrowLeft,
   ArrowRight,
   CheckCircle2,
   Calendar,
-  MessageSquare,
   Menu,
   X,
   Send,
@@ -113,115 +109,7 @@ function Navbar() {
   );
 }
 
-function CommentsSection({ serviceSlug }: { serviceSlug: string }) {
-  const { isAuthenticated } = useAuth();
-  const comments = useQuery(api.comments.listByService, { serviceSlug });
-  const addComment = useMutation(api.comments.add);
-  const [text, setText] = useState("");
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!text.trim()) return;
-    setIsSubmitting(true);
-    setError(null);
-    try {
-      await addComment({ serviceSlug, text: text.trim() });
-      setText("");
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Failed to post comment.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  return (
-    <section className="border-t border-border/60 pt-12">
-      <div className="flex items-center gap-3 mb-8">
-        <MessageSquare className="w-5 h-5 text-[#691E2A]" />
-        <h3 className="text-xl font-bold">Discussion</h3>
-        {comments && (
-          <span className="text-sm text-muted-foreground">({comments.length})</span>
-        )}
-      </div>
-
-      {isAuthenticated ? (
-        <form onSubmit={handleSubmit} className="mb-8">
-          <textarea
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            rows={3}
-            placeholder="Share your thoughts or ask a question about this service..."
-            className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all resize-none"
-          />
-          <div className="flex items-center justify-between mt-3">
-            {error && <p className="text-sm text-red-500">{error}</p>}
-            <button
-              type="submit"
-              disabled={isSubmitting || !text.trim()}
-              className="ml-auto inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? (
-                <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              ) : (
-                <Send className="w-4 h-4" />
-              )}
-              Post Comment
-            </button>
-          </div>
-        </form>
-      ) : (
-        <div className="mb-8 p-6 rounded-xl bg-muted/50 border border-border/60 text-center">
-          <p className="text-sm text-muted-foreground mb-3">
-            Sign in to join the conversation.
-          </p>
-          <Link
-            to="/auth?returnTo=/services"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#691E2A] text-white text-sm font-semibold hover:bg-[#531822] transition-all"
-          >
-            Sign In
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      )}
-
-      <div className="space-y-4">
-        {comments === undefined ? (
-          <p className="text-sm text-muted-foreground">Loading comments...</p>
-        ) : comments.length === 0 ? (
-          <p className="text-sm text-muted-foreground py-8 text-center">
-            No comments yet. Be the first to share your thoughts.
-          </p>
-        ) : (
-          comments.map((comment) => (
-            <motion.div
-              key={comment._id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="p-4 rounded-xl bg-muted/30 border border-border/40"
-            >
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-8 h-8 rounded-full bg-[#691E2A]/10 flex items-center justify-center">
-                  <span className="text-xs font-bold text-[#691E2A]">
-                    {comment.userName.split(" ").map((n: string) => n[0]).join("")}
-                  </span>
-                </div>
-                <span className="text-sm font-semibold">{comment.userName}</span>
-                <span className="text-xs text-muted-foreground">
-                  {new Date(comment.createdAt).toLocaleDateString()}
-                </span>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed pl-11">
-                {comment.text}
-              </p>
-            </motion.div>
-          ))
-        )}
-      </div>
-    </section>
-  );
-}
 
 function ServiceHeroImage({ src, alt }: { src: string; alt: string }) {
   return (
@@ -550,7 +438,6 @@ export default function ServiceDetail() {
             <RelatedServices currentSlug={service.slug} />
 
             {/* Comments */}
-            <CommentsSection serviceSlug={service.slug} />
           </motion.div>
         </div>
       </section>
