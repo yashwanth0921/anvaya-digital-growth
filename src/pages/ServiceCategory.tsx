@@ -86,7 +86,7 @@ const categories: Record<
       },
     ],
   },
-  technology: {
+  "technology": {
     title: "Technology",
     tagline: "Build. Automate. Scale.",
     description:
@@ -110,7 +110,7 @@ const categories: Record<
       },
     ],
   },
-  creative: {
+  "creative": {
     title: "Creative",
     tagline: "Design. Create. Inspire.",
     description:
