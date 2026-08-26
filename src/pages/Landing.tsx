@@ -1189,15 +1189,14 @@ function LeadFormSection() {
             variants={stagger}
           >
             <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#691E2A]/15 border border-[#691E2A]/30 text-[#D9B280] text-sm font-semibold mb-6">
-              <Send className="w-4 h-4" />
-              Let's Talk Growth
+              <Sparkles className="w-4 h-4" />
+              Let's Connect
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
-              Ready to{" "}
-              <span className="text-gradient-green">scale your brand?</span>
+              Ready to <span className="text-gradient-gold">Grow Your Brand?</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="text-gray-400 text-lg leading-relaxed mb-8">
-              Tell us about your business and where you want to take it. We'll get back within 24 hours with a tailored growth plan — completely free, no strings attached.
+              Tell us where you want to go. We'll help you build the strategy, technology and creative to get there.
             </motion.p>
 
             <motion.div variants={fadeUp} className="space-y-5">
@@ -1367,7 +1366,7 @@ function LeadFormSection() {
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      Let's Connect
+                      Start a Project
                     </>
                   )}
                 </button>
