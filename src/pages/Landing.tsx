@@ -5,7 +5,8 @@ import { useState } from "react";
 import { Link } from "react-router";
 import { toast } from "sonner";
 import { services } from "@/lib/services-data";
-import logo from "@/assets/logo.svg";import {
+import logo from "@/assets/logo.svg";
+import {
   ArrowRight,
   BarChart3,
   Rocket,
