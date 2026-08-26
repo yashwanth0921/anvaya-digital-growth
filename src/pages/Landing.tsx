@@ -1587,31 +1587,49 @@ function WeServeSection() {
   ];
 
   return (
-    <section className="py-10 bg-white border-y border-border/40">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 bg-gradient-to-r from-anvaya-dark via-[#4D1018] to-anvaya-dark border-y border-white/5">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10"
+          className="flex flex-col items-center gap-8"
         >
-          <span className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">
-            We Serve In
-          </span>
-          <div className="flex items-center gap-4 sm:gap-6">
+          <div className="text-center">
+            <motion.p
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-xs font-bold text-[#D9B280] uppercase tracking-[0.25em] mb-2"
+            >
+              Global Presence
+            </motion.p>
+            <motion.h3
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-2xl sm:text-3xl font-extrabold text-white"
+            >
+              We Serve In
+            </motion.h3>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5">
             {countries.map((c, i) => (
               <motion.div
                 key={c.code}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.4 }}
-                whileHover={{ y: -4, scale: 1.1 }}
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-muted/50 border border-border/40 hover:border-[#691E2A]/30 hover:shadow-md transition-all cursor-default"
+                transition={{ delay: 0.15 + i * 0.1, type: "spring", stiffness: 200, damping: 15 }}
+                whileHover={{ y: -6, scale: 1.08 }}
+                className="group relative flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-white/5 border border-white/10 hover:border-[#D9B280]/40 hover:bg-white/10 hover:shadow-lg hover:shadow-[#D9B280]/10 transition-all duration-300 cursor-default"
               >
-                <span className="text-2xl">{c.flag}</span>
-                <span className="text-sm font-bold text-foreground">{c.name}</span>
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#D9B280]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative text-3xl sm:text-4xl drop-shadow-lg">{c.flag}</span>
+                <span className="relative text-sm sm:text-base font-bold text-white group-hover:text-[#D9B280] transition-colors">{c.name}</span>
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-0 group-hover:w-3/4 h-0.5 bg-gradient-to-r from-transparent via-[#D9B280] to-transparent transition-all duration-300" />
               </motion.div>
             ))}
           </div>
