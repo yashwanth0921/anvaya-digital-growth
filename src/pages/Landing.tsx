@@ -169,7 +169,7 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 sm:h-18">
           <Link to="/" className="flex items-center gap-2 shrink-0">
-            <img src={logo} alt="Grow with Anvaya" className="h-9 sm:h-10" />
+            <img src={logo} alt="Grow with Anvaya" className="h-12 sm:h-14" />
           </Link>
           <div className="hidden md:flex items-center gap-8">
             <a href="#services" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
@@ -379,7 +379,7 @@ function GrowthWidget() {
               <CheckCircle2 className="w-5 h-5 text-white" />
             </div>
             <div>
-              <div className="text-[11px] font-bold text-gray-900">New Lead! 🎉</div>
+              <div className="text-[11px] font-bold text-gray-900">New Enquiry! ✓ 🎉</div>
               <div className="text-[9px] text-gray-500">Shiva</div>
               <div className="text-[8px] text-green-600 font-medium">Booked a call</div>
             </div>
@@ -395,7 +395,7 @@ function GrowthWidget() {
         >
           <div className="bg-white rounded-2xl px-4 py-3 shadow-2xl shadow-black/30 min-w-[180px]">
             <div className="flex items-center gap-1.5 mb-1">
-              <span className="text-[10px] font-bold text-green-600">#1 on Google</span>
+              <span className="text-[10px] font-bold text-green-600">Campaign Optimized ✓</span>
               <span className="text-[8px]">🏆</span>
             </div>
             <div className="text-[9px] text-gray-600">"best digital marketing agency near me"</div>
@@ -435,21 +435,21 @@ function HeroSection() {
               <span className="block text-gradient-gold mb-3">Anvaya</span>
             </motion.h1>
 
-            <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-gray-400 leading-relaxed max-w-xl">
+            <motion.p variants={fadeUp} className="mt-6 text-lg sm:text-xl text-[#E8D6C5] leading-relaxed max-w-xl">
               It is a digital marketing and technology agency helping businesses build stronger brands, reach the right audience, and turn digital presence into real growth.
             </motion.p>
 
             <motion.div variants={fadeUp} className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
                 to="/book"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#F9EEE4] text-[#691E2A] font-bold text-base hover:bg-white transition-all hover:shadow-lg hover:shadow-[#691E2A]/20"
               >
                 Start a Project
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="#services"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-white/20 text-white font-semibold text-base hover:bg-white/10 transition-all"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full border border-[#E8D6C5]/40 text-[#E8D6C5] font-bold text-base hover:bg-[#E8D6C5]/10 transition-all"
               >
                 Explore Services
                 <ArrowRight className="w-4 h-4" />
@@ -510,6 +510,8 @@ const serviceCategories = [
     icon: Megaphone,
     color: "from-[#691E2A] to-[#8B2E3D]",
     borderColor: "hover:border-[#691E2A]/40",
+    iconBg: "bg-[#691E2A]/10",
+    iconColor: "text-[#F9EEE4]",
     items: ["Performance Marketing", "Google Ads", "Meta Ads", "SEO", "Social Media Marketing", "Content Marketing"],
     link: "/services/digital-marketing",
     linkText: "View Services",
@@ -521,6 +523,8 @@ const serviceCategories = [
     icon: Globe,
     color: "from-[#B28452] to-[#D4A843]",
     borderColor: "hover:border-[#B28452]/40",
+    iconBg: "bg-[#D9B280]/15",
+    iconColor: "text-[#691E2A]",
     items: ["Website Development", "Web Applications", "AI Solutions", "Chatbots", "Automation", "Custom Solutions"],
     link: "/services/technology",
     linkText: "Explore Technology",
@@ -532,6 +536,8 @@ const serviceCategories = [
     icon: Palette,
     color: "from-[#8B2E3D] to-[#691E2A]",
     borderColor: "hover:border-[#8B2E3D]/40",
+    iconBg: "bg-[#691E2A]/10",
+    iconColor: "text-[#D9B280]",
     items: ["Branding", "Graphic Design", "Reels", "Short-Form Video"],
     link: "/services/creative",
     linkText: "See Creative Work",
