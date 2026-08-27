@@ -1194,10 +1194,10 @@ function LeadFormSection() {
               Let's Connect
             </motion.div>
             <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">
-              Ready to <span className="text-gradient-gold">Grow Your Brand?</span>
+              Let's Build <span className="text-gradient-gold">Something That Grows.</span>
             </motion.h2>
             <motion.p variants={fadeUp} className="text-gray-400 text-lg leading-relaxed mb-8">
-              Tell us where you want to go. We'll help you build the strategy, technology and creative to get there.
+              Have a project, idea or business challenge? Let's talk.
             </motion.p>
 
             <motion.div variants={fadeUp} className="space-y-5">
@@ -1313,14 +1313,14 @@ function LeadFormSection() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                      Business Name
+                      Company
                     </label>
                     <input
                       type="text"
                       name="businessName"
                       value={formState.businessName}
                       onChange={handleChange}
-                      placeholder="Your business name"
+                      placeholder="Your company name"
                       className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all"
                     />
                   </div>
@@ -1338,14 +1338,14 @@ function LeadFormSection() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-300 mb-1.5">
-                    Tell us about your goals
+                    How can we help you?
                   </label>
                   <textarea
                     name="message"
                     value={formState.message}
                     onChange={handleChange}
                     rows={3}
-                    placeholder="What are you looking to achieve? Any specific goals or challenges?"
+                    placeholder="Tell us about your project, goals, or challenges..."
                     className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/15 text-white placeholder:text-gray-400 text-sm focus:outline-none focus:border-[#691E2A]/50 focus:ring-1 focus:ring-[#691E2A]/30 transition-all resize-none"
                   />
                 </div>
@@ -1367,7 +1367,7 @@ function LeadFormSection() {
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      Start a Project
+                      Send Enquiry
                     </>
                   )}
                 </button>
@@ -1838,19 +1838,19 @@ function CTABanner() {
             Let's Connect
           </motion.div>
           <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-            Ready to <span className="text-gradient-gold">Grow Your Brand?</span>
+            Let's Build <span className="text-gradient-gold">Something That Grows.</span>
           </motion.h2>
           <motion.p variants={fadeUp} className="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">
-            Tell us where you want to go. We'll help you build the strategy, technology and creative to get there.
+            Have a project, idea or business challenge? Let's talk.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              to="/book"
+            <a
+              href="#contact"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-[#691E2A] text-white font-bold text-base hover:bg-[#531822] transition-all hover:shadow-xl hover:shadow-[#691E2A]/30"
             >
-              Start a Project
+              Send Enquiry
               <ArrowRight className="w-5 h-5" />
-            </Link>
+            </a>
             <a
               href="mailto:growwithanvaya@gmail.com"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-white/20 text-white font-bold text-base hover:bg-white/10 transition-all"
