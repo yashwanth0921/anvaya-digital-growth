@@ -525,7 +525,7 @@ export const services: ServiceData[] = [
     icon: Megaphone,
     color: "from-rose-500/20 to-pink-500/20",
     iconColor: "text-rose-500",
-    heroImage: "https://images.unsplash.com/photo-1596524430615-b46475ddff6e?w=1200&h=600&fit=crop",
+    heroImage: "https://images.unsplash.com/photo-1633356122102-3fe601e05bd2?w=1200&h=600&fit=crop",
     features: ["Instagram Reels", "TikTok Content", "Short-Form Video", "Content Strategy"],
     benefits: [
       { title: "Viral Potential", description: "Short-form content has the highest chance of reaching new audiences organically." },
