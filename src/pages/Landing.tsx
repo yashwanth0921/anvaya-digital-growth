@@ -72,37 +72,6 @@ const clientLogos = [
   { name: "PureFit Nutrition", initials: "PF", logo: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=120&h=60&fit=crop&q=80" },
 ];
 
-const processSteps = [
-  {
-    step: "01",
-    title: "Discovery",
-    description:
-      "We begin by understanding your business inside and out — your goals, your audience, and the competitive landscape you operate in.",
-    icon: Target,
-  },
-  {
-    step: "02",
-    title: "Strategy",
-    description:
-      "A clear, data-informed roadmap built around your specific milestones, designed to deliver measurable outcomes at every stage.",
-    icon: BarChart3,
-  },
-  {
-    step: "03",
-    title: "Execute",
-    description:
-      "Our creative and technical team brings the strategy to life — content, campaigns, and code, all working in concert.",
-    icon: Zap,
-  },
-  {
-    step: "04",
-    title: "Scale",
-    description:
-      "We measure everything, refine continuously, and double down on what moves the needle — turning good results into great ones.",
-    icon: TrendingUp,
-  },
-];
-
 const testimonials = [
   {
     name: "Priya Sharma",
@@ -842,71 +811,6 @@ function WorkShowcaseSection() {
 
 
 
-function ProcessSection() {
-  return (
-    <section id="process" className="py-20 sm:py-28 relative overflow-hidden">
-      <div className="absolute inset-0 bg-mesh-green opacity-40" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={stagger}
-          className="text-center max-w-2xl mx-auto mb-16"
-        >
-          <motion.div variants={fadeUp} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#B28452]/10 text-[#B28452] text-sm font-semibold mb-4">
-            <BarChart3 className="w-4 h-4" />
-            How We Work
-          </motion.div>
-          <motion.h2 variants={fadeUp} className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-            Why{" "}
-            <span className="text-gradient-gold">Grow With Anvaya</span>?
-          </motion.h2>
-          <motion.p variants={fadeUp} className="mt-4 text-muted-foreground text-lg">
-            Our process is transparent and structured, so you always know where your investment is going and what it's delivering.
-          </motion.p>
-        </motion.div>
-
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={stagger}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {processSteps.map((step, i) => (
-            <motion.div key={step.step} variants={fadeUp} className="relative h-full">
-              {i < processSteps.length - 1 && (
-                <div className="hidden lg:block absolute top-10 left-[calc(50%+40px)] w-[calc(100%-40px)] h-0.5 bg-gradient-to-r from-[#691E2A]/30 to-[#B28452]/30" />
-              )}
-              <motion.div
-                whileHover={{ y: -10, scale: 1.04 }}
-                transition={{ type: "spring", stiffness: 400, damping: 15 }}
-                className="relative bg-card rounded-2xl border border-border/60 p-7 text-center hover:shadow-2xl hover:shadow-[#691E2A]/15 hover:border-[#691E2A]/30 transition-all duration-300 flex flex-col items-center h-full cursor-default"
-              >
-                <motion.div
-                  whileHover={{ rotate: 15, scale: 1.2 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                  className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#691E2A]/10 mb-5 group-hover:bg-[#691E2A]/20 transition-colors"
-                >
-                  <step.icon className="w-7 h-7 text-[#691E2A]" />
-                </motion.div>
-                <div className="text-xs font-bold text-[#B28452] uppercase tracking-widest mb-2">
-                  Step {step.step}
-                </div>
-                <h3 className="text-lg font-bold mb-2">{step.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {step.description}
-                </p>
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
-  );
-}
-
 function TestimonialsSection() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", dragFree: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -1456,7 +1360,6 @@ function Footer() {
             <ul className="space-y-2.5">
               <li><a href="#work" className="text-sm hover:text-white transition-colors">Our Work</a></li>
               <li><a href="#services" className="text-sm hover:text-white transition-colors">All Services</a></li>
-              <li><a href="#process" className="text-sm hover:text-white transition-colors">How We Work</a></li>
               <li><a href="#results" className="text-sm hover:text-white transition-colors">Results</a></li>
             </ul>
           </div>
@@ -1878,7 +1781,6 @@ export default function Landing() {
       <WhoWeAreSection />
       <MarqueeBanner />
       <WorkShowcaseSection />
-      <ProcessSection />
       <TestimonialsSection />
       <CTABanner />
       <LeadFormSection />
