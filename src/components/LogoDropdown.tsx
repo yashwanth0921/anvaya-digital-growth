@@ -8,7 +8,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/logo.png";
 import { useAuth } from "@/hooks/use-auth";
 import { Home, LogOut } from "lucide-react";
 import { useNavigate } from "react-router";
@@ -33,13 +33,11 @@ export function LogoDropdown() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="h-10 w-10">
+        <Button variant="ghost" className="h-10 w-auto px-1">
           <img
             src={logo}
-            alt="Logo"
-            width={32}
-            height={32}
-            className="rounded-lg"
+            alt="Grow with Anvaya"
+            className="h-8 w-auto rounded-md"
           />
         </Button>
       </DropdownMenuTrigger>

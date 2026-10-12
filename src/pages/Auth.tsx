@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/input-otp";
 
 import { useAuth } from "@/hooks/use-auth";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/logo.png";
 import { ArrowRight, Loader2, Mail } from "lucide-react";
 import { Suspense, useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router";
@@ -108,10 +108,8 @@ function Auth({ redirectAfterAuth }: AuthProps = {}) {
               <div className="flex justify-center">
                     <img
                       src={logo}
-                      alt="Lock Icon"
-                      width={64}
-                      height={64}
-                      className="rounded-lg mb-4 mt-4 cursor-pointer"
+                      alt="Grow with Anvaya"
+                      className="h-16 w-auto rounded-lg mb-4 mt-4 cursor-pointer"
                       onClick={() => navigate("/")}
                     />
                   </div>

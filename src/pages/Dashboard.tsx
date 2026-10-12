@@ -3,7 +3,7 @@ import { api } from "convex/_generated/api";
 import { Link, useNavigate } from "react-router";
 import { useAuth } from "@/hooks/use-auth";
 import { services } from "@/lib/services-data";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/logo.png";
 import {
   Calendar,
   Clock,

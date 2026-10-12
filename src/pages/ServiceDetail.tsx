@@ -2,7 +2,7 @@ import { useParams, useNavigate, Link } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { getServiceBySlug, services } from "@/lib/services-data";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/logo.png";
 import {
   ArrowLeft,
   ArrowRight,

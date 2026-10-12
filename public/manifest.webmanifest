@@ -1,17 +1,17 @@
 {
-  "name": "freebuff.com application",
-  "short_name": "freebuff.com",
-  "description": "freebuff.com application",
+  "name": "Grow with Anvaya",
+  "short_name": "Anvaya",
+  "description": "Grow with Anvaya — Strategy. Growth. Impact.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#E7D7C0",
+  "theme_color": "#691E2A",
   "icons": [
     {
       "src": "/logo.png",
-      "sizes": "any",
+      "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
