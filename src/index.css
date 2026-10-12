@@ -135,6 +135,9 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+  .font-display {
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  }
   .text-gradient-gold {
     background: linear-gradient(135deg, #B28452 0%, #D9B280 50%, #E8CDA0 100%);
     -webkit-background-clip: text;
