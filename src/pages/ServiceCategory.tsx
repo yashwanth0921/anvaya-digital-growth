@@ -13,7 +13,7 @@ import {
   Globe,
   Palette,
 } from "lucide-react";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/anvaya-logo.svg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },

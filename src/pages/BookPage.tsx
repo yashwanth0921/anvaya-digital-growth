@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { toast } from "sonner";
 import { services } from "@/lib/services-data";
 import { useAuth } from "@/hooks/use-auth";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/anvaya-logo.svg";
 import {
   ArrowLeft,
   Calendar,
